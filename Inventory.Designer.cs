@@ -28,12 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            inventoryPanel = new Panel();
+            productsGridView = new DataGridView();
+            label1 = new Label();
+            inventoryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)productsGridView).BeginInit();
+            SuspendLayout();
+            // 
+            // inventoryPanel
+            // 
+            inventoryPanel.Controls.Add(label1);
+            inventoryPanel.Controls.Add(productsGridView);
+            inventoryPanel.Dock = DockStyle.Fill;
+            inventoryPanel.Location = new Point(0, 0);
+            inventoryPanel.Name = "inventoryPanel";
+            inventoryPanel.Size = new Size(800, 450);
+            inventoryPanel.TabIndex = 0;
+            inventoryPanel.Paint += inventoryPanel_Paint;
+            // 
+            // productsGridView
+            // 
+            productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            productsGridView.Location = new Point(114, 25);
+            productsGridView.Name = "productsGridView";
+            productsGridView.Size = new Size(558, 399);
+            productsGridView.TabIndex = 0;
+            productsGridView.VisibleChanged += showProductsTable;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(340, 7);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Inventory";
+            // 
+            // Inventory
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(inventoryPanel);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Inventory";
+            Text = "Form1";
+            inventoryPanel.ResumeLayout(false);
+            inventoryPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)productsGridView).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel inventoryPanel;
+        private DataGridView productsGridView;
+        private Label label1;
     }
 }

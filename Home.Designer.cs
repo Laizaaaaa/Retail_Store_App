@@ -53,6 +53,7 @@
             dailySalesButton = new Button();
             salesMenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
             sidebarContainer.SuspendLayout();
@@ -148,6 +149,7 @@
             dashboardButton.Text = "             Dashboard";
             dashboardButton.TextAlign = ContentAlignment.MiddleLeft;
             dashboardButton.UseVisualStyleBackColor = true;
+            dashboardButton.Click += dashboardButton_Click;
             // 
             // suppliersButtonPanel
             // 
@@ -173,7 +175,7 @@
             suppliersButton.Text = "             Suppliers";
             suppliersButton.TextAlign = ContentAlignment.MiddleLeft;
             suppliersButton.UseVisualStyleBackColor = true;
-            suppliersButton.Click += button1_Click;
+            suppliersButton.Click += suppliersButton_Click;
             // 
             // inventoryButtonPanel
             // 
@@ -199,6 +201,7 @@
             inventoryButton.Text = "             Inventory";
             inventoryButton.TextAlign = ContentAlignment.MiddleLeft;
             inventoryButton.UseVisualStyleBackColor = true;
+            inventoryButton.Click += inventoryButton_Click;
             // 
             // ordersButtonPanel
             // 
@@ -224,6 +227,7 @@
             ordersButton.Text = "             Orders";
             ordersButton.TextAlign = ContentAlignment.MiddleLeft;
             ordersButton.UseVisualStyleBackColor = true;
+            ordersButton.Click += ordersButton_Click;
             // 
             // salesMenuContainer
             // 
@@ -236,7 +240,6 @@
             salesMenuContainer.Name = "salesMenuContainer";
             salesMenuContainer.Size = new Size(183, 44);
             salesMenuContainer.TabIndex = 0;
-            salesMenuContainer.Paint += flowLayoutPanel2_Paint;
             // 
             // salesButtonPanel
             // 
@@ -291,6 +294,7 @@
             monthlySalesButton.Text = "             Monthly Sales";
             monthlySalesButton.TextAlign = ContentAlignment.MiddleLeft;
             monthlySalesButton.UseVisualStyleBackColor = true;
+            monthlySalesButton.Click += monthlySalesButton_Click;
             // 
             // weeklySalesButtonPanel
             // 
@@ -317,6 +321,7 @@
             weeklySalesButton.Text = "            Weekly Sales";
             weeklySalesButton.TextAlign = ContentAlignment.MiddleLeft;
             weeklySalesButton.UseVisualStyleBackColor = true;
+            weeklySalesButton.Click += weeklySalesButton_Click;
             // 
             // dailySalesButtonPanel
             // 
@@ -343,6 +348,7 @@
             dailySalesButton.Text = "             Daily Sales";
             dailySalesButton.TextAlign = ContentAlignment.MiddleLeft;
             dailySalesButton.UseVisualStyleBackColor = true;
+            dailySalesButton.Click += dailySalesButton_Click;
             // 
             // salesMenuTransition
             // 
@@ -354,19 +360,28 @@
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(595, 252);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 19);
+            label1.TabIndex = 3;
+            label1.Text = "Home";
+            // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(914, 570);
+            Controls.Add(label1);
             Controls.Add(sidebarContainer);
             Controls.Add(header);
             Font = new Font("Segoe UI", 10.2F);
             FormBorderStyle = FormBorderStyle.None;
+            IsMdiContainer = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Home";
             Text = "Home";
-            Load += Home_Load;
             header.ResumeLayout(false);
             header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();
@@ -381,6 +396,7 @@
             weeklySalesButtonPanel.ResumeLayout(false);
             dailySalesButtonPanel.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -409,5 +425,6 @@
         private Button dailySalesButton;
         private System.Windows.Forms.Timer salesMenuTransition;
         private System.Windows.Forms.Timer sidebarTransition;
+        private Label label1;
     }
 }
