@@ -18,7 +18,7 @@ namespace EDP
             this.Shown += LoginForm_Shown;
         }
 
-        private void LoginForm_Shown(object sender, EventArgs e)
+        private void LoginForm_Shown(object? sender, EventArgs e)
         {
             this.ActiveControl = null;
         }

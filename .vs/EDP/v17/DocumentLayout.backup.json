@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Laiza\\Desktop\\EDP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\dashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:dashboard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|c:\\users\\laiza\\desktop\\edp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83E0B3A7-A565-46B7-AB3B-3C959A1A0B78}|EDP.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,57 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Laiza\\Desktop\\EDP\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwA0AAAAtAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Laiza\\Desktop\\EDP\\Dashboard.cs",
+              "RelativeDocumentMoniker": "Dashboard.cs",
+              "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\Dashboard.cs [Design]",
+              "RelativeToolTip": "Dashboard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T03:58:44.328Z"
+              "WhenOpened": "2025-04-14T07:22:03.997Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LoginForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Laiza\\Desktop\\EDP\\LoginForm.Designer.cs",
-              "RelativeDocumentMoniker": "LoginForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\LoginForm.Designer.cs",
-              "RelativeToolTip": "LoginForm.Designer.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAqwLMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T03:56:57.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\Laiza\\Desktop\\EDP\\LoginForm.cs",
               "RelativeDocumentMoniker": "LoginForm.cs",
               "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\LoginForm.cs",
               "RelativeToolTip": "LoginForm.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAcwHYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-14T03:42:27.825Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Laiza\\Desktop\\EDP\\LoginForm.cs",
-              "RelativeDocumentMoniker": "LoginForm.cs",
-              "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\LoginForm.cs [Design]",
-              "RelativeToolTip": "LoginForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T03:38:07.055Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -94,22 +61,23 @@
               "RelativeDocumentMoniker": "Dashboard.Designer.cs",
               "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\Dashboard.Designer.cs",
               "RelativeToolTip": "Dashboard.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIIBAAAAAAAAAAAAAIQBAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-14T01:40:46.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Dashboard.cs",
               "DocumentMoniker": "C:\\Users\\Laiza\\Desktop\\EDP\\Dashboard.cs",
               "RelativeDocumentMoniker": "Dashboard.cs",
               "ToolTip": "C:\\Users\\Laiza\\Desktop\\EDP\\Dashboard.cs",
               "RelativeToolTip": "Dashboard.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAIwC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwDEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T01:25:42.979Z"
+              "WhenOpened": "2025-04-14T01:25:42.979Z",
+              "EditorCaption": ""
             }
           ]
         }

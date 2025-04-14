@@ -1,3 +1,6 @@
+using System.Data;
+using MySql.Data.MySqlClient;
+
 namespace EDP
 {
     public partial class Dashboard : Form
@@ -41,12 +44,20 @@ namespace EDP
 
         private void showInventoryPanel(object sender, EventArgs e)
         {
-
+            dashboardPanel.Visible = false;
+            inventoryPanel.Visible = true;
+            inventoryPanel.BringToFront();
+            productsGridView.BringToFront();
+            showProductsTable(null, null); // manually trigger it
         }
+
+
 
         private void showDashboardPanel(object sender, EventArgs e)
         {
-
+            inventoryPanel.Visible = false;
+            dashboardPanel.Visible = true;
+            dashboardPanel.BringToFront();
         }
 
         private void showOrdersPanel(object sender, EventArgs e)
@@ -57,6 +68,25 @@ namespace EDP
         private void storeName_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void inventoryPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void showProductsTable(object sender, EventArgs e)
+        {
+            string conString = "server=localhost; uid=root; pwd=laiza07; database=retail_store;";
+            MySqlConnection con = new MySqlConnection(conString);
+            con.Open();
+            string query = "Select * from products";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            productsGridView.DataSource = dt;
         }
     }
 }
