@@ -35,3 +35,5 @@ C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbc
 C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.csproj.AssemblyReference.cache
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.csproj.Up2Date
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Home.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Inventory.resources

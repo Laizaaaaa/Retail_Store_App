@@ -44,11 +44,11 @@ namespace EDP
             todaysGrossSalePanel = new Panel();
             label2 = new Label();
             label1 = new Label();
-            inventoryPanel = new Panel();
-            productsGridView = new DataGridView();
             salesButtonPanel = new Panel();
             orderButtonPanel = new Panel();
             ordersBtn = new Button();
+            inventoryPanel = new Panel();
+            productsGridView = new DataGridView();
             panel4 = new Panel();
             salesBtn = new Button();
             inventoryButtonPanel = new Panel();
@@ -62,9 +62,10 @@ namespace EDP
             prodouctsSoldTodayPanel.SuspendLayout();
             totalRevenuePanel.SuspendLayout();
             todaysGrossSalePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)productsGridView).BeginInit();
             salesButtonPanel.SuspendLayout();
             orderButtonPanel.SuspendLayout();
+            inventoryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)productsGridView).BeginInit();
             panel4.SuspendLayout();
             inventoryButtonPanel.SuspendLayout();
             dashboardButtonPanel.SuspendLayout();
@@ -226,24 +227,6 @@ namespace EDP
             label1.TabIndex = 0;
             label1.Text = "Today's Gross Sale";
             // 
-            // inventoryPanel
-            // 
-            inventoryPanel.Controls.Add(productsGridView);
-            inventoryPanel.Location = new Point(155, 0);
-            inventoryPanel.Name = "inventoryPanel";
-            inventoryPanel.Size = new Size(645, 450);
-            inventoryPanel.TabIndex = 5;
-            inventoryPanel.Paint += inventoryPanel_Paint;
-            // 
-            // productsGridView
-            // 
-            productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productsGridView.Location = new Point(17, 10);
-            productsGridView.Name = "productsGridView";
-            productsGridView.Size = new Size(615, 426);
-            productsGridView.TabIndex = 0;
-            productsGridView.VisibleChanged += showProductsTable;
-            // 
             // salesButtonPanel
             // 
             salesButtonPanel.BackColor = Color.Transparent;
@@ -279,6 +262,24 @@ namespace EDP
             ordersBtn.Text = "Orders";
             ordersBtn.UseVisualStyleBackColor = false;
             ordersBtn.Click += showOrdersPanel;
+            // 
+            // inventoryPanel
+            // 
+            inventoryPanel.Controls.Add(productsGridView);
+            inventoryPanel.Location = new Point(155, 0);
+            inventoryPanel.Name = "inventoryPanel";
+            inventoryPanel.Size = new Size(645, 450);
+            inventoryPanel.TabIndex = 5;
+            inventoryPanel.Paint += inventoryPanel_Paint;
+            // 
+            // productsGridView
+            // 
+            productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            productsGridView.Location = new Point(17, 10);
+            productsGridView.Name = "productsGridView";
+            productsGridView.Size = new Size(615, 426);
+            productsGridView.TabIndex = 0;
+            productsGridView.VisibleChanged += showProductsTable;
             // 
             // panel4
             // 
@@ -375,9 +376,10 @@ namespace EDP
             totalRevenuePanel.PerformLayout();
             todaysGrossSalePanel.ResumeLayout(false);
             todaysGrossSalePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)productsGridView).EndInit();
             salesButtonPanel.ResumeLayout(false);
             orderButtonPanel.ResumeLayout(false);
+            inventoryPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)productsGridView).EndInit();
             panel4.ResumeLayout(false);
             inventoryButtonPanel.ResumeLayout(false);
             dashboardButtonPanel.ResumeLayout(false);
@@ -412,5 +414,6 @@ namespace EDP
         private Label label8;
         private Panel inventoryPanel;
         private DataGridView productsGridView;
+        private PictureBox pictureBox1;
     }
 }

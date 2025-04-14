@@ -63,6 +63,16 @@ namespace EDP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dashboard_icon {
+            get {
+                object obj = ResourceManager.GetObject("dashboard_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dollar_bill_icon {
             get {
                 object obj = ResourceManager.GetObject("dollar_bill_icon", resourceCulture);
@@ -93,6 +103,16 @@ namespace EDP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inventory_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("inventory_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap log_icon {
             get {
                 object obj = ResourceManager.GetObject("log_icon", resourceCulture);
@@ -113,6 +133,16 @@ namespace EDP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_bar_icon {
+            get {
+                object obj = ResourceManager.GetObject("menu_bar_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap money_icon {
             get {
                 object obj = ResourceManager.GetObject("money_icon", resourceCulture);
@@ -126,6 +156,26 @@ namespace EDP.Properties {
         internal static System.Drawing.Bitmap order_icon {
             get {
                 object obj = ResourceManager.GetObject("order_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap order_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("order_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap supplier_icon {
+            get {
+                object obj = ResourceManager.GetObject("supplier_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
