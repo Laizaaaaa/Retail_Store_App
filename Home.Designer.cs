@@ -31,44 +31,47 @@
             components = new System.ComponentModel.Container();
             header = new Panel();
             store_name = new Label();
-            pictureBox1 = new PictureBox();
+            menuButton = new PictureBox();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            supplierButton = new Button();
-            supplierButtonPanel = new Panel();
-            panel2 = new Panel();
+            sidebarContainer = new FlowLayoutPanel();
+            dasboardButtonPanel = new Panel();
             dashboardButton = new Button();
-            panel3 = new Panel();
+            suppliersButtonPanel = new Panel();
+            suppliersButton = new Button();
+            inventoryButtonPanel = new Panel();
             inventoryButton = new Button();
-            panel4 = new Panel();
+            ordersButtonPanel = new Panel();
             ordersButton = new Button();
             salesMenuContainer = new FlowLayoutPanel();
+            salesButtonPanel = new Panel();
+            salesButton = new Button();
             monthlySalesButtonPanel = new Panel();
             monthlySalesButton = new Button();
             weeklySalesButtonPanel = new Panel();
             weeklySalesButton = new Button();
             dailySalesButtonPanel = new Panel();
             dailySalesButton = new Button();
-            salesButtonPanel = new Panel();
-            salesButton = new Button();
             salesMenuTransition = new System.Windows.Forms.Timer(components);
+            sidebarTransition = new System.Windows.Forms.Timer(components);
             header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            supplierButtonPanel.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
+            sidebarContainer.SuspendLayout();
+            dasboardButtonPanel.SuspendLayout();
+            suppliersButtonPanel.SuspendLayout();
+            inventoryButtonPanel.SuspendLayout();
+            ordersButtonPanel.SuspendLayout();
+            salesMenuContainer.SuspendLayout();
+            salesButtonPanel.SuspendLayout();
             monthlySalesButtonPanel.SuspendLayout();
             weeklySalesButtonPanel.SuspendLayout();
             dailySalesButtonPanel.SuspendLayout();
-            salesButtonPanel.SuspendLayout();
             SuspendLayout();
             // 
             // header
             // 
             header.BackColor = Color.White;
             header.Controls.Add(store_name);
-            header.Controls.Add(pictureBox1);
+            header.Controls.Add(menuButton);
             header.Dock = DockStyle.Top;
             header.Location = new Point(0, 0);
             header.Margin = new Padding(3, 4, 3, 4);
@@ -86,16 +89,17 @@
             store_name.TabIndex = 2;
             store_name.Text = "JFKL SARI-SARI STORE";
             // 
-            // pictureBox1
+            // menuButton
             // 
-            pictureBox1.Image = Properties.Resources.menu_bar_icon;
-            pictureBox1.Location = new Point(12, 13);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            menuButton.Image = Properties.Resources.menu_bar_icon;
+            menuButton.Location = new Point(12, 13);
+            menuButton.Margin = new Padding(3, 4, 3, 4);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(35, 39);
+            menuButton.SizeMode = PictureBoxSizeMode.CenterImage;
+            menuButton.TabIndex = 1;
+            menuButton.TabStop = false;
+            menuButton.Click += menuButton_Click;
             // 
             // mySqlCommand1
             // 
@@ -104,49 +108,30 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // flowLayoutPanel1
+            // sidebarContainer
             // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(23, 24, 29);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 61);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(188, 509);
-            flowLayoutPanel1.TabIndex = 1;
+            sidebarContainer.BackColor = Color.FromArgb(23, 24, 29);
+            sidebarContainer.Controls.Add(dasboardButtonPanel);
+            sidebarContainer.Controls.Add(suppliersButtonPanel);
+            sidebarContainer.Controls.Add(inventoryButtonPanel);
+            sidebarContainer.Controls.Add(ordersButtonPanel);
+            sidebarContainer.Controls.Add(salesMenuContainer);
+            sidebarContainer.Dock = DockStyle.Left;
+            sidebarContainer.FlowDirection = FlowDirection.TopDown;
+            sidebarContainer.Location = new Point(0, 61);
+            sidebarContainer.Name = "sidebarContainer";
+            sidebarContainer.Padding = new Padding(0, 50, 0, 0);
+            sidebarContainer.Size = new Size(188, 509);
+            sidebarContainer.TabIndex = 1;
             // 
-            // supplierButton
+            // dasboardButtonPanel
             // 
-            supplierButton.FlatStyle = FlatStyle.Flat;
-            supplierButton.Font = new Font("Segoe UI", 9F);
-            supplierButton.ForeColor = Color.White;
-            supplierButton.Image = Properties.Resources.supplier_icon;
-            supplierButton.ImageAlign = ContentAlignment.MiddleLeft;
-            supplierButton.Location = new Point(-9, -10);
-            supplierButton.Name = "supplierButton";
-            supplierButton.Padding = new Padding(25, 0, 0, 0);
-            supplierButton.Size = new Size(202, 68);
-            supplierButton.TabIndex = 2;
-            supplierButton.Text = "             Supplier";
-            supplierButton.TextAlign = ContentAlignment.MiddleLeft;
-            supplierButton.UseVisualStyleBackColor = true;
-            supplierButton.Click += button1_Click;
-            // 
-            // supplierButtonPanel
-            // 
-            supplierButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
-            supplierButtonPanel.Controls.Add(supplierButton);
-            supplierButtonPanel.Location = new Point(338, 339);
-            supplierButtonPanel.Name = "supplierButtonPanel";
-            supplierButtonPanel.Size = new Size(183, 44);
-            supplierButtonPanel.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(23, 24, 29);
-            panel2.Controls.Add(dashboardButton);
-            panel2.Location = new Point(338, 92);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(183, 44);
-            panel2.TabIndex = 4;
+            dasboardButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
+            dasboardButtonPanel.Controls.Add(dashboardButton);
+            dasboardButtonPanel.Location = new Point(3, 53);
+            dasboardButtonPanel.Name = "dasboardButtonPanel";
+            dasboardButtonPanel.Size = new Size(183, 44);
+            dasboardButtonPanel.TabIndex = 4;
             // 
             // dashboardButton
             // 
@@ -164,14 +149,40 @@
             dashboardButton.TextAlign = ContentAlignment.MiddleLeft;
             dashboardButton.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // suppliersButtonPanel
             // 
-            panel3.BackColor = Color.FromArgb(23, 24, 29);
-            panel3.Controls.Add(inventoryButton);
-            panel3.Location = new Point(338, 156);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(183, 44);
-            panel3.TabIndex = 5;
+            suppliersButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
+            suppliersButtonPanel.Controls.Add(suppliersButton);
+            suppliersButtonPanel.Location = new Point(3, 103);
+            suppliersButtonPanel.Name = "suppliersButtonPanel";
+            suppliersButtonPanel.Size = new Size(183, 44);
+            suppliersButtonPanel.TabIndex = 3;
+            // 
+            // suppliersButton
+            // 
+            suppliersButton.FlatStyle = FlatStyle.Flat;
+            suppliersButton.Font = new Font("Segoe UI", 9F);
+            suppliersButton.ForeColor = Color.White;
+            suppliersButton.Image = Properties.Resources.supplier_icon;
+            suppliersButton.ImageAlign = ContentAlignment.MiddleLeft;
+            suppliersButton.Location = new Point(-9, -10);
+            suppliersButton.Name = "suppliersButton";
+            suppliersButton.Padding = new Padding(25, 0, 0, 0);
+            suppliersButton.Size = new Size(202, 68);
+            suppliersButton.TabIndex = 2;
+            suppliersButton.Text = "             Suppliers";
+            suppliersButton.TextAlign = ContentAlignment.MiddleLeft;
+            suppliersButton.UseVisualStyleBackColor = true;
+            suppliersButton.Click += button1_Click;
+            // 
+            // inventoryButtonPanel
+            // 
+            inventoryButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
+            inventoryButtonPanel.Controls.Add(inventoryButton);
+            inventoryButtonPanel.Location = new Point(3, 153);
+            inventoryButtonPanel.Name = "inventoryButtonPanel";
+            inventoryButtonPanel.Size = new Size(183, 44);
+            inventoryButtonPanel.TabIndex = 5;
             // 
             // inventoryButton
             // 
@@ -189,14 +200,14 @@
             inventoryButton.TextAlign = ContentAlignment.MiddleLeft;
             inventoryButton.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // ordersButtonPanel
             // 
-            panel4.BackColor = Color.FromArgb(23, 24, 29);
-            panel4.Controls.Add(ordersButton);
-            panel4.Location = new Point(338, 275);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(183, 44);
-            panel4.TabIndex = 6;
+            ordersButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
+            ordersButtonPanel.Controls.Add(ordersButton);
+            ordersButtonPanel.Location = new Point(3, 203);
+            ordersButtonPanel.Name = "ordersButtonPanel";
+            ordersButtonPanel.Size = new Size(183, 44);
+            ordersButtonPanel.TabIndex = 6;
             // 
             // ordersButton
             // 
@@ -217,17 +228,49 @@
             // salesMenuContainer
             // 
             salesMenuContainer.BackColor = Color.FromArgb(23, 24, 29);
-            salesMenuContainer.Location = new Point(606, 115);
+            salesMenuContainer.Controls.Add(salesButtonPanel);
+            salesMenuContainer.Controls.Add(monthlySalesButtonPanel);
+            salesMenuContainer.Controls.Add(weeklySalesButtonPanel);
+            salesMenuContainer.Controls.Add(dailySalesButtonPanel);
+            salesMenuContainer.Location = new Point(3, 253);
             salesMenuContainer.Name = "salesMenuContainer";
-            salesMenuContainer.Size = new Size(183, 302);
+            salesMenuContainer.Size = new Size(183, 44);
             salesMenuContainer.TabIndex = 0;
             salesMenuContainer.Paint += flowLayoutPanel2_Paint;
+            // 
+            // salesButtonPanel
+            // 
+            salesButtonPanel.BackColor = Color.FromArgb(32, 33, 36);
+            salesButtonPanel.Controls.Add(salesButton);
+            salesButtonPanel.Location = new Point(0, 0);
+            salesButtonPanel.Margin = new Padding(0);
+            salesButtonPanel.Name = "salesButtonPanel";
+            salesButtonPanel.Size = new Size(183, 44);
+            salesButtonPanel.TabIndex = 5;
+            // 
+            // salesButton
+            // 
+            salesButton.BackColor = Color.FromArgb(23, 24, 29);
+            salesButton.FlatStyle = FlatStyle.Flat;
+            salesButton.Font = new Font("Segoe UI", 9F);
+            salesButton.ForeColor = Color.White;
+            salesButton.Image = Properties.Resources.money_icon;
+            salesButton.ImageAlign = ContentAlignment.MiddleLeft;
+            salesButton.Location = new Point(-9, -10);
+            salesButton.Name = "salesButton";
+            salesButton.Padding = new Padding(25, 0, 0, 0);
+            salesButton.Size = new Size(202, 68);
+            salesButton.TabIndex = 2;
+            salesButton.Text = "             Sales";
+            salesButton.TextAlign = ContentAlignment.MiddleLeft;
+            salesButton.UseVisualStyleBackColor = false;
+            salesButton.Click += salesButton_Click_1;
             // 
             // monthlySalesButtonPanel
             // 
             monthlySalesButtonPanel.BackColor = Color.FromArgb(32, 33, 36);
             monthlySalesButtonPanel.Controls.Add(monthlySalesButton);
-            monthlySalesButtonPanel.Location = new Point(0, 0);
+            monthlySalesButtonPanel.Location = new Point(0, 44);
             monthlySalesButtonPanel.Margin = new Padding(0);
             monthlySalesButtonPanel.Name = "monthlySalesButtonPanel";
             monthlySalesButtonPanel.Size = new Size(183, 44);
@@ -253,7 +296,7 @@
             // 
             weeklySalesButtonPanel.BackColor = Color.FromArgb(32, 33, 36);
             weeklySalesButtonPanel.Controls.Add(weeklySalesButton);
-            weeklySalesButtonPanel.Location = new Point(0, 85);
+            weeklySalesButtonPanel.Location = new Point(0, 88);
             weeklySalesButtonPanel.Margin = new Padding(0);
             weeklySalesButtonPanel.Name = "weeklySalesButtonPanel";
             weeklySalesButtonPanel.Size = new Size(183, 44);
@@ -279,7 +322,7 @@
             // 
             dailySalesButtonPanel.BackColor = Color.FromArgb(32, 33, 36);
             dailySalesButtonPanel.Controls.Add(dailySalesButton);
-            dailySalesButtonPanel.Location = new Point(0, 129);
+            dailySalesButtonPanel.Location = new Point(0, 132);
             dailySalesButtonPanel.Margin = new Padding(0);
             dailySalesButtonPanel.Name = "dailySalesButtonPanel";
             dailySalesButtonPanel.Size = new Size(183, 44);
@@ -301,53 +344,22 @@
             dailySalesButton.TextAlign = ContentAlignment.MiddleLeft;
             dailySalesButton.UseVisualStyleBackColor = true;
             // 
-            // salesButtonPanel
-            // 
-            salesButtonPanel.BackColor = Color.FromArgb(32, 33, 36);
-            salesButtonPanel.Controls.Add(weeklySalesButtonPanel);
-            salesButtonPanel.Controls.Add(salesButton);
-            salesButtonPanel.Controls.Add(monthlySalesButtonPanel);
-            salesButtonPanel.Controls.Add(dailySalesButtonPanel);
-            salesButtonPanel.Location = new Point(606, 115);
-            salesButtonPanel.Margin = new Padding(0);
-            salesButtonPanel.Name = "salesButtonPanel";
-            salesButtonPanel.Size = new Size(183, 44);
-            salesButtonPanel.TabIndex = 5;
-            // 
-            // salesButton
-            // 
-            salesButton.BackColor = Color.FromArgb(23, 24, 29);
-            salesButton.FlatStyle = FlatStyle.Flat;
-            salesButton.Font = new Font("Segoe UI", 9F);
-            salesButton.ForeColor = Color.White;
-            salesButton.Image = Properties.Resources.money_icon;
-            salesButton.ImageAlign = ContentAlignment.MiddleLeft;
-            salesButton.Location = new Point(-9, -10);
-            salesButton.Name = "salesButton";
-            salesButton.Padding = new Padding(25, 0, 0, 0);
-            salesButton.Size = new Size(202, 68);
-            salesButton.TabIndex = 2;
-            salesButton.Text = "             Sales";
-            salesButton.TextAlign = ContentAlignment.MiddleLeft;
-            salesButton.UseVisualStyleBackColor = false;
-            salesButton.Click += salesButton_Click_1;
-            // 
             // salesMenuTransition
             // 
+            salesMenuTransition.Interval = 10;
             salesMenuTransition.Tick += salesMenuTransition_Tick;
+            // 
+            // sidebarTransition
+            // 
+            sidebarTransition.Interval = 10;
+            sidebarTransition.Tick += sidebarTransition_Tick;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 570);
-            Controls.Add(salesButtonPanel);
-            Controls.Add(salesMenuContainer);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(supplierButtonPanel);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(sidebarContainer);
             Controls.Add(header);
             Font = new Font("Segoe UI", 10.2F);
             FormBorderStyle = FormBorderStyle.None;
@@ -357,32 +369,34 @@
             Load += Home_Load;
             header.ResumeLayout(false);
             header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            supplierButtonPanel.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();
+            sidebarContainer.ResumeLayout(false);
+            dasboardButtonPanel.ResumeLayout(false);
+            suppliersButtonPanel.ResumeLayout(false);
+            inventoryButtonPanel.ResumeLayout(false);
+            ordersButtonPanel.ResumeLayout(false);
+            salesMenuContainer.ResumeLayout(false);
+            salesButtonPanel.ResumeLayout(false);
             monthlySalesButtonPanel.ResumeLayout(false);
             weeklySalesButtonPanel.ResumeLayout(false);
             dailySalesButtonPanel.ResumeLayout(false);
-            salesButtonPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel header;
-        private PictureBox pictureBox1;
+        private PictureBox menuButton;
         private Label store_name;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button supplierButton;
-        private Panel supplierButtonPanel;
-        private Panel panel2;
+        private FlowLayoutPanel sidebarContainer;
+        private Button suppliersButton;
+        private Panel suppliersButtonPanel;
+        private Panel dasboardButtonPanel;
         private Button dashboardButton;
-        private Panel panel3;
+        private Panel inventoryButtonPanel;
         private Button inventoryButton;
-        private Panel panel4;
+        private Panel ordersButtonPanel;
         private Button ordersButton;
         private FlowLayoutPanel salesMenuContainer;
         private Panel monthlySalesButtonPanel;
@@ -394,5 +408,6 @@
         private Panel dailySalesButtonPanel;
         private Button dailySalesButton;
         private System.Windows.Forms.Timer salesMenuTransition;
+        private System.Windows.Forms.Timer sidebarTransition;
     }
 }
