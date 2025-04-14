@@ -73,6 +73,16 @@ namespace EDP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Green_Brown_Simple_Sari_sari_Store_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Green Brown Simple Sari-sari Store Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inventory_icon {
             get {
                 object obj = ResourceManager.GetObject("inventory_icon", resourceCulture);
@@ -86,6 +96,16 @@ namespace EDP.Properties {
         internal static System.Drawing.Bitmap log_icon {
             get {
                 object obj = ResourceManager.GetObject("log_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_transparent {
+            get {
+                object obj = ResourceManager.GetObject("logo_transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

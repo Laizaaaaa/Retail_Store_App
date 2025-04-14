@@ -31,40 +31,40 @@ namespace EDP
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            salesButtonPanel = new Panel();
-            orderButtonPanel = new Panel();
-            ordersButton = new Button();
-            panel4 = new Panel();
-            salesButton = new Button();
-            inventoryButtonPanel = new Panel();
-            inventoryButton = new Button();
-            dashboardButtonPanel = new Panel();
-            dashboardButton = new Button();
-            storeName = new Label();
             dashboardPanel = new Panel();
-            todaysGrossSalePanel = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            prodouctsSoldTodayPanel = new Panel();
-            label3 = new Label();
-            label4 = new Label();
             totalProductsSoldPanel = new Panel();
             label5 = new Label();
             label6 = new Label();
+            prodouctsSoldTodayPanel = new Panel();
+            label3 = new Label();
+            label4 = new Label();
             totalRevenuePanel = new Panel();
             label7 = new Label();
             label8 = new Label();
+            todaysGrossSalePanel = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            salesButtonPanel = new Panel();
+            orderButtonPanel = new Panel();
+            ordersBtn = new Button();
+            panel4 = new Panel();
+            salesBtn = new Button();
+            inventoryButtonPanel = new Panel();
+            inventoryBtn = new Button();
+            dashboardButtonPanel = new Panel();
+            dashboardBtn = new Button();
+            storeName = new Label();
             panel1.SuspendLayout();
+            dashboardPanel.SuspendLayout();
+            totalProductsSoldPanel.SuspendLayout();
+            prodouctsSoldTodayPanel.SuspendLayout();
+            totalRevenuePanel.SuspendLayout();
+            todaysGrossSalePanel.SuspendLayout();
             salesButtonPanel.SuspendLayout();
             orderButtonPanel.SuspendLayout();
             panel4.SuspendLayout();
             inventoryButtonPanel.SuspendLayout();
             dashboardButtonPanel.SuspendLayout();
-            dashboardPanel.SuspendLayout();
-            todaysGrossSalePanel.SuspendLayout();
-            prodouctsSoldTodayPanel.SuspendLayout();
-            totalProductsSoldPanel.SuspendLayout();
-            totalRevenuePanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -76,117 +76,6 @@ namespace EDP
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
-            // 
-            // salesButtonPanel
-            // 
-            salesButtonPanel.BackColor = Color.FromArgb(35, 40, 45);
-            salesButtonPanel.Controls.Add(orderButtonPanel);
-            salesButtonPanel.Controls.Add(panel4);
-            salesButtonPanel.Controls.Add(inventoryButtonPanel);
-            salesButtonPanel.Controls.Add(dashboardButtonPanel);
-            salesButtonPanel.Controls.Add(storeName);
-            salesButtonPanel.Location = new Point(0, 0);
-            salesButtonPanel.Name = "salesButtonPanel";
-            salesButtonPanel.Size = new Size(155, 450);
-            salesButtonPanel.TabIndex = 0;
-            salesButtonPanel.Paint += panel2_Paint;
-            // 
-            // orderButtonPanel
-            // 
-            orderButtonPanel.Controls.Add(ordersButton);
-            orderButtonPanel.Location = new Point(0, 269);
-            orderButtonPanel.Name = "orderButtonPanel";
-            orderButtonPanel.Size = new Size(155, 52);
-            orderButtonPanel.TabIndex = 2;
-            // 
-            // ordersButton
-            // 
-            ordersButton.FlatAppearance.BorderSize = 0;
-            ordersButton.FlatStyle = FlatStyle.Flat;
-            ordersButton.ForeColor = SystemColors.ButtonHighlight;
-            ordersButton.Location = new Point(3, 3);
-            ordersButton.Name = "ordersButton";
-            ordersButton.Size = new Size(149, 46);
-            ordersButton.TabIndex = 0;
-            ordersButton.Text = "Orders";
-            ordersButton.UseVisualStyleBackColor = false;
-            ordersButton.Click += showOrdersPanel;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(salesButton);
-            panel4.Location = new Point(0, 211);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(155, 52);
-            panel4.TabIndex = 2;
-            // 
-            // salesButton
-            // 
-            salesButton.FlatAppearance.BorderSize = 0;
-            salesButton.FlatStyle = FlatStyle.Flat;
-            salesButton.ForeColor = SystemColors.ButtonHighlight;
-            salesButton.Location = new Point(3, 3);
-            salesButton.Name = "salesButton";
-            salesButton.Size = new Size(149, 46);
-            salesButton.TabIndex = 0;
-            salesButton.Text = "Sales";
-            salesButton.UseVisualStyleBackColor = false;
-            salesButton.Click += showSalesPanel;
-            // 
-            // inventoryButtonPanel
-            // 
-            inventoryButtonPanel.Controls.Add(inventoryButton);
-            inventoryButtonPanel.Location = new Point(0, 153);
-            inventoryButtonPanel.Name = "inventoryButtonPanel";
-            inventoryButtonPanel.Size = new Size(155, 52);
-            inventoryButtonPanel.TabIndex = 2;
-            // 
-            // inventoryButton
-            // 
-            inventoryButton.FlatAppearance.BorderSize = 0;
-            inventoryButton.FlatStyle = FlatStyle.Flat;
-            inventoryButton.ForeColor = SystemColors.ButtonHighlight;
-            inventoryButton.Location = new Point(3, 3);
-            inventoryButton.Name = "inventoryButton";
-            inventoryButton.Size = new Size(149, 46);
-            inventoryButton.TabIndex = 0;
-            inventoryButton.Text = "Inventory";
-            inventoryButton.UseVisualStyleBackColor = false;
-            inventoryButton.Click += showInventoryPanel;
-            // 
-            // dashboardButtonPanel
-            // 
-            dashboardButtonPanel.BackgroundImageLayout = ImageLayout.None;
-            dashboardButtonPanel.Controls.Add(dashboardButton);
-            dashboardButtonPanel.Location = new Point(0, 95);
-            dashboardButtonPanel.Name = "dashboardButtonPanel";
-            dashboardButtonPanel.Size = new Size(155, 52);
-            dashboardButtonPanel.TabIndex = 1;
-            // 
-            // dashboardButton
-            // 
-            dashboardButton.FlatAppearance.BorderSize = 0;
-            dashboardButton.FlatStyle = FlatStyle.Flat;
-            dashboardButton.ForeColor = SystemColors.ButtonHighlight;
-            dashboardButton.Location = new Point(3, 3);
-            dashboardButton.Name = "dashboardButton";
-            dashboardButton.Size = new Size(149, 46);
-            dashboardButton.TabIndex = 0;
-            dashboardButton.Text = "Dashboard";
-            dashboardButton.UseVisualStyleBackColor = false;
-            dashboardButton.Click += showDashboardPanel;
-            // 
-            // storeName
-            // 
-            storeName.BackColor = Color.FromArgb(40, 40, 40);
-            storeName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            storeName.ForeColor = SystemColors.ActiveCaption;
-            storeName.Location = new Point(0, 9);
-            storeName.Name = "storeName";
-            storeName.Size = new Size(155, 67);
-            storeName.TabIndex = 2;
-            storeName.Text = "JFKL Sari-Sari Store";
-            storeName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dashboardPanel
             // 
@@ -201,33 +90,33 @@ namespace EDP
             dashboardPanel.TabIndex = 1;
             dashboardPanel.Paint += dashboardPanel_Paint;
             // 
-            // todaysGrossSalePanel
+            // totalProductsSoldPanel
             // 
-            todaysGrossSalePanel.BackColor = SystemColors.ButtonShadow;
-            todaysGrossSalePanel.Controls.Add(label2);
-            todaysGrossSalePanel.Controls.Add(label1);
-            todaysGrossSalePanel.Location = new Point(119, 93);
-            todaysGrossSalePanel.Name = "todaysGrossSalePanel";
-            todaysGrossSalePanel.Size = new Size(200, 100);
-            todaysGrossSalePanel.TabIndex = 0;
+            totalProductsSoldPanel.BackColor = SystemColors.ButtonShadow;
+            totalProductsSoldPanel.Controls.Add(label5);
+            totalProductsSoldPanel.Controls.Add(label6);
+            totalProductsSoldPanel.Location = new Point(336, 219);
+            totalProductsSoldPanel.Name = "totalProductsSoldPanel";
+            totalProductsSoldPanel.Size = new Size(200, 100);
+            totalProductsSoldPanel.TabIndex = 4;
             // 
-            // label1
+            // label5
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(48, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(103, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Today's Gross Sale";
+            label5.AutoSize = true;
+            label5.Location = new Point(60, 43);
+            label5.Name = "label5";
+            label5.Size = new Size(13, 15);
+            label5.TabIndex = 1;
+            label5.Text = "$";
             // 
-            // label2
+            // label6
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(60, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(13, 15);
-            label2.TabIndex = 1;
-            label2.Text = "$";
+            label6.AutoSize = true;
+            label6.Location = new Point(55, 10);
+            label6.Name = "label6";
+            label6.Size = new Size(109, 15);
+            label6.TabIndex = 0;
+            label6.Text = "Total Products Sold";
             // 
             // prodouctsSoldTodayPanel
             // 
@@ -258,34 +147,6 @@ namespace EDP
             label4.Text = "Products Sold Today";
             label4.Click += label4_Click;
             // 
-            // totalProductsSoldPanel
-            // 
-            totalProductsSoldPanel.BackColor = SystemColors.ButtonShadow;
-            totalProductsSoldPanel.Controls.Add(label5);
-            totalProductsSoldPanel.Controls.Add(label6);
-            totalProductsSoldPanel.Location = new Point(336, 219);
-            totalProductsSoldPanel.Name = "totalProductsSoldPanel";
-            totalProductsSoldPanel.Size = new Size(200, 100);
-            totalProductsSoldPanel.TabIndex = 4;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(60, 43);
-            label5.Name = "label5";
-            label5.Size = new Size(13, 15);
-            label5.TabIndex = 1;
-            label5.Text = "$";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(55, 10);
-            label6.Name = "label6";
-            label6.Size = new Size(109, 15);
-            label6.TabIndex = 0;
-            label6.Text = "Total Products Sold";
-            // 
             // totalRevenuePanel
             // 
             totalRevenuePanel.BackColor = SystemColors.ButtonShadow;
@@ -314,6 +175,146 @@ namespace EDP
             label8.TabIndex = 0;
             label8.Text = "Total Revenue";
             // 
+            // todaysGrossSalePanel
+            // 
+            todaysGrossSalePanel.BackColor = SystemColors.ButtonShadow;
+            todaysGrossSalePanel.Controls.Add(label2);
+            todaysGrossSalePanel.Controls.Add(label1);
+            todaysGrossSalePanel.Location = new Point(119, 93);
+            todaysGrossSalePanel.Name = "todaysGrossSalePanel";
+            todaysGrossSalePanel.Size = new Size(200, 100);
+            todaysGrossSalePanel.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(60, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(13, 15);
+            label2.TabIndex = 1;
+            label2.Text = "$";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(48, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Today's Gross Sale";
+            // 
+            // salesButtonPanel
+            // 
+            salesButtonPanel.BackColor = Color.FromArgb(35, 40, 45);
+            salesButtonPanel.Controls.Add(orderButtonPanel);
+            salesButtonPanel.Controls.Add(panel4);
+            salesButtonPanel.Controls.Add(inventoryButtonPanel);
+            salesButtonPanel.Controls.Add(dashboardButtonPanel);
+            salesButtonPanel.Controls.Add(storeName);
+            salesButtonPanel.Location = new Point(0, 0);
+            salesButtonPanel.Name = "salesButtonPanel";
+            salesButtonPanel.Size = new Size(155, 450);
+            salesButtonPanel.TabIndex = 0;
+            salesButtonPanel.Paint += panel2_Paint;
+            // 
+            // orderButtonPanel
+            // 
+            orderButtonPanel.Controls.Add(ordersBtn);
+            orderButtonPanel.Location = new Point(0, 269);
+            orderButtonPanel.Name = "orderButtonPanel";
+            orderButtonPanel.Size = new Size(155, 52);
+            orderButtonPanel.TabIndex = 2;
+            // 
+            // ordersBtn
+            // 
+            ordersBtn.FlatAppearance.BorderSize = 0;
+            ordersBtn.FlatStyle = FlatStyle.Flat;
+            ordersBtn.ForeColor = SystemColors.ButtonHighlight;
+            ordersBtn.Location = new Point(3, 3);
+            ordersBtn.Name = "ordersBtn";
+            ordersBtn.Size = new Size(149, 46);
+            ordersBtn.TabIndex = 0;
+            ordersBtn.Text = "Orders";
+            ordersBtn.UseVisualStyleBackColor = false;
+            ordersBtn.Click += showOrdersPanel;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(salesBtn);
+            panel4.Location = new Point(0, 211);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(155, 52);
+            panel4.TabIndex = 2;
+            // 
+            // salesBtn
+            // 
+            salesBtn.FlatAppearance.BorderSize = 0;
+            salesBtn.FlatStyle = FlatStyle.Flat;
+            salesBtn.ForeColor = SystemColors.ButtonHighlight;
+            salesBtn.Location = new Point(3, 3);
+            salesBtn.Name = "salesBtn";
+            salesBtn.Size = new Size(149, 46);
+            salesBtn.TabIndex = 0;
+            salesBtn.Text = "Sales";
+            salesBtn.UseVisualStyleBackColor = false;
+            salesBtn.Click += showSalesPanel;
+            // 
+            // inventoryButtonPanel
+            // 
+            inventoryButtonPanel.Controls.Add(inventoryBtn);
+            inventoryButtonPanel.Location = new Point(0, 153);
+            inventoryButtonPanel.Name = "inventoryButtonPanel";
+            inventoryButtonPanel.Size = new Size(155, 52);
+            inventoryButtonPanel.TabIndex = 2;
+            // 
+            // inventoryBtn
+            // 
+            inventoryBtn.FlatAppearance.BorderSize = 0;
+            inventoryBtn.FlatStyle = FlatStyle.Flat;
+            inventoryBtn.ForeColor = SystemColors.ButtonHighlight;
+            inventoryBtn.Location = new Point(3, 3);
+            inventoryBtn.Name = "inventoryBtn";
+            inventoryBtn.Size = new Size(149, 46);
+            inventoryBtn.TabIndex = 0;
+            inventoryBtn.Text = "Inventory";
+            inventoryBtn.UseVisualStyleBackColor = false;
+            inventoryBtn.Click += showInventoryPanel;
+            // 
+            // dashboardButtonPanel
+            // 
+            dashboardButtonPanel.BackgroundImageLayout = ImageLayout.None;
+            dashboardButtonPanel.Controls.Add(dashboardBtn);
+            dashboardButtonPanel.Location = new Point(0, 95);
+            dashboardButtonPanel.Name = "dashboardButtonPanel";
+            dashboardButtonPanel.Size = new Size(155, 52);
+            dashboardButtonPanel.TabIndex = 1;
+            // 
+            // dashboardBtn
+            // 
+            dashboardBtn.FlatAppearance.BorderSize = 0;
+            dashboardBtn.FlatStyle = FlatStyle.Flat;
+            dashboardBtn.ForeColor = SystemColors.ButtonHighlight;
+            dashboardBtn.Location = new Point(3, 3);
+            dashboardBtn.Name = "dashboardBtn";
+            dashboardBtn.Size = new Size(149, 46);
+            dashboardBtn.TabIndex = 0;
+            dashboardBtn.Text = "Dashboard";
+            dashboardBtn.UseVisualStyleBackColor = false;
+            dashboardBtn.Click += showDashboardPanel;
+            // 
+            // storeName
+            // 
+            storeName.BackColor = Color.FromArgb(40, 40, 40);
+            storeName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            storeName.ForeColor = SystemColors.ActiveCaption;
+            storeName.Location = new Point(0, 9);
+            storeName.Name = "storeName";
+            storeName.Size = new Size(155, 67);
+            storeName.TabIndex = 2;
+            storeName.Text = "JFKL Sari-Sari Store";
+            storeName.TextAlign = ContentAlignment.MiddleCenter;
+            storeName.Click += storeName_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -323,20 +324,20 @@ namespace EDP
             Name = "Dashboard";
             Text = "Dashboard";
             panel1.ResumeLayout(false);
+            dashboardPanel.ResumeLayout(false);
+            totalProductsSoldPanel.ResumeLayout(false);
+            totalProductsSoldPanel.PerformLayout();
+            prodouctsSoldTodayPanel.ResumeLayout(false);
+            prodouctsSoldTodayPanel.PerformLayout();
+            totalRevenuePanel.ResumeLayout(false);
+            totalRevenuePanel.PerformLayout();
+            todaysGrossSalePanel.ResumeLayout(false);
+            todaysGrossSalePanel.PerformLayout();
             salesButtonPanel.ResumeLayout(false);
             orderButtonPanel.ResumeLayout(false);
             panel4.ResumeLayout(false);
             inventoryButtonPanel.ResumeLayout(false);
             dashboardButtonPanel.ResumeLayout(false);
-            dashboardPanel.ResumeLayout(false);
-            todaysGrossSalePanel.ResumeLayout(false);
-            todaysGrossSalePanel.PerformLayout();
-            prodouctsSoldTodayPanel.ResumeLayout(false);
-            prodouctsSoldTodayPanel.PerformLayout();
-            totalProductsSoldPanel.ResumeLayout(false);
-            totalProductsSoldPanel.PerformLayout();
-            totalRevenuePanel.ResumeLayout(false);
-            totalRevenuePanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -346,13 +347,13 @@ namespace EDP
         private Panel salesButtonPanel;
         private Label storeName;
         private Panel orderButtonPanel;
-        private Button ordersButton;
+        private Button ordersBtn;
         private Panel panel4;
-        private Button salesButton;
+        private Button salesBtn;
         private Panel inventoryButtonPanel;
-        private Button inventoryButton;
+        private Button inventoryBtn;
         private Panel dashboardButtonPanel;
-        private Button dashboardButton;
+        private Button dashboardBtn;
         private Panel dashboardPanel;
         private Panel todaysGrossSalePanel;
         private Label label2;
