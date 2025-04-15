@@ -30,6 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             header = new Panel();
+            controlPanel = new FlowLayoutPanel();
+            minimizeButton = new PictureBox();
+            maximizeButton = new PictureBox();
+            exitFullScreenButton = new PictureBox();
+            closeButton = new PictureBox();
             store_name = new Label();
             menuButton = new PictureBox();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
@@ -58,6 +63,11 @@
             salesMenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             header.SuspendLayout();
+            controlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)minimizeButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)maximizeButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)exitFullScreenButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)closeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
             sidebarContainer.SuspendLayout();
             dasboardButtonPanel.SuspendLayout();
@@ -76,6 +86,7 @@
             // header
             // 
             header.BackColor = Color.White;
+            header.Controls.Add(controlPanel);
             header.Controls.Add(store_name);
             header.Controls.Add(menuButton);
             header.Dock = DockStyle.Top;
@@ -84,6 +95,64 @@
             header.Name = "header";
             header.Size = new Size(914, 61);
             header.TabIndex = 0;
+            // 
+            // controlPanel
+            // 
+            controlPanel.Controls.Add(minimizeButton);
+            controlPanel.Controls.Add(maximizeButton);
+            controlPanel.Controls.Add(exitFullScreenButton);
+            controlPanel.Controls.Add(closeButton);
+            controlPanel.Dock = DockStyle.Right;
+            controlPanel.Location = new Point(787, 0);
+            controlPanel.Name = "controlPanel";
+            controlPanel.Padding = new Padding(20, 18, 10, 20);
+            controlPanel.Size = new Size(127, 61);
+            controlPanel.TabIndex = 3;
+            // 
+            // minimizeButton
+            // 
+            minimizeButton.Image = Properties.Resources.minimize_icon;
+            minimizeButton.Location = new Point(23, 21);
+            minimizeButton.Name = "minimizeButton";
+            minimizeButton.Size = new Size(21, 20);
+            minimizeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            minimizeButton.TabIndex = 0;
+            minimizeButton.TabStop = false;
+            minimizeButton.Click += minimizeButton_Click;
+            // 
+            // maximizeButton
+            // 
+            maximizeButton.Image = Properties.Resources.maximize_icon;
+            maximizeButton.Location = new Point(50, 21);
+            maximizeButton.Name = "maximizeButton";
+            maximizeButton.Size = new Size(20, 20);
+            maximizeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            maximizeButton.TabIndex = 1;
+            maximizeButton.TabStop = false;
+            maximizeButton.Click += maximizeButton_Click;
+            // 
+            // exitFullScreenButton
+            // 
+            exitFullScreenButton.Image = Properties.Resources.exit_full_screen_icon;
+            exitFullScreenButton.Location = new Point(76, 21);
+            exitFullScreenButton.Name = "exitFullScreenButton";
+            exitFullScreenButton.Size = new Size(20, 20);
+            exitFullScreenButton.SizeMode = PictureBoxSizeMode.Zoom;
+            exitFullScreenButton.TabIndex = 3;
+            exitFullScreenButton.TabStop = false;
+            exitFullScreenButton.Visible = false;
+            exitFullScreenButton.Click += exitFullScreenButton_Click;
+            // 
+            // closeButton
+            // 
+            closeButton.Image = Properties.Resources.exit_icon;
+            closeButton.Location = new Point(23, 47);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(20, 20);
+            closeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            closeButton.TabIndex = 2;
+            closeButton.TabStop = false;
+            closeButton.Click += closeButton_Click;
             // 
             // store_name
             // 
@@ -127,7 +196,7 @@
             sidebarContainer.FlowDirection = FlowDirection.TopDown;
             sidebarContainer.Location = new Point(0, 61);
             sidebarContainer.Name = "sidebarContainer";
-            sidebarContainer.Padding = new Padding(0, 50, 0, 0);
+            sidebarContainer.Padding = new Padding(0, 10, 0, 0);
             sidebarContainer.Size = new Size(188, 509);
             sidebarContainer.TabIndex = 1;
             // 
@@ -135,7 +204,7 @@
             // 
             dasboardButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
             dasboardButtonPanel.Controls.Add(dashboardButton);
-            dasboardButtonPanel.Location = new Point(3, 53);
+            dasboardButtonPanel.Location = new Point(3, 13);
             dasboardButtonPanel.Name = "dasboardButtonPanel";
             dasboardButtonPanel.Size = new Size(183, 44);
             dasboardButtonPanel.TabIndex = 4;
@@ -165,7 +234,7 @@
             salesMenuContainer.Controls.Add(weeklySalesButtonPanel);
             salesMenuContainer.Controls.Add(monthlySalesButtonPanel);
             salesMenuContainer.Controls.Add(yearlySalesButtonPanel);
-            salesMenuContainer.Location = new Point(3, 103);
+            salesMenuContainer.Location = new Point(3, 63);
             salesMenuContainer.Name = "salesMenuContainer";
             salesMenuContainer.Size = new Size(183, 44);
             salesMenuContainer.TabIndex = 0;
@@ -311,7 +380,7 @@
             // 
             suppliersButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
             suppliersButtonPanel.Controls.Add(suppliersButton);
-            suppliersButtonPanel.Location = new Point(3, 153);
+            suppliersButtonPanel.Location = new Point(3, 113);
             suppliersButtonPanel.Name = "suppliersButtonPanel";
             suppliersButtonPanel.Size = new Size(183, 44);
             suppliersButtonPanel.TabIndex = 3;
@@ -337,7 +406,7 @@
             // 
             inventoryButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
             inventoryButtonPanel.Controls.Add(inventoryButton);
-            inventoryButtonPanel.Location = new Point(3, 203);
+            inventoryButtonPanel.Location = new Point(3, 163);
             inventoryButtonPanel.Name = "inventoryButtonPanel";
             inventoryButtonPanel.Size = new Size(183, 44);
             inventoryButtonPanel.TabIndex = 5;
@@ -363,7 +432,7 @@
             // 
             ordersButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
             ordersButtonPanel.Controls.Add(ordersButton);
-            ordersButtonPanel.Location = new Point(3, 253);
+            ordersButtonPanel.Location = new Point(3, 213);
             ordersButtonPanel.Name = "ordersButtonPanel";
             ordersButtonPanel.Size = new Size(183, 44);
             ordersButtonPanel.TabIndex = 6;
@@ -389,7 +458,7 @@
             // 
             categoriesButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
             categoriesButtonPanel.Controls.Add(categoriesButton);
-            categoriesButtonPanel.Location = new Point(3, 303);
+            categoriesButtonPanel.Location = new Point(3, 263);
             categoriesButtonPanel.Name = "categoriesButtonPanel";
             categoriesButtonPanel.Size = new Size(183, 44);
             categoriesButtonPanel.TabIndex = 7;
@@ -423,8 +492,10 @@
             // 
             // Home
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSize = true;
             ClientSize = new Size(914, 570);
+            ControlBox = false;
             Controls.Add(sidebarContainer);
             Controls.Add(header);
             Font = new Font("Segoe UI", 10.2F);
@@ -432,10 +503,15 @@
             IsMdiContainer = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Home";
-            Text = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Load += Home_Load;
             header.ResumeLayout(false);
             header.PerformLayout();
+            controlPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)minimizeButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)maximizeButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)exitFullScreenButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)closeButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();
             sidebarContainer.ResumeLayout(false);
             dasboardButtonPanel.ResumeLayout(false);
@@ -482,5 +558,11 @@
         private Button categoriesButton;
         private Panel yearlySalesButtonPanel;
         private Button yearlySalesButton;
+        private Panel panel1;
+        private FlowLayoutPanel controlPanel;
+        private PictureBox minimizeButton;
+        private PictureBox maximizeButton;
+        private PictureBox closeButton;
+        private PictureBox exitFullScreenButton;
     }
 }

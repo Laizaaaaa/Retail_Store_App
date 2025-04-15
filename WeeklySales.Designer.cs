@@ -28,47 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             weeklySalesGridView = new DataGridView();
+            weeklySalesPanel = new Panel();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)weeklySalesGridView).BeginInit();
+            weeklySalesPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(328, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(74, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Weekly Sales";
             // 
             // weeklySalesGridView
             // 
+            weeklySalesGridView.AllowUserToAddRows = false;
+            weeklySalesGridView.AllowUserToDeleteRows = false;
+            weeklySalesGridView.AllowUserToResizeColumns = false;
+            weeklySalesGridView.AllowUserToResizeRows = false;
+            weeklySalesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            weeklySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            weeklySalesGridView.BackgroundColor = Color.WhiteSmoke;
             weeklySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            weeklySalesGridView.Location = new Point(35, 43);
+            weeklySalesGridView.Location = new Point(28, 84);
             weeklySalesGridView.Name = "weeklySalesGridView";
-            weeklySalesGridView.Size = new Size(728, 374);
+            weeklySalesGridView.RowHeadersVisible = false;
+            weeklySalesGridView.Size = new Size(670, 52);
             weeklySalesGridView.TabIndex = 1;
+            // 
+            // weeklySalesPanel
+            // 
+            weeklySalesPanel.BackColor = SystemColors.ControlLightLight;
+            weeklySalesPanel.Controls.Add(label2);
+            weeklySalesPanel.Dock = DockStyle.Fill;
+            weeklySalesPanel.Location = new Point(0, 0);
+            weeklySalesPanel.Name = "weeklySalesPanel";
+            weeklySalesPanel.Size = new Size(730, 510);
+            weeklySalesPanel.TabIndex = 2;
+            weeklySalesPanel.Paint += weeklySalesPanel_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(317, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(97, 20);
+            label2.TabIndex = 7;
+            label2.Text = "Weekly Sales";
             // 
             // WeeklySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(730, 510);
             Controls.Add(weeklySalesGridView);
-            Controls.Add(label1);
+            Controls.Add(weeklySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "WeeklySales";
             Text = "WeeklySales";
             Load += WeeklySales_Load;
             ((System.ComponentModel.ISupportInitialize)weeklySalesGridView).EndInit();
+            weeklySalesPanel.ResumeLayout(false);
+            weeklySalesPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private DataGridView weeklySalesGridView;
+        private Panel weeklySalesPanel;
+        private Label label2;
     }
 }

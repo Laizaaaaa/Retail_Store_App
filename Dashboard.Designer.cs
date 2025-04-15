@@ -43,11 +43,17 @@ namespace EDP
             totalProductsSold = new Label();
             label6 = new Label();
             dashboardPanel = new Panel();
+            label3 = new Label();
+            label2 = new Label();
+            discountedProductsGridView = new DataGridView();
+            bestSellingProductsGridView = new DataGridView();
             todaysGrossSalePanel.SuspendLayout();
             totalRevenuePanel.SuspendLayout();
             prodouctsSoldTodayPanel.SuspendLayout();
             totalProductsSoldPanel.SuspendLayout();
             dashboardPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)discountedProductsGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bestSellingProductsGridView).BeginInit();
             SuspendLayout();
             // 
             // todaysGrossSalePanel
@@ -57,16 +63,16 @@ namespace EDP
             todaysGrossSalePanel.Controls.Add(todaysGrossSale);
             todaysGrossSalePanel.Controls.Add(label1);
             todaysGrossSalePanel.ForeColor = Color.CornflowerBlue;
-            todaysGrossSalePanel.Location = new Point(181, 97);
+            todaysGrossSalePanel.Location = new Point(158, 26);
             todaysGrossSalePanel.Name = "todaysGrossSalePanel";
-            todaysGrossSalePanel.Size = new Size(200, 100);
+            todaysGrossSalePanel.Size = new Size(200, 85);
             todaysGrossSalePanel.TabIndex = 0;
             // 
             // todaysGrossSale
             // 
             todaysGrossSale.AutoSize = true;
             todaysGrossSale.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            todaysGrossSale.Location = new Point(60, 43);
+            todaysGrossSale.Location = new Point(84, 43);
             todaysGrossSale.Name = "todaysGrossSale";
             todaysGrossSale.Size = new Size(18, 20);
             todaysGrossSale.TabIndex = 1;
@@ -90,16 +96,16 @@ namespace EDP
             totalRevenuePanel.Controls.Add(totalRevenue);
             totalRevenuePanel.Controls.Add(label8);
             totalRevenuePanel.ForeColor = Color.CornflowerBlue;
-            totalRevenuePanel.Location = new Point(181, 223);
+            totalRevenuePanel.Location = new Point(158, 127);
             totalRevenuePanel.Name = "totalRevenuePanel";
-            totalRevenuePanel.Size = new Size(200, 100);
+            totalRevenuePanel.Size = new Size(200, 85);
             totalRevenuePanel.TabIndex = 3;
             // 
             // totalRevenue
             // 
             totalRevenue.AutoSize = true;
             totalRevenue.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            totalRevenue.Location = new Point(60, 43);
+            totalRevenue.Location = new Point(84, 43);
             totalRevenue.Name = "totalRevenue";
             totalRevenue.Size = new Size(18, 20);
             totalRevenue.TabIndex = 1;
@@ -123,16 +129,16 @@ namespace EDP
             prodouctsSoldTodayPanel.Controls.Add(productsSoldToday);
             prodouctsSoldTodayPanel.Controls.Add(label4);
             prodouctsSoldTodayPanel.ForeColor = Color.CornflowerBlue;
-            prodouctsSoldTodayPanel.Location = new Point(398, 97);
+            prodouctsSoldTodayPanel.Location = new Point(375, 26);
             prodouctsSoldTodayPanel.Name = "prodouctsSoldTodayPanel";
-            prodouctsSoldTodayPanel.Size = new Size(200, 100);
+            prodouctsSoldTodayPanel.Size = new Size(200, 85);
             prodouctsSoldTodayPanel.TabIndex = 2;
             // 
             // productsSoldToday
             // 
             productsSoldToday.AutoSize = true;
             productsSoldToday.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            productsSoldToday.Location = new Point(60, 43);
+            productsSoldToday.Location = new Point(94, 43);
             productsSoldToday.Name = "productsSoldToday";
             productsSoldToday.Size = new Size(18, 20);
             productsSoldToday.TabIndex = 1;
@@ -156,16 +162,16 @@ namespace EDP
             totalProductsSoldPanel.Controls.Add(totalProductsSold);
             totalProductsSoldPanel.Controls.Add(label6);
             totalProductsSoldPanel.ForeColor = Color.CornflowerBlue;
-            totalProductsSoldPanel.Location = new Point(398, 223);
+            totalProductsSoldPanel.Location = new Point(375, 127);
             totalProductsSoldPanel.Name = "totalProductsSoldPanel";
-            totalProductsSoldPanel.Size = new Size(200, 100);
+            totalProductsSoldPanel.Size = new Size(200, 85);
             totalProductsSoldPanel.TabIndex = 4;
             // 
             // totalProductsSold
             // 
             totalProductsSold.AutoSize = true;
             totalProductsSold.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            totalProductsSold.Location = new Point(60, 43);
+            totalProductsSold.Location = new Point(94, 43);
             totalProductsSold.Name = "totalProductsSold";
             totalProductsSold.Size = new Size(18, 20);
             totalProductsSold.TabIndex = 1;
@@ -185,6 +191,10 @@ namespace EDP
             // dashboardPanel
             // 
             dashboardPanel.BackColor = SystemColors.ControlLightLight;
+            dashboardPanel.Controls.Add(label3);
+            dashboardPanel.Controls.Add(label2);
+            dashboardPanel.Controls.Add(discountedProductsGridView);
+            dashboardPanel.Controls.Add(bestSellingProductsGridView);
             dashboardPanel.Controls.Add(totalProductsSoldPanel);
             dashboardPanel.Controls.Add(prodouctsSoldTodayPanel);
             dashboardPanel.Controls.Add(totalRevenuePanel);
@@ -192,15 +202,67 @@ namespace EDP
             dashboardPanel.Dock = DockStyle.Fill;
             dashboardPanel.Location = new Point(0, 0);
             dashboardPanel.Name = "dashboardPanel";
-            dashboardPanel.Size = new Size(800, 450);
+            dashboardPanel.Size = new Size(730, 510);
             dashboardPanel.TabIndex = 1;
             dashboardPanel.Paint += dashboardPanel_Paint;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(479, 244);
+            label3.Name = "label3";
+            label3.Size = new Size(162, 21);
+            label3.TabIndex = 8;
+            label3.Text = "Discounted Products";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(110, 244);
+            label2.Name = "label2";
+            label2.Size = new Size(164, 21);
+            label2.TabIndex = 7;
+            label2.Text = "Best Selling Products";
+            // 
+            // discountedProductsGridView
+            // 
+            discountedProductsGridView.AllowUserToAddRows = false;
+            discountedProductsGridView.AllowUserToDeleteRows = false;
+            discountedProductsGridView.AllowUserToResizeColumns = false;
+            discountedProductsGridView.AllowUserToResizeRows = false;
+            discountedProductsGridView.BackgroundColor = Color.WhiteSmoke;
+            discountedProductsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            discountedProductsGridView.Location = new Point(375, 277);
+            discountedProductsGridView.Name = "discountedProductsGridView";
+            discountedProductsGridView.RowHeadersVisible = false;
+            discountedProductsGridView.Size = new Size(328, 205);
+            discountedProductsGridView.TabIndex = 6;
+            // 
+            // bestSellingProductsGridView
+            // 
+            bestSellingProductsGridView.AllowUserToAddRows = false;
+            bestSellingProductsGridView.AllowUserToDeleteRows = false;
+            bestSellingProductsGridView.AllowUserToResizeColumns = false;
+            bestSellingProductsGridView.AllowUserToResizeRows = false;
+            bestSellingProductsGridView.BackgroundColor = Color.WhiteSmoke;
+            bestSellingProductsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            bestSellingProductsGridView.Location = new Point(30, 277);
+            bestSellingProductsGridView.Name = "bestSellingProductsGridView";
+            bestSellingProductsGridView.RowHeadersVisible = false;
+            bestSellingProductsGridView.Size = new Size(328, 205);
+            bestSellingProductsGridView.TabIndex = 5;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(730, 510);
             Controls.Add(dashboardPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Dashboard";
@@ -215,6 +277,9 @@ namespace EDP
             totalProductsSoldPanel.ResumeLayout(false);
             totalProductsSoldPanel.PerformLayout();
             dashboardPanel.ResumeLayout(false);
+            dashboardPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)discountedProductsGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bestSellingProductsGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -233,5 +298,9 @@ namespace EDP
         private Label totalProductsSold;
         private Label label6;
         private Panel dashboardPanel;
+        private DataGridView bestSellingProductsGridView;
+        private Label label3;
+        private Label label2;
+        private DataGridView discountedProductsGridView;
     }
 }

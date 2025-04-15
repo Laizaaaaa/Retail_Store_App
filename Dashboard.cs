@@ -26,6 +26,8 @@ namespace EDP
         {
             this.ControlBox = false;
             LoadDashboardData();
+            LoadBestSellingProductsData();
+            LoadDiscountedProductsData();
         }
 
         private void LoadDashboardData()
@@ -58,6 +60,40 @@ namespace EDP
                 {
                     object result = cmd.ExecuteScalar();
                     productsSoldToday.Text = result != DBNull.Value ? result.ToString() : "0";
+                }
+            }
+        }
+
+        private void LoadBestSellingProductsData()
+        {
+            using (var conn = DBConnection.GetConnection())
+            {
+
+                string query = "SELECT * FROM best_selling_products";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    bestSellingProductsGridView.DataSource = dt;
+                }
+            }
+        }
+
+        private void LoadDiscountedProductsData()
+        {
+            using (var conn = DBConnection.GetConnection())
+            {
+
+                string query = "SELECT * FROM view_discounted_products";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                   discountedProductsGridView.DataSource = dt;
                 }
             }
         }

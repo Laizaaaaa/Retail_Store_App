@@ -28,47 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             monthlySalesGridView = new DataGridView();
+            monthlySalesPanel = new Panel();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)monthlySalesGridView).BeginInit();
+            monthlySalesPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(348, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Monthly Sales";
             // 
             // monthlySalesGridView
             // 
+            monthlySalesGridView.AllowUserToAddRows = false;
+            monthlySalesGridView.AllowUserToDeleteRows = false;
+            monthlySalesGridView.AllowUserToResizeColumns = false;
+            monthlySalesGridView.AllowUserToResizeRows = false;
+            monthlySalesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            monthlySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            monthlySalesGridView.BackgroundColor = Color.WhiteSmoke;
             monthlySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            monthlySalesGridView.Location = new Point(79, 44);
+            monthlySalesGridView.Location = new Point(28, 84);
             monthlySalesGridView.Name = "monthlySalesGridView";
-            monthlySalesGridView.Size = new Size(674, 372);
+            monthlySalesGridView.RowHeadersVisible = false;
+            monthlySalesGridView.ScrollBars = ScrollBars.None;
+            monthlySalesGridView.Size = new Size(670, 51);
             monthlySalesGridView.TabIndex = 1;
+            // 
+            // monthlySalesPanel
+            // 
+            monthlySalesPanel.Controls.Add(label2);
+            monthlySalesPanel.Dock = DockStyle.Fill;
+            monthlySalesPanel.Location = new Point(0, 0);
+            monthlySalesPanel.Name = "monthlySalesPanel";
+            monthlySalesPanel.Size = new Size(730, 510);
+            monthlySalesPanel.TabIndex = 2;
+            monthlySalesPanel.Paint += monthlySalesPanel_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(329, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(105, 20);
+            label2.TabIndex = 9;
+            label2.Text = "Monthly Sales";
             // 
             // MonthlySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(730, 510);
             Controls.Add(monthlySalesGridView);
-            Controls.Add(label1);
+            Controls.Add(monthlySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MonthlySales";
             Text = "MonthlySales";
             Load += MonthlySales_Load;
             ((System.ComponentModel.ISupportInitialize)monthlySalesGridView).EndInit();
+            monthlySalesPanel.ResumeLayout(false);
+            monthlySalesPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private DataGridView monthlySalesGridView;
+        private Panel monthlySalesPanel;
+        private Label label2;
     }
 }

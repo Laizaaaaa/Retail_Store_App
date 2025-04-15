@@ -28,60 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            dailySalesPanel = new Panel();
+            label2 = new Label();
             dailySalesGridView = new DataGridView();
-            label1 = new Label();
-            panel1.SuspendLayout();
+            dailySalesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dailySalesGridView).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // dailySalesPanel
             // 
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(dailySalesGridView);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 450);
-            panel1.TabIndex = 0;
+            dailySalesPanel.BackColor = SystemColors.Control;
+            dailySalesPanel.Controls.Add(label2);
+            dailySalesPanel.Controls.Add(dailySalesGridView);
+            dailySalesPanel.Dock = DockStyle.Fill;
+            dailySalesPanel.Location = new Point(0, 0);
+            dailySalesPanel.Name = "dailySalesPanel";
+            dailySalesPanel.Size = new Size(730, 510);
+            dailySalesPanel.TabIndex = 0;
+            dailySalesPanel.Paint += dailySalesPanel_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(329, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(82, 20);
+            label2.TabIndex = 8;
+            label2.Text = "Daily Sales";
             // 
             // dailySalesGridView
             // 
+            dailySalesGridView.AllowUserToAddRows = false;
+            dailySalesGridView.AllowUserToDeleteRows = false;
+            dailySalesGridView.AllowUserToResizeColumns = false;
+            dailySalesGridView.AllowUserToResizeRows = false;
+            dailySalesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dailySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dailySalesGridView.BackgroundColor = Color.WhiteSmoke;
             dailySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dailySalesGridView.Location = new Point(42, 58);
+            dailySalesGridView.Location = new Point(28, 84);
             dailySalesGridView.Name = "dailySalesGridView";
-            dailySalesGridView.Size = new Size(710, 350);
+            dailySalesGridView.RowHeadersVisible = false;
+            dailySalesGridView.Size = new Size(670, 380);
             dailySalesGridView.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(321, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(62, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Daily Sales";
             // 
             // DailySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(panel1);
+            ClientSize = new Size(730, 510);
+            Controls.Add(dailySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DailySales";
             Text = "DailySales";
             Load += DailySales_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            dailySalesPanel.ResumeLayout(false);
+            dailySalesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dailySalesGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel dailySalesPanel;
         private DataGridView dailySalesGridView;
-        private Label label1;
+        private Label label2;
     }
 }

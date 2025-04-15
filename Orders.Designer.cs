@@ -28,71 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             ordersGridView = new DataGridView();
             orderItemsGridView = new DataGridView();
-            label2 = new Label();
+            ordersPanel = new Panel();
+            label1 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)ordersGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderItemsGridView).BeginInit();
+            ordersPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(191, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Orders";
             // 
             // ordersGridView
             // 
+            ordersGridView.AllowUserToAddRows = false;
+            ordersGridView.AllowUserToDeleteRows = false;
+            ordersGridView.AllowUserToResizeColumns = false;
+            ordersGridView.AllowUserToResizeRows = false;
+            ordersGridView.BackgroundColor = Color.WhiteSmoke;
             ordersGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ordersGridView.Location = new Point(49, 44);
+            ordersGridView.Location = new Point(21, 84);
             ordersGridView.Name = "ordersGridView";
-            ordersGridView.Size = new Size(340, 333);
+            ordersGridView.RowHeadersVisible = false;
+            ordersGridView.Size = new Size(340, 380);
             ordersGridView.TabIndex = 1;
             // 
             // orderItemsGridView
             // 
+            orderItemsGridView.AllowUserToAddRows = false;
+            orderItemsGridView.AllowUserToDeleteRows = false;
+            orderItemsGridView.AllowUserToResizeColumns = false;
+            orderItemsGridView.AllowUserToResizeRows = false;
+            orderItemsGridView.BackgroundColor = Color.WhiteSmoke;
             orderItemsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            orderItemsGridView.Location = new Point(413, 44);
+            orderItemsGridView.Location = new Point(367, 84);
             orderItemsGridView.Name = "orderItemsGridView";
-            orderItemsGridView.Size = new Size(340, 333);
+            orderItemsGridView.RowHeadersVisible = false;
+            orderItemsGridView.Size = new Size(340, 380);
             orderItemsGridView.TabIndex = 2;
             // 
-            // label2
+            // ordersPanel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(547, 26);
-            label2.Name = "label2";
-            label2.Size = new Size(69, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Order Items";
+            ordersPanel.Controls.Add(label1);
+            ordersPanel.Controls.Add(label3);
+            ordersPanel.Controls.Add(orderItemsGridView);
+            ordersPanel.Controls.Add(ordersGridView);
+            ordersPanel.Dock = DockStyle.Fill;
+            ordersPanel.Location = new Point(0, 0);
+            ordersPanel.Name = "ordersPanel";
+            ordersPanel.Size = new Size(730, 510);
+            ordersPanel.TabIndex = 4;
+            ordersPanel.Paint += ordersPanel_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(512, 43);
+            label1.Name = "label1";
+            label1.Size = new Size(89, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Order Items";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(180, 43);
+            label3.Name = "label3";
+            label3.Size = new Size(55, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Orders";
             // 
             // Orders
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(orderItemsGridView);
-            Controls.Add(ordersGridView);
-            Controls.Add(label1);
+            ClientSize = new Size(730, 510);
+            Controls.Add(ordersPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Orders";
             Text = "Orders";
             Load += Orders_Load;
             ((System.ComponentModel.ISupportInitialize)ordersGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderItemsGridView).EndInit();
+            ordersPanel.ResumeLayout(false);
+            ordersPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private DataGridView ordersGridView;
         private DataGridView orderItemsGridView;
-        private Label label2;
+        private Panel ordersPanel;
+        private Label label1;
+        private Label label3;
     }
 }

@@ -114,13 +114,37 @@ namespace EDP
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            // You can add authentication logic here first if needed
+            Home home = new Home();
 
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
+            home.FormClosed += (s, args) => this.Close();
 
-            this.Hide(); // Or use this.Close() if you want to terminate the login form completely
+            home.Show();
+            this.Hide();
         }
 
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            maximizeButton.Visible = false;
+            exitFullScreenButton.Visible = true;
+        }
+
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void exitFullScreenButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            maximizeButton.Visible = true;
+            exitFullScreenButton.Visible = false;
+        }
     }
 }

@@ -30,6 +30,11 @@
         {
             panel1 = new Panel();
             loginFormPanel = new Panel();
+            controlPanel = new FlowLayoutPanel();
+            minimizeButton = new PictureBox();
+            maximizeButton = new PictureBox();
+            exitFullScreenButton = new PictureBox();
+            closeButton = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             loginBtn = new Button();
@@ -40,17 +45,25 @@
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             loginFormPanel.SuspendLayout();
+            controlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)minimizeButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)maximizeButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)exitFullScreenButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)closeButton).BeginInit();
             loginPicPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.AutoSize = true;
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(controlPanel);
             panel1.Controls.Add(loginFormPanel);
             panel1.Controls.Add(loginPicPanel);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 450);
+            panel1.Size = new Size(733, 510);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -63,11 +76,67 @@
             loginFormPanel.Controls.Add(loginLabel);
             loginFormPanel.Controls.Add(passwordInputField);
             loginFormPanel.Controls.Add(emailInputField);
-            loginFormPanel.Location = new Point(395, 34);
+            loginFormPanel.Location = new Point(372, 50);
             loginFormPanel.Name = "loginFormPanel";
-            loginFormPanel.Size = new Size(304, 389);
+            loginFormPanel.Size = new Size(279, 395);
             loginFormPanel.TabIndex = 0;
             loginFormPanel.Paint += loginFormPanel_Paint;
+            // 
+            // controlPanel
+            // 
+            controlPanel.Controls.Add(minimizeButton);
+            controlPanel.Controls.Add(maximizeButton);
+            controlPanel.Controls.Add(exitFullScreenButton);
+            controlPanel.Controls.Add(closeButton);
+            controlPanel.Location = new Point(624, 0);
+            controlPanel.Name = "controlPanel";
+            controlPanel.Size = new Size(106, 28);
+            controlPanel.TabIndex = 4;
+            // 
+            // minimizeButton
+            // 
+            minimizeButton.Image = Properties.Resources.minimize_icon;
+            minimizeButton.Location = new Point(3, 3);
+            minimizeButton.Name = "minimizeButton";
+            minimizeButton.Size = new Size(21, 20);
+            minimizeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            minimizeButton.TabIndex = 0;
+            minimizeButton.TabStop = false;
+            minimizeButton.Click += minimizeButton_Click;
+            // 
+            // maximizeButton
+            // 
+            maximizeButton.Image = Properties.Resources.maximize_icon;
+            maximizeButton.Location = new Point(30, 3);
+            maximizeButton.Name = "maximizeButton";
+            maximizeButton.Size = new Size(20, 20);
+            maximizeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            maximizeButton.TabIndex = 1;
+            maximizeButton.TabStop = false;
+            maximizeButton.Click += maximizeButton_Click;
+            // 
+            // exitFullScreenButton
+            // 
+            exitFullScreenButton.Image = Properties.Resources.exit_full_screen_icon;
+            exitFullScreenButton.Location = new Point(56, 3);
+            exitFullScreenButton.Name = "exitFullScreenButton";
+            exitFullScreenButton.Size = new Size(20, 20);
+            exitFullScreenButton.SizeMode = PictureBoxSizeMode.Zoom;
+            exitFullScreenButton.TabIndex = 3;
+            exitFullScreenButton.TabStop = false;
+            exitFullScreenButton.Visible = false;
+            exitFullScreenButton.Click += exitFullScreenButton_Click;
+            // 
+            // closeButton
+            // 
+            closeButton.Image = Properties.Resources.exit_icon;
+            closeButton.Location = new Point(82, 3);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(20, 20);
+            closeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            closeButton.TabIndex = 2;
+            closeButton.TabStop = false;
+            closeButton.Click += closeButton_Click;
             // 
             // label2
             // 
@@ -152,9 +221,9 @@
             // 
             loginPicPanel.BackColor = Color.Transparent;
             loginPicPanel.Controls.Add(pictureBox1);
-            loginPicPanel.Location = new Point(86, 34);
+            loginPicPanel.Location = new Point(88, 50);
             loginPicPanel.Name = "loginPicPanel";
-            loginPicPanel.Size = new Size(313, 389);
+            loginPicPanel.Size = new Size(288, 395);
             loginPicPanel.TabIndex = 1;
             loginPicPanel.Paint += loginPicPanel_Paint;
             // 
@@ -165,7 +234,7 @@
             pictureBox1.Image = Properties.Resources.logo_transparent;
             pictureBox1.Location = new Point(3, 30);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(304, 312);
+            pictureBox1.Size = new Size(285, 298);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -173,19 +242,26 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            ClientSize = new Size(730, 510);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login Form";
             Load += LoginForm_Shown;
             panel1.ResumeLayout(false);
             loginFormPanel.ResumeLayout(false);
             loginFormPanel.PerformLayout();
+            controlPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)minimizeButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)maximizeButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)exitFullScreenButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)closeButton).EndInit();
             loginPicPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -200,5 +276,10 @@
         private Panel loginPicPanel;
         private Label label2;
         private Label label1;
+        private FlowLayoutPanel controlPanel;
+        private PictureBox minimizeButton;
+        private PictureBox maximizeButton;
+        private PictureBox exitFullScreenButton;
+        private PictureBox closeButton;
     }
 }

@@ -30,45 +30,72 @@
         {
             label1 = new Label();
             categoriesGridView = new DataGridView();
+            categoriesPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)categoriesGridView).BeginInit();
+            categoriesPanel.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(347, 9);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(343, 67);
             label1.Name = "label1";
-            label1.Size = new Size(63, 15);
+            label1.Size = new Size(81, 20);
             label1.TabIndex = 0;
             label1.Text = "Categories";
             // 
             // categoriesGridView
             // 
+            categoriesGridView.AllowUserToAddRows = false;
+            categoriesGridView.AllowUserToDeleteRows = false;
+            categoriesGridView.AllowUserToResizeColumns = false;
+            categoriesGridView.AllowUserToResizeRows = false;
+            categoriesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            categoriesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            categoriesGridView.BackgroundColor = Color.WhiteSmoke;
             categoriesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            categoriesGridView.Location = new Point(26, 48);
+            categoriesGridView.Location = new Point(96, 110);
             categoriesGridView.Name = "categoriesGridView";
-            categoriesGridView.Size = new Size(746, 369);
+            categoriesGridView.RowHeadersVisible = false;
+            categoriesGridView.ScrollBars = ScrollBars.None;
+            categoriesGridView.ShowEditingIcon = false;
+            categoriesGridView.Size = new Size(554, 236);
             categoriesGridView.TabIndex = 1;
+            // 
+            // categoriesPanel
+            // 
+            categoriesPanel.Controls.Add(label1);
+            categoriesPanel.Controls.Add(categoriesGridView);
+            categoriesPanel.Dock = DockStyle.Fill;
+            categoriesPanel.Location = new Point(0, 0);
+            categoriesPanel.Name = "categoriesPanel";
+            categoriesPanel.Size = new Size(730, 510);
+            categoriesPanel.TabIndex = 2;
+            categoriesPanel.Paint += categoriesPanel_Paint;
             // 
             // Categories
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(categoriesGridView);
-            Controls.Add(label1);
+            ClientSize = new Size(730, 510);
+            Controls.Add(categoriesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Categories";
             Text = "Categories";
             Load += Categories_Load;
             ((System.ComponentModel.ISupportInitialize)categoriesGridView).EndInit();
+            categoriesPanel.ResumeLayout(false);
+            categoriesPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
         private DataGridView categoriesGridView;
+        private Panel categoriesPanel;
     }
 }

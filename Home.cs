@@ -23,10 +23,12 @@ namespace EDP
         WeeklySales weeklySales;
         DailySales dailySales;
         Categories categories;
+        LoginForm loginForm;
 
         public Home()
         {
             InitializeComponent();
+            OpenChildForm(new Dashboard());
         }
 
         bool sidebarExpand = false;
@@ -69,24 +71,10 @@ namespace EDP
         {
             sidebarTransition.Start();
         }
+
         private void dashboardButton_Click(object sender, EventArgs e)
         {
-            if (dashboard == null)
-            {
-                dashboard = new Dashboard();
-                dashboard.FormClosed += Dashboard_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Show();
-            }
-            else
-            {
-                dashboard.Activate();
-            }
-        }
-
-        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            dashboard = null;
+            OpenChildForm(new Dashboard());
         }
 
         bool salesMenuExpand = false;
@@ -117,189 +105,91 @@ namespace EDP
         {
             salesMenuTransition.Start();
 
-            if (sales == null)
-            {
-                sales = new Sales();
-                sales.FormClosed += sales_FormClosed;
-                sales.MdiParent = this;
-                sales.Show();
-            }
-            else
-            {
-                sales.Activate();
-            }
+            OpenChildForm(new Sales());
         }
-
-        private void sales_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            sales = null;
-        }
-
 
         private void yearlySalesButton_Click(object sender, EventArgs e)
         {
-            if (yearlySales == null)
-            {
-                yearlySales = new YearlySales();
-                yearlySales.FormClosed += yearlySales_FormClosed;
-                yearlySales.MdiParent = this;
-                yearlySales.Show();
-            }
-            else
-            {
-                yearlySales.Activate();
-            }
-        }
-
-        private void yearlySales_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            yearlySales = null;
+            OpenChildForm(new YearlySales());
         }
 
         private void monthlySalesButton_Click(object sender, EventArgs e)
         {
-            if (monthlySales == null)
-            {
-                monthlySales = new MonthlySales();
-                monthlySales.FormClosed += monthlySales_FormClosed;
-                monthlySales.MdiParent = this;
-                monthlySales.Show();
-            }
-            else
-            {
-                monthlySales.Activate();
-            }
-        }
-
-        private void monthlySales_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            monthlySales = null;
+            OpenChildForm(new MonthlySales());
         }
 
         private void weeklySalesButton_Click(object sender, EventArgs e)
         {
-            if (weeklySales == null)
-            {
-                weeklySales = new WeeklySales();
-                weeklySales.FormClosed += weeklySales_FormClosed;
-                weeklySales.MdiParent = this;
-                weeklySales.Show();
-            }
-            else
-            {
-                weeklySales.Activate();
-            }
+            OpenChildForm(new WeeklySales());
         }
-
-        private void weeklySales_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            weeklySales = null;
-        }
-
         private void dailySalesButton_Click(object sender, EventArgs e)
         {
-            if (dailySales == null)
-            {
-                dailySales = new DailySales();
-                dailySales.FormClosed += dailySales_FormClosed;
-                dailySales.MdiParent = this;
-                dailySales.Show();
-            }
-            else
-            {
-                dailySales.Activate();
-            }
-        }
-
-        private void dailySales_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            dailySales = null;
+            OpenChildForm(new DailySales());
         }
 
         private void inventoryButton_Click(object sender, EventArgs e)
         {
-            if (inventory == null)
-            {
-                inventory = new Inventory();
-                inventory.FormClosed += inventory_FormClosed;
-                inventory.MdiParent = this;
-                inventory.Show();
-            }
-            else
-            {
-                inventory.Activate();
-            }
-        }
-
-        private void inventory_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            inventory = null;
+            OpenChildForm(new Inventory());
         }
 
         private void suppliersButton_Click(object sender, EventArgs e)
         {
-            if (suppliers == null)
-            {
-                suppliers = new Suppliers();
-                suppliers.FormClosed += suppliers_FormClosed;
-                suppliers.MdiParent = this;
-                suppliers.Show();
-            }
-            else
-            {
-                suppliers.Activate();
-            }
-        }
-
-        private void suppliers_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            suppliers = null;
+            OpenChildForm(new Suppliers());
         }
 
         private void ordersButton_Click(object sender, EventArgs e)
         {
-            if (orders == null)
-            {
-                orders = new Orders();
-                orders.FormClosed += orders_FormClosed;
-                orders.MdiParent = this;
-                orders.Show();
-            }
-            else
-            {
-                orders.Activate();
-            }
-        }
-
-        private void orders_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            orders = null;
+            OpenChildForm(new Orders());
         }
 
         private void categoriesButton_Click(object sender, EventArgs e)
         {
-            if (categories == null)
-            {
-                categories = new Categories();
-                categories.FormClosed += categories_FormClosed;
-                categories.MdiParent = this;
-                categories.Show();
-            }
-            else
-            {
-                categories.Activate();
-            }
+            OpenChildForm(new Categories());
         }
 
-        private void categories_FormClosed(object? sender, FormClosedEventArgs e)
+        private Form activeForm = null;
+
+        private void OpenChildForm(Form childForm)
         {
-            categories = null;
-        }
+            if (activeForm != null)
+                activeForm.Close();
 
+            activeForm = childForm;
+            childForm.MdiParent = this;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            childForm.FormClosed += (s, e) => { activeForm = null; };
+            childForm.Show();
+        }
 
         private void Home_Load(object sender, EventArgs e)
         {
+            exitFullScreenButton.Visible = false;
+        }
 
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            maximizeButton.Visible = false;
+            exitFullScreenButton.Visible = true;
+        }
+
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void exitFullScreenButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            maximizeButton.Visible = true;
+            exitFullScreenButton.Visible = false;
         }
 
     }

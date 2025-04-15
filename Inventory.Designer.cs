@@ -39,27 +39,37 @@
             // 
             inventoryPanel.Controls.Add(label1);
             inventoryPanel.Controls.Add(productsGridView);
+            inventoryPanel.Dock = DockStyle.Fill;
             inventoryPanel.Location = new Point(0, 0);
             inventoryPanel.Name = "inventoryPanel";
-            inventoryPanel.Size = new Size(801, 450);
+            inventoryPanel.Size = new Size(730, 510);
             inventoryPanel.TabIndex = 0;
             inventoryPanel.Paint += inventoryPanel_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(340, 7);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(329, 43);
             label1.Name = "label1";
-            label1.Size = new Size(57, 15);
+            label1.Size = new Size(81, 21);
             label1.TabIndex = 1;
             label1.Text = "Inventory";
             // 
             // productsGridView
             // 
+            productsGridView.AllowUserToAddRows = false;
+            productsGridView.AllowUserToDeleteRows = false;
+            productsGridView.AllowUserToResizeColumns = false;
+            productsGridView.AllowUserToResizeRows = false;
+            productsGridView.BackgroundColor = Color.WhiteSmoke;
             productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productsGridView.Location = new Point(114, 25);
+            productsGridView.Location = new Point(28, 84);
             productsGridView.Name = "productsGridView";
-            productsGridView.Size = new Size(558, 399);
+            productsGridView.RowHeadersVisible = false;
+            productsGridView.Size = new Size(670, 380);
             productsGridView.TabIndex = 0;
             productsGridView.VisibleChanged += showProductsTable;
             // 
@@ -67,7 +77,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(730, 510);
             Controls.Add(inventoryPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Inventory";
