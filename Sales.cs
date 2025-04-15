@@ -11,49 +11,49 @@ using MySql.Data.MySqlClient;
 
 namespace EDP
 {
-    public partial class Orders : Form
+    public partial class Sales : Form
     {
-        public Orders()
+        public Sales()
         {
             InitializeComponent();
         }
 
-        private void Orders_Load(object sender, EventArgs e)
+        private void Sales_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-            LoadOrdersData();
-            LoadOrderItemsData();
+            LoadSalesData();
+            LoadSaleItemsData();
         }
-        private void LoadOrdersData()
+        private void LoadSalesData()
         {
             using (var conn = DBConnection.GetConnection())
             {
 
-                string query = "SELECT * FROM Orders";
+                string query = "SELECT * FROM Sales";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var adapter = new MySqlDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    ordersGridView.DataSource = dt;
+                    salesGridView.DataSource = dt;
                 }
             }
         }
 
-        private void LoadOrderItemsData()
+        private void LoadSaleItemsData()
         {
             using (var conn = DBConnection.GetConnection())
             {
 
-                string query = "SELECT * FROM Order_Items";
+                string query = "SELECT * FROM Sales_Items";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var adapter = new MySqlDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    orderItemsGridView.DataSource = dt;
+                    saleItemsGridView.DataSource = dt;
                 }
             }
         }

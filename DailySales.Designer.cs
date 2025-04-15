@@ -28,20 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
+            dailySalesGridView = new DataGridView();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dailySalesGridView).BeginInit();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(dailySalesGridView);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 450);
+            panel1.TabIndex = 0;
+            // 
+            // dailySalesGridView
+            // 
+            dailySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dailySalesGridView.Location = new Point(42, 58);
+            dailySalesGridView.Name = "dailySalesGridView";
+            dailySalesGridView.Size = new Size(710, 350);
+            dailySalesGridView.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(321, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(62, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Daily Sales";
             // 
             // DailySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DailySales";
             Text = "DailySales";
             Load += DailySales_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dailySalesGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private DataGridView dailySalesGridView;
+        private Label label1;
     }
 }

@@ -42,3 +42,6 @@ C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.genruntimeconfig.cache
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\ref\EDP.dll
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Orders.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Suppliers.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Categories.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Sales.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.YearlySales.resources

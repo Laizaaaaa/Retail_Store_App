@@ -1,6 +1,6 @@
 ﻿namespace EDP
 {
-    partial class WeeklySales
+    partial class Categories
     {
         /// <summary>
         /// Required designer variable.
@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            weeklySalesGridView = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)weeklySalesGridView).BeginInit();
+            categoriesGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)categoriesGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(328, 9);
+            label1.Location = new Point(347, 9);
             label1.Name = "label1";
-            label1.Size = new Size(74, 15);
+            label1.Size = new Size(63, 15);
             label1.TabIndex = 0;
-            label1.Text = "Weekly Sales";
+            label1.Text = "Categories";
             // 
-            // weeklySalesGridView
+            // categoriesGridView
             // 
-            weeklySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            weeklySalesGridView.Location = new Point(35, 43);
-            weeklySalesGridView.Name = "weeklySalesGridView";
-            weeklySalesGridView.Size = new Size(728, 374);
-            weeklySalesGridView.TabIndex = 1;
+            categoriesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            categoriesGridView.Location = new Point(26, 48);
+            categoriesGridView.Name = "categoriesGridView";
+            categoriesGridView.Size = new Size(746, 369);
+            categoriesGridView.TabIndex = 1;
             // 
-            // WeeklySales
+            // Categories
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(weeklySalesGridView);
+            Controls.Add(categoriesGridView);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "WeeklySales";
-            Text = "WeeklySales";
-            Load += WeeklySales_Load;
-            ((System.ComponentModel.ISupportInitialize)weeklySalesGridView).EndInit();
+            Name = "Categories";
+            Text = "Categories";
+            Load += Categories_Load;
+            ((System.ComponentModel.ISupportInitialize)categoriesGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -69,6 +69,6 @@
         #endregion
 
         private Label label1;
-        private DataGridView weeklySalesGridView;
+        private DataGridView categoriesGridView;
     }
 }

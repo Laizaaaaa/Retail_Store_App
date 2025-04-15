@@ -11,34 +11,33 @@ using MySql.Data.MySqlClient;
 
 namespace EDP
 {
-    public partial class DailySales : Form
+    public partial class YearlySales : Form
     {
-        public DailySales()
+        public YearlySales()
         {
             InitializeComponent();
         }
 
-        private void DailySales_Load(object sender, EventArgs e)
+        private void YearlySales_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-            LoadDailySalesData();
+            LoadYearlySalesData();
         }
-        private void LoadDailySalesData()
+        private void LoadYearlySalesData()
         {
             using (var conn = DBConnection.GetConnection())
             {
 
-                string query = "SELECT * FROM Daily_Sales_Report";
+                string query = "SELECT * FROM Yearly_Sales_Report";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var adapter = new MySqlDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dailySalesGridView.DataSource = dt;
+                    yearlySalesGridView.DataSource = dt;
                 }
             }
         }
-
     }
 }

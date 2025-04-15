@@ -29,27 +29,39 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            suppliersGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)suppliersGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(326, 135);
+            label1.Location = new Point(364, 9);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
             label1.TabIndex = 0;
             label1.Text = "Suppliers";
+            // 
+            // suppliersGridView
+            // 
+            suppliersGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            suppliersGridView.Location = new Point(58, 52);
+            suppliersGridView.Name = "suppliersGridView";
+            suppliersGridView.Size = new Size(725, 398);
+            suppliersGridView.TabIndex = 1;
             // 
             // Suppliers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(833, 486);
+            Controls.Add(suppliersGridView);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Suppliers";
             Text = "Suppliers";
             Load += Suppliers_Load;
+            ((System.ComponentModel.ISupportInitialize)suppliersGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -57,5 +69,6 @@
         #endregion
 
         private Label label1;
+        private DataGridView suppliersGridView;
     }
 }

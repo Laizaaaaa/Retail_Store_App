@@ -14,14 +14,11 @@ namespace EDP
 
         public static MySqlConnection GetConnection()
         {
-            if (connection == null)
-                connection = new MySqlConnection(connectionString);
-
-            if (connection.State != System.Data.ConnectionState.Open)
-                connection.Open();
-
-            return connection;
+            var conn = new MySqlConnection(connectionString);
+            conn.Open();
+            return conn;
         }
+
 
         public static void CloseConnection()
         {

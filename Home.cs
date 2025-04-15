@@ -17,9 +17,12 @@ namespace EDP
         Suppliers suppliers;
         Inventory inventory;
         Orders orders;
+        Sales sales;
+        YearlySales yearlySales;
         MonthlySales monthlySales;
         WeeklySales weeklySales;
         DailySales dailySales;
+        Categories categories;
 
         public Home()
         {
@@ -93,7 +96,7 @@ namespace EDP
             if (salesMenuExpand == false)
             {
                 salesMenuContainer.Height += 10;
-                if (salesMenuContainer.Height >= 176)
+                if (salesMenuContainer.Height >= 220)
                 {
                     salesMenuTransition.Stop();
                     salesMenuExpand = true;
@@ -113,6 +116,44 @@ namespace EDP
         private void salesButton_Click_1(object sender, EventArgs e)
         {
             salesMenuTransition.Start();
+
+            if (sales == null)
+            {
+                sales = new Sales();
+                sales.FormClosed += sales_FormClosed;
+                sales.MdiParent = this;
+                sales.Show();
+            }
+            else
+            {
+                sales.Activate();
+            }
+        }
+
+        private void sales_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            sales = null;
+        }
+
+
+        private void yearlySalesButton_Click(object sender, EventArgs e)
+        {
+            if (yearlySales == null)
+            {
+                yearlySales = new YearlySales();
+                yearlySales.FormClosed += yearlySales_FormClosed;
+                yearlySales.MdiParent = this;
+                yearlySales.Show();
+            }
+            else
+            {
+                yearlySales.Activate();
+            }
+        }
+
+        private void yearlySales_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            yearlySales = null;
         }
 
         private void monthlySalesButton_Click(object sender, EventArgs e)
@@ -234,5 +275,32 @@ namespace EDP
         {
             orders = null;
         }
+
+        private void categoriesButton_Click(object sender, EventArgs e)
+        {
+            if (categories == null)
+            {
+                categories = new Categories();
+                categories.FormClosed += categories_FormClosed;
+                categories.MdiParent = this;
+                categories.Show();
+            }
+            else
+            {
+                categories.Activate();
+            }
+        }
+
+        private void categories_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            categories = null;
+        }
+
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
