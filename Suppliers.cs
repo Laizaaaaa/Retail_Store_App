@@ -16,5 +16,10 @@ namespace EDP
         {
             InitializeComponent();
         }
+
+        private void Suppliers_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
     }
 }

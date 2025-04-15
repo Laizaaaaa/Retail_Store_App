@@ -19,7 +19,7 @@ namespace EDP
 
         private void MonthlySales_Load(object sender, EventArgs e)
         {
-
+            this.ControlBox = false;
         }
     }
 }

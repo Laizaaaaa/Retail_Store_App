@@ -31,17 +31,17 @@ namespace EDP
         private void InitializeComponent()
         {
             todaysGrossSalePanel = new Panel();
+            todaysGrossSale = new Label();
             label1 = new Label();
-            label2 = new Label();
             totalRevenuePanel = new Panel();
+            totalRevenue = new Label();
             label8 = new Label();
-            label7 = new Label();
             prodouctsSoldTodayPanel = new Panel();
+            productsSoldToday = new Label();
             label4 = new Label();
-            label3 = new Label();
             totalProductsSoldPanel = new Panel();
+            totalProductsSold = new Label();
             label6 = new Label();
-            label5 = new Label();
             dashboardPanel = new Panel();
             todaysGrossSalePanel.SuspendLayout();
             totalRevenuePanel.SuspendLayout();
@@ -54,13 +54,23 @@ namespace EDP
             // 
             todaysGrossSalePanel.BackColor = SystemColors.ControlLightLight;
             todaysGrossSalePanel.BorderStyle = BorderStyle.FixedSingle;
-            todaysGrossSalePanel.Controls.Add(label2);
+            todaysGrossSalePanel.Controls.Add(todaysGrossSale);
             todaysGrossSalePanel.Controls.Add(label1);
             todaysGrossSalePanel.ForeColor = Color.CornflowerBlue;
-            todaysGrossSalePanel.Location = new Point(119, 93);
+            todaysGrossSalePanel.Location = new Point(181, 97);
             todaysGrossSalePanel.Name = "todaysGrossSalePanel";
             todaysGrossSalePanel.Size = new Size(200, 100);
             todaysGrossSalePanel.TabIndex = 0;
+            // 
+            // todaysGrossSale
+            // 
+            todaysGrossSale.AutoSize = true;
+            todaysGrossSale.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            todaysGrossSale.Location = new Point(60, 43);
+            todaysGrossSale.Name = "todaysGrossSale";
+            todaysGrossSale.Size = new Size(18, 20);
+            todaysGrossSale.TabIndex = 1;
+            todaysGrossSale.Text = "$";
             // 
             // label1
             // 
@@ -73,27 +83,27 @@ namespace EDP
             label1.TabIndex = 0;
             label1.Text = "Today's Gross Sale";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            label2.Location = new Point(60, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(18, 20);
-            label2.TabIndex = 1;
-            label2.Text = "$";
-            // 
             // totalRevenuePanel
             // 
             totalRevenuePanel.BackColor = SystemColors.ControlLightLight;
             totalRevenuePanel.BorderStyle = BorderStyle.FixedSingle;
-            totalRevenuePanel.Controls.Add(label7);
+            totalRevenuePanel.Controls.Add(totalRevenue);
             totalRevenuePanel.Controls.Add(label8);
             totalRevenuePanel.ForeColor = Color.CornflowerBlue;
-            totalRevenuePanel.Location = new Point(119, 219);
+            totalRevenuePanel.Location = new Point(181, 223);
             totalRevenuePanel.Name = "totalRevenuePanel";
             totalRevenuePanel.Size = new Size(200, 100);
             totalRevenuePanel.TabIndex = 3;
+            // 
+            // totalRevenue
+            // 
+            totalRevenue.AutoSize = true;
+            totalRevenue.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            totalRevenue.Location = new Point(60, 43);
+            totalRevenue.Name = "totalRevenue";
+            totalRevenue.Size = new Size(18, 20);
+            totalRevenue.TabIndex = 1;
+            totalRevenue.Text = "$";
             // 
             // label8
             // 
@@ -106,27 +116,27 @@ namespace EDP
             label8.TabIndex = 0;
             label8.Text = "Total Revenue";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            label7.Location = new Point(60, 43);
-            label7.Name = "label7";
-            label7.Size = new Size(18, 20);
-            label7.TabIndex = 1;
-            label7.Text = "$";
-            // 
             // prodouctsSoldTodayPanel
             // 
             prodouctsSoldTodayPanel.BackColor = SystemColors.ControlLightLight;
             prodouctsSoldTodayPanel.BorderStyle = BorderStyle.FixedSingle;
-            prodouctsSoldTodayPanel.Controls.Add(label3);
+            prodouctsSoldTodayPanel.Controls.Add(productsSoldToday);
             prodouctsSoldTodayPanel.Controls.Add(label4);
             prodouctsSoldTodayPanel.ForeColor = Color.CornflowerBlue;
-            prodouctsSoldTodayPanel.Location = new Point(336, 93);
+            prodouctsSoldTodayPanel.Location = new Point(398, 97);
             prodouctsSoldTodayPanel.Name = "prodouctsSoldTodayPanel";
             prodouctsSoldTodayPanel.Size = new Size(200, 100);
             prodouctsSoldTodayPanel.TabIndex = 2;
+            // 
+            // productsSoldToday
+            // 
+            productsSoldToday.AutoSize = true;
+            productsSoldToday.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            productsSoldToday.Location = new Point(60, 43);
+            productsSoldToday.Name = "productsSoldToday";
+            productsSoldToday.Size = new Size(18, 20);
+            productsSoldToday.TabIndex = 1;
+            productsSoldToday.Text = "$";
             // 
             // label4
             // 
@@ -139,27 +149,27 @@ namespace EDP
             label4.TabIndex = 0;
             label4.Text = "Products Sold Today";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            label3.Location = new Point(60, 43);
-            label3.Name = "label3";
-            label3.Size = new Size(18, 20);
-            label3.TabIndex = 1;
-            label3.Text = "$";
-            // 
             // totalProductsSoldPanel
             // 
             totalProductsSoldPanel.BackColor = SystemColors.ControlLightLight;
             totalProductsSoldPanel.BorderStyle = BorderStyle.FixedSingle;
-            totalProductsSoldPanel.Controls.Add(label5);
+            totalProductsSoldPanel.Controls.Add(totalProductsSold);
             totalProductsSoldPanel.Controls.Add(label6);
             totalProductsSoldPanel.ForeColor = Color.CornflowerBlue;
-            totalProductsSoldPanel.Location = new Point(336, 219);
+            totalProductsSoldPanel.Location = new Point(398, 223);
             totalProductsSoldPanel.Name = "totalProductsSoldPanel";
             totalProductsSoldPanel.Size = new Size(200, 100);
             totalProductsSoldPanel.TabIndex = 4;
+            // 
+            // totalProductsSold
+            // 
+            totalProductsSold.AutoSize = true;
+            totalProductsSold.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            totalProductsSold.Location = new Point(60, 43);
+            totalProductsSold.Name = "totalProductsSold";
+            totalProductsSold.Size = new Size(18, 20);
+            totalProductsSold.TabIndex = 1;
+            totalProductsSold.Text = "$";
             // 
             // label6
             // 
@@ -171,16 +181,6 @@ namespace EDP
             label6.Size = new Size(110, 15);
             label6.TabIndex = 0;
             label6.Text = "Total Products Sold";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            label5.Location = new Point(60, 43);
-            label5.Name = "label5";
-            label5.Size = new Size(18, 20);
-            label5.TabIndex = 1;
-            label5.Text = "$";
             // 
             // dashboardPanel
             // 
@@ -205,6 +205,7 @@ namespace EDP
             FormBorderStyle = FormBorderStyle.None;
             Name = "Dashboard";
             Text = "Dashboard";
+            Load += Dashboard_Load;
             todaysGrossSalePanel.ResumeLayout(false);
             todaysGrossSalePanel.PerformLayout();
             totalRevenuePanel.ResumeLayout(false);
@@ -220,16 +221,16 @@ namespace EDP
         #endregion
         private PictureBox pictureBox1;
         private Panel todaysGrossSalePanel;
-        private Label label2;
+        private Label todaysGrossSale;
         private Label label1;
         private Panel totalRevenuePanel;
-        private Label label7;
+        private Label totalRevenue;
         private Label label8;
         private Panel prodouctsSoldTodayPanel;
-        private Label label3;
+        private Label productsSoldToday;
         private Label label4;
         private Panel totalProductsSoldPanel;
-        private Label label5;
+        private Label totalProductsSold;
         private Label label6;
         private Panel dashboardPanel;
     }

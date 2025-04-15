@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             inventoryPanel = new Panel();
-            productsGridView = new DataGridView();
             label1 = new Label();
+            productsGridView = new DataGridView();
             inventoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productsGridView).BeginInit();
             SuspendLayout();
@@ -39,21 +39,11 @@
             // 
             inventoryPanel.Controls.Add(label1);
             inventoryPanel.Controls.Add(productsGridView);
-            inventoryPanel.Dock = DockStyle.Fill;
             inventoryPanel.Location = new Point(0, 0);
             inventoryPanel.Name = "inventoryPanel";
-            inventoryPanel.Size = new Size(800, 450);
+            inventoryPanel.Size = new Size(801, 450);
             inventoryPanel.TabIndex = 0;
             inventoryPanel.Paint += inventoryPanel_Paint;
-            // 
-            // productsGridView
-            // 
-            productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productsGridView.Location = new Point(114, 25);
-            productsGridView.Name = "productsGridView";
-            productsGridView.Size = new Size(558, 399);
-            productsGridView.TabIndex = 0;
-            productsGridView.VisibleChanged += showProductsTable;
             // 
             // label1
             // 
@@ -64,6 +54,15 @@
             label1.TabIndex = 1;
             label1.Text = "Inventory";
             // 
+            // productsGridView
+            // 
+            productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            productsGridView.Location = new Point(114, 25);
+            productsGridView.Name = "productsGridView";
+            productsGridView.Size = new Size(558, 399);
+            productsGridView.TabIndex = 0;
+            productsGridView.VisibleChanged += showProductsTable;
+            // 
             // Inventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -73,6 +72,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Inventory";
             Text = "Form1";
+            Load += Inventory_Load;
             inventoryPanel.ResumeLayout(false);
             inventoryPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)productsGridView).EndInit();

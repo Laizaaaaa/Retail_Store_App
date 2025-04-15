@@ -35,5 +35,10 @@ namespace EDP
         {
 
         }
+
+        private void Inventory_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
     }
 }

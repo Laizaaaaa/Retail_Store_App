@@ -16,5 +16,10 @@ namespace EDP
         {
             InitializeComponent();
         }
+
+        private void WeeklySales_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
     }
 }
