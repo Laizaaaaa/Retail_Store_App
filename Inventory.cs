@@ -13,9 +13,12 @@ namespace EDP
 {
     public partial class Inventory : Form
     {
-        public Inventory()
+        private Home homeForm;
+
+        public Inventory(Home home)
         {
             InitializeComponent();
+            this.homeForm = home;
         }
 
         private void showProductsTable(object sender, EventArgs e)
@@ -31,21 +34,21 @@ namespace EDP
             productsGridView.DataSource = dt;
         }
 
-        private void inventoryPanel_Paint(object sender, PaintEventArgs e)
-        {
-            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                    inventoryPanel.ClientRectangle,
-                    Color.FromArgb(255, 100, 149, 237), // Start color (Cornflower Blue)
-                    Color.FromArgb(255, 72, 61, 139),   // End color (Dark Slate Blue)
-                    System.Drawing.Drawing2D.LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(brush, inventoryPanel.ClientRectangle);
-            }
-        }
-
         private void Inventory_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+        }
+
+
+
+        private void AddProductBtn_Click(object sender, EventArgs e)
+        {
+            homeForm.OpenChildForm(new AddProduct(homeForm));
+        }
+
+        private void inventoryPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

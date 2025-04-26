@@ -30,8 +30,9 @@
         {
             suppliersGridView = new DataGridView();
             suppliersPanel = new Panel();
-            label3 = new Label();
+            AddSupplierBtn = new Button();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)suppliersGridView).BeginInit();
             suppliersPanel.SuspendLayout();
             SuspendLayout();
@@ -46,24 +47,52 @@
             suppliersGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             suppliersGridView.BackgroundColor = Color.WhiteSmoke;
             suppliersGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            suppliersGridView.Location = new Point(28, 84);
+            suppliersGridView.Location = new Point(33, 138);
             suppliersGridView.Name = "suppliersGridView";
             suppliersGridView.RowHeadersVisible = false;
             suppliersGridView.ScrollBars = ScrollBars.None;
-            suppliersGridView.Size = new Size(670, 257);
+            suppliersGridView.Size = new Size(744, 257);
             suppliersGridView.TabIndex = 1;
             // 
             // suppliersPanel
             // 
-            suppliersPanel.BackColor = Color.Transparent;
+            suppliersPanel.BackColor = Color.FromArgb(0, 64, 64);
+            suppliersPanel.Controls.Add(AddSupplierBtn);
+            suppliersPanel.Controls.Add(suppliersGridView);
             suppliersPanel.Controls.Add(label2);
             suppliersPanel.Controls.Add(label3);
             suppliersPanel.Dock = DockStyle.Fill;
             suppliersPanel.Location = new Point(0, 0);
             suppliersPanel.Name = "suppliersPanel";
-            suppliersPanel.Size = new Size(730, 510);
+            suppliersPanel.Size = new Size(820, 640);
             suppliersPanel.TabIndex = 2;
-            suppliersPanel.Paint += suppliersPanel_Paint;
+            // 
+            // AddSupplierBtn
+            // 
+            AddSupplierBtn.BackColor = Color.Teal;
+            AddSupplierBtn.FlatAppearance.BorderSize = 0;
+            AddSupplierBtn.FlatStyle = FlatStyle.Flat;
+            AddSupplierBtn.ForeColor = Color.WhiteSmoke;
+            AddSupplierBtn.Location = new Point(667, 96);
+            AddSupplierBtn.Name = "AddSupplierBtn";
+            AddSupplierBtn.Padding = new Padding(1);
+            AddSupplierBtn.Size = new Size(110, 30);
+            AddSupplierBtn.TabIndex = 11;
+            AddSupplierBtn.Text = "Add Supplier";
+            AddSupplierBtn.UseVisualStyleBackColor = false;
+            AddSupplierBtn.Click += AddSupplierBtn_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(33, 89);
+            label2.Name = "label2";
+            label2.Size = new Size(130, 37);
+            label2.TabIndex = 3;
+            label2.Text = "Suppliers";
             // 
             // label3
             // 
@@ -77,24 +106,11 @@
             label3.TabIndex = 9;
             label3.Text = "Discounted Products";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(329, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Suppliers";
-            // 
             // Suppliers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 510);
-            Controls.Add(suppliersGridView);
+            ClientSize = new Size(820, 640);
             Controls.Add(suppliersPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Suppliers";
@@ -111,5 +127,6 @@
         private Panel suppliersPanel;
         private Label label3;
         private Label label2;
+        private Button AddSupplierBtn;
     }
 }

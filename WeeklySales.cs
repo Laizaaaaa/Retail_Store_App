@@ -39,17 +39,5 @@ namespace EDP
                 }
             }
         }
-
-        private void weeklySalesPanel_Paint(object sender, PaintEventArgs e)
-        {
-            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                weeklySalesPanel.ClientRectangle,
-                Color.FromArgb(255, 100, 149, 237), // Start color (Cornflower Blue)
-                Color.FromArgb(255, 72, 61, 139),   // End color (Dark Slate Blue)
-                System.Drawing.Drawing2D.LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(brush, weeklySalesPanel.ClientRectangle);
-            }
-        }
     }
 }

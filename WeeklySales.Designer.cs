@@ -45,7 +45,7 @@
             weeklySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             weeklySalesGridView.BackgroundColor = Color.WhiteSmoke;
             weeklySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            weeklySalesGridView.Location = new Point(28, 84);
+            weeklySalesGridView.Location = new Point(29, 158);
             weeklySalesGridView.Name = "weeklySalesGridView";
             weeklySalesGridView.RowHeadersVisible = false;
             weeklySalesGridView.Size = new Size(670, 52);
@@ -53,24 +53,24 @@
             // 
             // weeklySalesPanel
             // 
-            weeklySalesPanel.BackColor = SystemColors.ControlLightLight;
+            weeklySalesPanel.BackColor = Color.FromArgb(0, 64, 64);
+            weeklySalesPanel.Controls.Add(weeklySalesGridView);
             weeklySalesPanel.Controls.Add(label2);
             weeklySalesPanel.Dock = DockStyle.Fill;
             weeklySalesPanel.Location = new Point(0, 0);
             weeklySalesPanel.Name = "weeklySalesPanel";
             weeklySalesPanel.Size = new Size(730, 510);
             weeklySalesPanel.TabIndex = 2;
-            weeklySalesPanel.Paint += weeklySalesPanel_Paint;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(317, 43);
+            label2.Location = new Point(29, 104);
             label2.Name = "label2";
-            label2.Size = new Size(97, 20);
+            label2.Size = new Size(174, 37);
             label2.TabIndex = 7;
             label2.Text = "Weekly Sales";
             // 
@@ -79,7 +79,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(730, 510);
-            Controls.Add(weeklySalesGridView);
             Controls.Add(weeklySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "WeeklySales";

@@ -45,3 +45,7 @@ C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Suppliers.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Categories.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Sales.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.YearlySales.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddProduct.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddSupplier.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddOrder.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddNewTransaction.resources

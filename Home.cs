@@ -84,28 +84,35 @@ namespace EDP
             if (salesMenuExpand == false)
             {
                 salesMenuContainer.Height += 10;
+               
+
                 if (salesMenuContainer.Height >= 220)
                 {
                     salesMenuTransition.Stop();
                     salesMenuExpand = true;
+                    logoutBtn.Margin = new Padding(3, 90, 3, 3); 
                 }
             }
             else
             {
                 salesMenuContainer.Height -= 10;
+               
+
                 if (salesMenuContainer.Height <= 44)
                 {
                     salesMenuTransition.Stop();
                     salesMenuExpand = false;
+                    logoutBtn.Margin = new Padding(3, 270, 3, 3);
                 }
             }
         }
+
 
         private void salesButton_Click_1(object sender, EventArgs e)
         {
             salesMenuTransition.Start();
 
-            OpenChildForm(new Sales());
+            OpenChildForm(new Sales(this));
         }
 
         private void yearlySalesButton_Click(object sender, EventArgs e)
@@ -129,17 +136,17 @@ namespace EDP
 
         private void inventoryButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Inventory());
+            OpenChildForm(new Inventory(this));
         }
 
         private void suppliersButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Suppliers());
+            OpenChildForm(new Suppliers(this));
         }
 
         private void ordersButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Orders());
+            OpenChildForm(new Orders(this));
         }
 
         private void categoriesButton_Click(object sender, EventArgs e)
@@ -149,7 +156,7 @@ namespace EDP
 
         private Form activeForm = null;
 
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -190,6 +197,19 @@ namespace EDP
             this.WindowState = FormWindowState.Normal;
             maximizeButton.Visible = true;
             exitFullScreenButton.Visible = false;
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                LoginForm loginForm = new LoginForm();
+                loginForm.FormClosed += (s, args) => this.Close();
+                loginForm.Show();
+                this.Hide(); 
+            }
         }
 
     }

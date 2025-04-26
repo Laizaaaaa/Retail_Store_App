@@ -60,6 +60,7 @@
             ordersButton = new Button();
             categoriesButtonPanel = new Panel();
             categoriesButton = new Button();
+            logoutBtn = new Button();
             salesMenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             header.SuspendLayout();
@@ -93,7 +94,7 @@
             header.Location = new Point(0, 0);
             header.Margin = new Padding(3, 4, 3, 4);
             header.Name = "header";
-            header.Size = new Size(914, 61);
+            header.Size = new Size(1000, 61);
             header.TabIndex = 0;
             // 
             // controlPanel
@@ -103,7 +104,7 @@
             controlPanel.Controls.Add(exitFullScreenButton);
             controlPanel.Controls.Add(closeButton);
             controlPanel.Dock = DockStyle.Right;
-            controlPanel.Location = new Point(787, 0);
+            controlPanel.Location = new Point(873, 0);
             controlPanel.Name = "controlPanel";
             controlPanel.Padding = new Padding(20, 18, 10, 20);
             controlPanel.Size = new Size(127, 61);
@@ -192,12 +193,13 @@
             sidebarContainer.Controls.Add(inventoryButtonPanel);
             sidebarContainer.Controls.Add(ordersButtonPanel);
             sidebarContainer.Controls.Add(categoriesButtonPanel);
+            sidebarContainer.Controls.Add(logoutBtn);
             sidebarContainer.Dock = DockStyle.Left;
             sidebarContainer.FlowDirection = FlowDirection.TopDown;
             sidebarContainer.Location = new Point(0, 61);
             sidebarContainer.Name = "sidebarContainer";
             sidebarContainer.Padding = new Padding(0, 10, 0, 0);
-            sidebarContainer.Size = new Size(188, 509);
+            sidebarContainer.Size = new Size(188, 639);
             sidebarContainer.TabIndex = 1;
             // 
             // dasboardButtonPanel
@@ -480,6 +482,22 @@
             categoriesButton.UseVisualStyleBackColor = true;
             categoriesButton.Click += categoriesButton_Click;
             // 
+            // logoutBtn
+            // 
+            logoutBtn.FlatAppearance.BorderSize = 0;
+            logoutBtn.FlatStyle = FlatStyle.Flat;
+            logoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            logoutBtn.ForeColor = Color.White;
+            logoutBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            logoutBtn.Location = new Point(3, 580);
+            logoutBtn.Margin = new Padding(3, 270, 3, 3);
+            logoutBtn.Name = "logoutBtn";
+            logoutBtn.Size = new Size(183, 54);
+            logoutBtn.TabIndex = 3;
+            logoutBtn.Text = "Logout";
+            logoutBtn.UseVisualStyleBackColor = true;
+            logoutBtn.Click += logoutBtn_Click;
+            // 
             // salesMenuTransition
             // 
             salesMenuTransition.Interval = 10;
@@ -494,7 +512,7 @@
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoSize = true;
-            ClientSize = new Size(914, 570);
+            ClientSize = new Size(1000, 700);
             ControlBox = false;
             Controls.Add(sidebarContainer);
             Controls.Add(header);
@@ -564,5 +582,6 @@
         private PictureBox maximizeButton;
         private PictureBox closeButton;
         private PictureBox exitFullScreenButton;
+        private Button logoutBtn;
     }
 }

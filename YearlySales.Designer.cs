@@ -30,7 +30,7 @@
         {
             yearlySalesGridView = new DataGridView();
             yearlySalesPanel = new Panel();
-            label2 = new Label();
+            yearlySalesLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)yearlySalesGridView).BeginInit();
             yearlySalesPanel.SuspendLayout();
             SuspendLayout();
@@ -45,7 +45,7 @@
             yearlySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             yearlySalesGridView.BackgroundColor = Color.WhiteSmoke;
             yearlySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            yearlySalesGridView.Location = new Point(28, 84);
+            yearlySalesGridView.Location = new Point(72, 186);
             yearlySalesGridView.Name = "yearlySalesGridView";
             yearlySalesGridView.ReadOnly = true;
             yearlySalesGridView.RowHeadersVisible = false;
@@ -54,35 +54,36 @@
             // 
             // yearlySalesPanel
             // 
-            yearlySalesPanel.Controls.Add(label2);
+            yearlySalesPanel.Controls.Add(yearlySalesGridView);
+            yearlySalesPanel.Controls.Add(yearlySalesLabel);
             yearlySalesPanel.Dock = DockStyle.Fill;
             yearlySalesPanel.Location = new Point(0, 0);
             yearlySalesPanel.Name = "yearlySalesPanel";
-            yearlySalesPanel.Size = new Size(730, 510);
+            yearlySalesPanel.Size = new Size(820, 640);
             yearlySalesPanel.TabIndex = 2;
-            yearlySalesPanel.Paint += yearlySalesPanel_Paint;
             // 
-            // label2
+            // yearlySalesLabel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(309, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(89, 20);
-            label2.TabIndex = 7;
-            label2.Text = "Yearly Sales";
+            yearlySalesLabel.AutoSize = true;
+            yearlySalesLabel.BackColor = Color.Transparent;
+            yearlySalesLabel.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            yearlySalesLabel.ForeColor = Color.White;
+            yearlySalesLabel.Location = new Point(72, 131);
+            yearlySalesLabel.Name = "yearlySalesLabel";
+            yearlySalesLabel.Size = new Size(159, 37);
+            yearlySalesLabel.TabIndex = 7;
+            yearlySalesLabel.Text = "Yearly Sales";
             // 
             // YearlySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 510);
-            Controls.Add(yearlySalesGridView);
+            BackColor = Color.FromArgb(0, 64, 64);
+            ClientSize = new Size(820, 640);
             Controls.Add(yearlySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "YearlySales";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "YearlySales";
             Load += YearlySales_Load;
             ((System.ComponentModel.ISupportInitialize)yearlySalesGridView).EndInit();
@@ -95,6 +96,6 @@
 
         private DataGridView yearlySalesGridView;
         private Panel yearlySalesPanel;
-        private Label label2;
+        private Label yearlySalesLabel;
     }
 }

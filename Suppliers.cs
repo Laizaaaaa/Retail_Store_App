@@ -13,9 +13,12 @@ namespace EDP
 {
     public partial class Suppliers : Form
     {
-        public Suppliers()
+        private Home homeForm;
+
+        public Suppliers(Home home)
         {
             InitializeComponent();
+            this.homeForm = home;
         }
 
         private void Suppliers_Load(object sender, EventArgs e)
@@ -40,16 +43,9 @@ namespace EDP
             }
         }
 
-        private void suppliersPanel_Paint(object sender, PaintEventArgs e)
+        private void AddSupplierBtn_Click(object sender, EventArgs e)
         {
-            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                suppliersPanel.ClientRectangle,
-                Color.FromArgb(255, 100, 149, 237), // Start color (Cornflower Blue)
-                Color.FromArgb(255, 72, 61, 139),   // End color (Dark Slate Blue)
-                System.Drawing.Drawing2D.LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(brush, suppliersPanel.ClientRectangle);
-            }
+            homeForm.OpenChildForm(new AddSupplier(homeForm));
         }
     }
 }

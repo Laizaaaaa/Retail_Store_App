@@ -45,7 +45,7 @@
             monthlySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             monthlySalesGridView.BackgroundColor = Color.WhiteSmoke;
             monthlySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            monthlySalesGridView.Location = new Point(28, 84);
+            monthlySalesGridView.Location = new Point(71, 158);
             monthlySalesGridView.Name = "monthlySalesGridView";
             monthlySalesGridView.RowHeadersVisible = false;
             monthlySalesGridView.ScrollBars = ScrollBars.None;
@@ -54,23 +54,24 @@
             // 
             // monthlySalesPanel
             // 
+            monthlySalesPanel.BackColor = Color.FromArgb(0, 64, 64);
+            monthlySalesPanel.Controls.Add(monthlySalesGridView);
             monthlySalesPanel.Controls.Add(label2);
             monthlySalesPanel.Dock = DockStyle.Fill;
             monthlySalesPanel.Location = new Point(0, 0);
             monthlySalesPanel.Name = "monthlySalesPanel";
-            monthlySalesPanel.Size = new Size(730, 510);
+            monthlySalesPanel.Size = new Size(820, 540);
             monthlySalesPanel.TabIndex = 2;
-            monthlySalesPanel.Paint += monthlySalesPanel_Paint;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(329, 43);
+            label2.Location = new Point(71, 102);
             label2.Name = "label2";
-            label2.Size = new Size(105, 20);
+            label2.Size = new Size(190, 37);
             label2.TabIndex = 9;
             label2.Text = "Monthly Sales";
             // 
@@ -78,8 +79,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 510);
-            Controls.Add(monthlySalesGridView);
+            ClientSize = new Size(820, 540);
             Controls.Add(monthlySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MonthlySales";

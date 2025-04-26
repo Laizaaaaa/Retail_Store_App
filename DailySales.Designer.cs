@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dailySalesPanel = new Panel();
-            label2 = new Label();
+            dailySalesLabel = new Label();
             dailySalesGridView = new DataGridView();
             dailySalesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dailySalesGridView).BeginInit();
@@ -37,27 +37,27 @@
             // 
             // dailySalesPanel
             // 
-            dailySalesPanel.BackColor = SystemColors.Control;
-            dailySalesPanel.Controls.Add(label2);
+            dailySalesPanel.BackColor = Color.FromArgb(0, 64, 64);
+            dailySalesPanel.Controls.Add(dailySalesLabel);
             dailySalesPanel.Controls.Add(dailySalesGridView);
             dailySalesPanel.Dock = DockStyle.Fill;
             dailySalesPanel.Location = new Point(0, 0);
             dailySalesPanel.Name = "dailySalesPanel";
-            dailySalesPanel.Size = new Size(730, 510);
+            dailySalesPanel.Size = new Size(820, 640);
             dailySalesPanel.TabIndex = 0;
             dailySalesPanel.Paint += dailySalesPanel_Paint;
             // 
-            // label2
+            // dailySalesLabel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(329, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 20);
-            label2.TabIndex = 8;
-            label2.Text = "Daily Sales";
+            dailySalesLabel.AutoSize = true;
+            dailySalesLabel.BackColor = Color.Transparent;
+            dailySalesLabel.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
+            dailySalesLabel.ForeColor = Color.White;
+            dailySalesLabel.Location = new Point(75, 56);
+            dailySalesLabel.Name = "dailySalesLabel";
+            dailySalesLabel.Size = new Size(147, 37);
+            dailySalesLabel.TabIndex = 8;
+            dailySalesLabel.Text = "Daily Sales";
             // 
             // dailySalesGridView
             // 
@@ -69,17 +69,17 @@
             dailySalesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dailySalesGridView.BackgroundColor = Color.WhiteSmoke;
             dailySalesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dailySalesGridView.Location = new Point(28, 84);
+            dailySalesGridView.Location = new Point(75, 104);
             dailySalesGridView.Name = "dailySalesGridView";
             dailySalesGridView.RowHeadersVisible = false;
-            dailySalesGridView.Size = new Size(670, 380);
+            dailySalesGridView.Size = new Size(670, 478);
             dailySalesGridView.TabIndex = 0;
             // 
             // DailySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 510);
+            ClientSize = new Size(820, 640);
             Controls.Add(dailySalesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DailySales";
@@ -95,6 +95,6 @@
 
         private Panel dailySalesPanel;
         private DataGridView dailySalesGridView;
-        private Label label2;
+        private Label dailySalesLabel;
     }
 }
