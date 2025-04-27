@@ -119,6 +119,7 @@
             ForgotPasswordBtn.Text = "Forgot Password?";
             ForgotPasswordBtn.TextAlign = ContentAlignment.MiddleRight;
             ForgotPasswordBtn.UseVisualStyleBackColor = false;
+            ForgotPasswordBtn.Click += ForgotPasswordBtn_Click;
             // 
             // controlPanel
             // 
@@ -209,9 +210,9 @@
             // passwordTxtbox
             // 
             passwordTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            passwordTxtbox.BackColor = Color.White;
+            passwordTxtbox.BackColor = SystemColors.Window;
             passwordTxtbox.Font = new Font("Segoe UI", 11F);
-            passwordTxtbox.ForeColor = Color.DimGray;
+            passwordTxtbox.ForeColor = SystemColors.ScrollBar;
             passwordTxtbox.Location = new Point(52, 264);
             passwordTxtbox.Name = "passwordTxtbox";
             passwordTxtbox.PlaceholderText = "Enter your password";
@@ -225,9 +226,9 @@
             // nameTxtbox
             // 
             nameTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nameTxtbox.BackColor = Color.White;
+            nameTxtbox.BackColor = SystemColors.Window;
             nameTxtbox.Font = new Font("Segoe UI", 11F);
-            nameTxtbox.ForeColor = Color.DimGray;
+            nameTxtbox.ForeColor = SystemColors.ScrollBar;
             nameTxtbox.Location = new Point(52, 188);
             nameTxtbox.Name = "nameTxtbox";
             nameTxtbox.PlaceholderText = "Enter your name";

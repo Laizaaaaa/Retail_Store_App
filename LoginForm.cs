@@ -153,5 +153,13 @@ namespace EDP
             register.Show();
             this.Hide();
         }
+
+        private void ForgotPasswordBtn_Click(object sender, EventArgs e)
+        {
+            ForgotPasswordForm forgotPassword = new ForgotPasswordForm();
+            forgotPassword.FormClosed += (s, args) => this.Close();
+            forgotPassword.Show();
+            this.Hide();
+        }
     }
 }
