@@ -49,3 +49,4 @@ C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddProduct.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddSupplier.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddOrder.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddNewTransaction.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.RegisterForm.resources

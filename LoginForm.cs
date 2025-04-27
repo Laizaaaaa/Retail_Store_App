@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace EDP
 {
@@ -23,88 +24,46 @@ namespace EDP
             this.ActiveControl = null;
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void nameInputField_Enter(object sender, EventArgs e)
         {
-
-        }
-
-        private void emailInputField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void emailInputField_Enter(object sender, EventArgs e)
-        {
-            if (emailInputField.ForeColor == Color.Gray)
+            if (nameTxtbox.ForeColor == Color.Gray)
             {
-                emailInputField.Text = "";
-                emailInputField.ForeColor = Color.Black;
+                nameTxtbox.Text = "";
+                nameTxtbox.ForeColor = Color.Black;
             }
         }
 
 
-        private void emailInputField_Leave(object sender, EventArgs e)
+        private void nameInputField_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(emailInputField.Text))
+            if (string.IsNullOrWhiteSpace(nameTxtbox.Text))
             {
-                emailInputField.ForeColor = Color.Gray;
+                nameTxtbox.ForeColor = Color.Gray;
 
                 this.ActiveControl = null;
             }
         }
 
 
-        private void passwordInputField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void passwordInputField_Enter(object sender, EventArgs e)
         {
-            if (passwordInputField.ForeColor == Color.Gray)
+            if (passwordTxtbox.ForeColor == Color.Gray)
             {
-                passwordInputField.Text = "";
-                passwordInputField.ForeColor = Color.Black;
-                passwordInputField.UseSystemPasswordChar = true;
+                passwordTxtbox.Text = "";
+                passwordTxtbox.ForeColor = Color.Black;
+                passwordTxtbox.UseSystemPasswordChar = true;
             }
         }
 
 
         private void passwordInputField_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(passwordInputField.Text))
+            if (string.IsNullOrWhiteSpace(passwordTxtbox.Text))
             {
-                passwordInputField.ForeColor = Color.Gray;
+                passwordTxtbox.ForeColor = Color.Gray;
             }
 
             this.ActiveControl = null;
-        }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void loginFormPanel_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void loginPicPanel_Paint(object sender, PaintEventArgs e)
-        {
-            //using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-            //        panel1.ClientRectangle,
-            //        Color.FromArgb(255, 100, 149, 237), // Start color (Cornflower Blue)
-            //        Color.FromArgb(255, 72, 61, 139),   // End color (Dark Slate Blue)
-            //        System.Drawing.Drawing2D.LinearGradientMode.Vertical)) // Can be Horizontal, ForwardDiagonal, etc.
-            //{
-            //    e.Graphics.FillRectangle(brush, panel1.ClientRectangle);
-            //}
         }
 
         private void passwordInputField_Enter(object sender, MouseEventArgs e)
@@ -112,14 +71,67 @@ namespace EDP
 
         }
 
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
+            string name = nameTxtbox.Text;
+            string password = passwordTxtbox.Text;
 
-            home.FormClosed += (s, args) => this.Close();
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
 
-            home.Show();
-            this.Hide();
+            // Hash the entered password to match what is stored
+            string hashedPassword = HashPassword(password);
+
+            try
+            {
+                using (var conn = DBConnection.GetConnection())
+                {
+                    string query = "SELECT * FROM users WHERE name = @name AND password = @password";
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                MessageBox.Show("Login successful!");
+
+                                Home home = new Home();
+                                home.FormClosed += (s, args) => this.Close();
+                                home.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid name or password.");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -130,6 +142,16 @@ namespace EDP
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            RegisterForm register = new RegisterForm();
+
+            register.FormClosed += (s, args) => this.Close();
+
+            register.Show();
+            this.Hide();
         }
     }
 }

@@ -31,22 +31,23 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             loginFormPanel = new Panel();
+            registerLink = new Button();
             ForgotPasswordBtn = new Button();
             controlPanel = new FlowLayoutPanel();
-            minimizeButton = new PictureBox();
             closeButton = new PictureBox();
+            minimizeButton = new PictureBox();
             label2 = new Label();
-            label1 = new Label();
+            nameLabel = new Label();
             loginBtn = new Button();
             loginLabel = new Label();
-            passwordInputField = new TextBox();
-            emailInputField = new TextBox();
+            passwordTxtbox = new TextBox();
+            nameTxtbox = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             loginFormPanel.SuspendLayout();
             controlPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)minimizeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)closeButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)minimizeButton).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -59,7 +60,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(900, 506);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 
@@ -72,24 +72,38 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // loginFormPanel
             // 
             loginFormPanel.BackColor = Color.WhiteSmoke;
+            loginFormPanel.Controls.Add(registerLink);
             loginFormPanel.Controls.Add(ForgotPasswordBtn);
             loginFormPanel.Controls.Add(controlPanel);
             loginFormPanel.Controls.Add(label2);
-            loginFormPanel.Controls.Add(label1);
+            loginFormPanel.Controls.Add(nameLabel);
             loginFormPanel.Controls.Add(loginBtn);
             loginFormPanel.Controls.Add(loginLabel);
-            loginFormPanel.Controls.Add(passwordInputField);
-            loginFormPanel.Controls.Add(emailInputField);
+            loginFormPanel.Controls.Add(passwordTxtbox);
+            loginFormPanel.Controls.Add(nameTxtbox);
             loginFormPanel.Location = new Point(481, 0);
             loginFormPanel.Name = "loginFormPanel";
             loginFormPanel.Size = new Size(416, 500);
             loginFormPanel.TabIndex = 0;
-            loginFormPanel.Paint += loginFormPanel_Paint;
+            // 
+            // registerLink
+            // 
+            registerLink.BackColor = Color.Transparent;
+            registerLink.FlatAppearance.BorderSize = 0;
+            registerLink.FlatStyle = FlatStyle.Flat;
+            registerLink.ForeColor = SystemColors.MenuHighlight;
+            registerLink.Location = new Point(111, 415);
+            registerLink.Name = "registerLink";
+            registerLink.RightToLeft = RightToLeft.No;
+            registerLink.Size = new Size(210, 23);
+            registerLink.TabIndex = 7;
+            registerLink.Text = "Don't have an account? Register here";
+            registerLink.UseVisualStyleBackColor = false;
+            registerLink.Click += registerBtn_Click;
             // 
             // ForgotPasswordBtn
             // 
@@ -118,17 +132,6 @@
             controlPanel.Size = new Size(416, 28);
             controlPanel.TabIndex = 4;
             // 
-            // minimizeButton
-            // 
-            minimizeButton.Image = Properties.Resources.minimize_icon;
-            minimizeButton.Location = new Point(366, 3);
-            minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(21, 20);
-            minimizeButton.SizeMode = PictureBoxSizeMode.Zoom;
-            minimizeButton.TabIndex = 0;
-            minimizeButton.TabStop = false;
-            minimizeButton.Click += minimizeButton_Click;
-            // 
             // closeButton
             // 
             closeButton.Image = Properties.Resources.exit_icon;
@@ -139,6 +142,17 @@
             closeButton.TabIndex = 2;
             closeButton.TabStop = false;
             closeButton.Click += closeButton_Click;
+            // 
+            // minimizeButton
+            // 
+            minimizeButton.Image = Properties.Resources.minimize_icon;
+            minimizeButton.Location = new Point(366, 3);
+            minimizeButton.Name = "minimizeButton";
+            minimizeButton.Size = new Size(21, 20);
+            minimizeButton.SizeMode = PictureBoxSizeMode.Zoom;
+            minimizeButton.TabIndex = 0;
+            minimizeButton.TabStop = false;
+            minimizeButton.Click += minimizeButton_Click;
             // 
             // label2
             // 
@@ -151,16 +165,16 @@
             label2.TabIndex = 5;
             label2.Text = "Password:";
             // 
-            // label1
+            // nameLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.WindowFrame;
-            label1.Location = new Point(52, 164);
-            label1.Name = "label1";
-            label1.Size = new Size(52, 21);
-            label1.TabIndex = 4;
-            label1.Text = "Email:";
+            nameLabel.AutoSize = true;
+            nameLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nameLabel.ForeColor = SystemColors.WindowFrame;
+            nameLabel.Location = new Point(52, 164);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new Size(53, 21);
+            nameLabel.TabIndex = 4;
+            nameLabel.Text = "Name";
             // 
             // loginBtn
             // 
@@ -170,10 +184,10 @@
             loginBtn.FlatStyle = FlatStyle.Flat;
             loginBtn.Font = new Font("Segoe UI", 11F);
             loginBtn.ForeColor = SystemColors.ButtonHighlight;
-            loginBtn.Location = new Point(180, 378);
+            loginBtn.Location = new Point(117, 378);
             loginBtn.Name = "loginBtn";
             loginBtn.Padding = new Padding(2);
-            loginBtn.Size = new Size(71, 31);
+            loginBtn.Size = new Size(204, 31);
             loginBtn.TabIndex = 3;
             loginBtn.Text = "Log in";
             loginBtn.UseVisualStyleBackColor = false;
@@ -192,38 +206,36 @@
             loginLabel.Text = "Log in";
             loginLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // passwordInputField
+            // passwordTxtbox
             // 
-            passwordInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            passwordInputField.BackColor = Color.White;
-            passwordInputField.Font = new Font("Segoe UI", 11F);
-            passwordInputField.ForeColor = Color.DimGray;
-            passwordInputField.Location = new Point(52, 264);
-            passwordInputField.Name = "passwordInputField";
-            passwordInputField.PlaceholderText = "Enter your password";
-            passwordInputField.Size = new Size(331, 27);
-            passwordInputField.TabIndex = 1;
-            passwordInputField.UseSystemPasswordChar = true;
-            passwordInputField.Click += passwordInputField_Enter;
-            passwordInputField.MouseClick += passwordInputField_Enter;
-            passwordInputField.TextChanged += passwordInputField_TextChanged;
-            passwordInputField.Leave += passwordInputField_Leave;
+            passwordTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            passwordTxtbox.BackColor = Color.White;
+            passwordTxtbox.Font = new Font("Segoe UI", 11F);
+            passwordTxtbox.ForeColor = Color.DimGray;
+            passwordTxtbox.Location = new Point(52, 264);
+            passwordTxtbox.Name = "passwordTxtbox";
+            passwordTxtbox.PlaceholderText = "Enter your password";
+            passwordTxtbox.Size = new Size(331, 27);
+            passwordTxtbox.TabIndex = 1;
+            passwordTxtbox.UseSystemPasswordChar = true;
+            passwordTxtbox.Click += passwordInputField_Enter;
+            passwordTxtbox.MouseClick += passwordInputField_Enter;
+            passwordTxtbox.Leave += passwordInputField_Leave;
             // 
-            // emailInputField
+            // nameTxtbox
             // 
-            emailInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            emailInputField.BackColor = Color.White;
-            emailInputField.Font = new Font("Segoe UI", 11F);
-            emailInputField.ForeColor = Color.DimGray;
-            emailInputField.Location = new Point(52, 188);
-            emailInputField.Name = "emailInputField";
-            emailInputField.PlaceholderText = "Enter your email";
-            emailInputField.Size = new Size(331, 27);
-            emailInputField.TabIndex = 0;
-            emailInputField.Click += emailInputField_Enter;
-            emailInputField.MouseClick += emailInputField_Enter;
-            emailInputField.TextChanged += emailInputField_TextChanged;
-            emailInputField.Leave += emailInputField_Leave;
+            nameTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            nameTxtbox.BackColor = Color.White;
+            nameTxtbox.Font = new Font("Segoe UI", 11F);
+            nameTxtbox.ForeColor = Color.DimGray;
+            nameTxtbox.Location = new Point(52, 188);
+            nameTxtbox.Name = "nameTxtbox";
+            nameTxtbox.PlaceholderText = "Enter your name";
+            nameTxtbox.Size = new Size(331, 27);
+            nameTxtbox.TabIndex = 0;
+            nameTxtbox.Click += nameInputField_Enter;
+            nameTxtbox.MouseClick += nameInputField_Enter;
+            nameTxtbox.Leave += nameInputField_Leave;
             // 
             // LoginForm
             // 
@@ -240,8 +252,8 @@
             loginFormPanel.ResumeLayout(false);
             loginFormPanel.PerformLayout();
             controlPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)minimizeButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)closeButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)minimizeButton).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -250,16 +262,17 @@
 
         private Panel panel1;
         private Panel loginFormPanel;
-        private TextBox passwordInputField;
-        private TextBox emailInputField;
+        private TextBox passwordTxtbox;
+        private TextBox nameTxtbox;
         private Label loginLabel;
         private Button loginBtn;
         private Label label2;
-        private Label label1;
+        private Label nameLabel;
         private FlowLayoutPanel controlPanel;
         private PictureBox minimizeButton;
         private PictureBox closeButton;
         private PictureBox pictureBox1;
         private Button ForgotPasswordBtn;
+        private Button registerLink;
     }
 }
