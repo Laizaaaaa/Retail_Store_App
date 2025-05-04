@@ -24,22 +24,20 @@ namespace EDP
             this.ActiveControl = null;
         }
 
-        private void nameInputField_Enter(object sender, EventArgs e)
+        private void emailContactTxtbox_Enter(object sender, EventArgs e)
         {
-            if (nameTxtbox.ForeColor == Color.Gray)
+            if (emailContactTxtbox.ForeColor == Color.Gray)
             {
-                nameTxtbox.Text = "";
-                nameTxtbox.ForeColor = Color.Black;
+                emailContactTxtbox.Text = "";
+                emailContactTxtbox.ForeColor = Color.Black;
             }
         }
 
-
-        private void nameInputField_Leave(object sender, EventArgs e)
+        private void emailContactTxtbox_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nameTxtbox.Text))
+            if (string.IsNullOrWhiteSpace(emailContactTxtbox.Text))
             {
-                nameTxtbox.ForeColor = Color.Gray;
-
+                emailContactTxtbox.ForeColor = Color.Gray;
                 this.ActiveControl = null;
             }
         }
@@ -87,10 +85,10 @@ namespace EDP
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            string name = nameTxtbox.Text;
+            string input = emailContactTxtbox.Text.Trim();
             string password = passwordTxtbox.Text;
 
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(input) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please fill in all fields.");
                 return;
@@ -103,10 +101,14 @@ namespace EDP
             {
                 using (var conn = DBConnection.GetConnection())
                 {
-                    string query = "SELECT * FROM users WHERE name = @name AND password = @password";
+                    string query = @"
+                        SELECT * FROM users 
+                        WHERE (email = @input OR contact_number = @input) 
+                        AND password = @password";
+
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@input", input);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
 
                         using (var reader = cmd.ExecuteReader())
@@ -122,7 +124,7 @@ namespace EDP
                             }
                             else
                             {
-                                MessageBox.Show("Invalid name or password.");
+                                MessageBox.Show("Invalid email/contact number or password.");
                             }
                         }
                     }

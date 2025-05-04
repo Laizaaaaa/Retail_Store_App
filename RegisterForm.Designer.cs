@@ -284,6 +284,7 @@
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterForm";
+            Load += RegisterForm_Load;
             loginFormPanel.ResumeLayout(false);
             loginFormPanel.PerformLayout();
             controlPanel.ResumeLayout(false);

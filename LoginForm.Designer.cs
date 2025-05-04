@@ -37,11 +37,11 @@
             closeButton = new PictureBox();
             minimizeButton = new PictureBox();
             label2 = new Label();
-            nameLabel = new Label();
+            emailContactLabel = new Label();
             loginBtn = new Button();
             loginLabel = new Label();
             passwordTxtbox = new TextBox();
-            nameTxtbox = new TextBox();
+            emailContactTxtbox = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             loginFormPanel.SuspendLayout();
@@ -80,11 +80,11 @@
             loginFormPanel.Controls.Add(ForgotPasswordBtn);
             loginFormPanel.Controls.Add(controlPanel);
             loginFormPanel.Controls.Add(label2);
-            loginFormPanel.Controls.Add(nameLabel);
+            loginFormPanel.Controls.Add(emailContactLabel);
             loginFormPanel.Controls.Add(loginBtn);
             loginFormPanel.Controls.Add(loginLabel);
             loginFormPanel.Controls.Add(passwordTxtbox);
-            loginFormPanel.Controls.Add(nameTxtbox);
+            loginFormPanel.Controls.Add(emailContactTxtbox);
             loginFormPanel.Location = new Point(481, 0);
             loginFormPanel.Name = "loginFormPanel";
             loginFormPanel.Size = new Size(416, 500);
@@ -166,16 +166,16 @@
             label2.TabIndex = 5;
             label2.Text = "Password:";
             // 
-            // nameLabel
+            // emailContactLabel
             // 
-            nameLabel.AutoSize = true;
-            nameLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nameLabel.ForeColor = SystemColors.WindowFrame;
-            nameLabel.Location = new Point(52, 164);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(53, 21);
-            nameLabel.TabIndex = 4;
-            nameLabel.Text = "Name";
+            emailContactLabel.AutoSize = true;
+            emailContactLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            emailContactLabel.ForeColor = SystemColors.WindowFrame;
+            emailContactLabel.Location = new Point(52, 164);
+            emailContactLabel.Name = "emailContactLabel";
+            emailContactLabel.Size = new Size(53, 21);
+            emailContactLabel.TabIndex = 4;
+            emailContactLabel.Text = "Name";
             // 
             // loginBtn
             // 
@@ -212,7 +212,7 @@
             passwordTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             passwordTxtbox.BackColor = SystemColors.Window;
             passwordTxtbox.Font = new Font("Segoe UI", 11F);
-            passwordTxtbox.ForeColor = SystemColors.ScrollBar;
+            passwordTxtbox.ForeColor = Color.Black;
             passwordTxtbox.Location = new Point(52, 264);
             passwordTxtbox.Name = "passwordTxtbox";
             passwordTxtbox.PlaceholderText = "Enter your password";
@@ -223,20 +223,20 @@
             passwordTxtbox.MouseClick += passwordInputField_Enter;
             passwordTxtbox.Leave += passwordInputField_Leave;
             // 
-            // nameTxtbox
+            // emailContactTxtbox
             // 
-            nameTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nameTxtbox.BackColor = SystemColors.Window;
-            nameTxtbox.Font = new Font("Segoe UI", 11F);
-            nameTxtbox.ForeColor = SystemColors.ScrollBar;
-            nameTxtbox.Location = new Point(52, 188);
-            nameTxtbox.Name = "nameTxtbox";
-            nameTxtbox.PlaceholderText = "Enter your name";
-            nameTxtbox.Size = new Size(331, 27);
-            nameTxtbox.TabIndex = 0;
-            nameTxtbox.Click += nameInputField_Enter;
-            nameTxtbox.MouseClick += nameInputField_Enter;
-            nameTxtbox.Leave += nameInputField_Leave;
+            emailContactTxtbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            emailContactTxtbox.BackColor = SystemColors.Window;
+            emailContactTxtbox.Font = new Font("Segoe UI", 11F);
+            emailContactTxtbox.ForeColor = SystemColors.ScrollBar;
+            emailContactTxtbox.Location = new Point(52, 188);
+            emailContactTxtbox.Name = "emailContactTxtbox";
+            emailContactTxtbox.PlaceholderText = "Enter your email or contact number";
+            emailContactTxtbox.Size = new Size(331, 27);
+            emailContactTxtbox.TabIndex = 0;
+            emailContactTxtbox.Click += emailContactTxtbox_Enter;
+            emailContactTxtbox.MouseClick += emailContactTxtbox_Enter;
+            emailContactTxtbox.Leave += emailContactTxtbox_Leave;
             // 
             // LoginForm
             // 
@@ -264,11 +264,11 @@
         private Panel panel1;
         private Panel loginFormPanel;
         private TextBox passwordTxtbox;
-        private TextBox nameTxtbox;
+        private TextBox emailContactTxtbox;
         private Label loginLabel;
         private Button loginBtn;
         private Label label2;
-        private Label nameLabel;
+        private Label emailContactLabel;
         private FlowLayoutPanel controlPanel;
         private PictureBox minimizeButton;
         private PictureBox closeButton;

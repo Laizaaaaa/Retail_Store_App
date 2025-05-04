@@ -1,6 +1,6 @@
 ﻿namespace EDP
 {
-    partial class ForgotPasswordForm
+    partial class EnterCodeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            backBtn = new Button();
-            sendCodeBtn = new Button();
-            emailTxtbox = new TextBox();
-            label1 = new Label();
-            forgotPasswordLabel = new Label();
             loginFormPanel = new Panel();
+            resendCodeBtn = new Button();
+            backBtn = new Button();
+            forgotPasswordLabel = new Label();
+            nextBtn = new Button();
+            codeTxtbox = new TextBox();
+            label1 = new Label();
             controlPanel = new FlowLayoutPanel();
             closeButton = new PictureBox();
             minimizeButton = new PictureBox();
@@ -44,6 +45,35 @@
             ((System.ComponentModel.ISupportInitialize)minimizeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // loginFormPanel
+            // 
+            loginFormPanel.BackColor = Color.WhiteSmoke;
+            loginFormPanel.Controls.Add(resendCodeBtn);
+            loginFormPanel.Controls.Add(backBtn);
+            loginFormPanel.Controls.Add(forgotPasswordLabel);
+            loginFormPanel.Controls.Add(nextBtn);
+            loginFormPanel.Controls.Add(codeTxtbox);
+            loginFormPanel.Controls.Add(label1);
+            loginFormPanel.Controls.Add(controlPanel);
+            loginFormPanel.Dock = DockStyle.Right;
+            loginFormPanel.Location = new Point(483, 0);
+            loginFormPanel.Name = "loginFormPanel";
+            loginFormPanel.Size = new Size(417, 506);
+            loginFormPanel.TabIndex = 6;
+            // 
+            // resendCodeBtn
+            // 
+            resendCodeBtn.FlatAppearance.BorderSize = 0;
+            resendCodeBtn.FlatStyle = FlatStyle.Flat;
+            resendCodeBtn.ForeColor = SystemColors.MenuHighlight;
+            resendCodeBtn.Location = new Point(248, 262);
+            resendCodeBtn.Name = "resendCodeBtn";
+            resendCodeBtn.Size = new Size(85, 23);
+            resendCodeBtn.TabIndex = 5;
+            resendCodeBtn.Text = "Resend Code";
+            resendCodeBtn.UseVisualStyleBackColor = true;
+            resendCodeBtn.Click += resendCodeBtn_Click;
             // 
             // backBtn
             // 
@@ -58,44 +88,6 @@
             backBtn.TabIndex = 4;
             backBtn.Text = "Back";
             backBtn.UseVisualStyleBackColor = false;
-            backBtn.Click += backBtn_Click;
-            // 
-            // sendCodeBtn
-            // 
-            sendCodeBtn.BackColor = Color.Teal;
-            sendCodeBtn.FlatAppearance.BorderSize = 0;
-            sendCodeBtn.FlatStyle = FlatStyle.Flat;
-            sendCodeBtn.Font = new Font("Segoe UI", 11F);
-            sendCodeBtn.ForeColor = Color.WhiteSmoke;
-            sendCodeBtn.Location = new Point(211, 312);
-            sendCodeBtn.Name = "sendCodeBtn";
-            sendCodeBtn.Size = new Size(94, 31);
-            sendCodeBtn.TabIndex = 3;
-            sendCodeBtn.Text = "Send Code";
-            sendCodeBtn.UseVisualStyleBackColor = false;
-            sendCodeBtn.Click += sendCodeBtn_Click;
-            // 
-            // emailTxtbox
-            // 
-            emailTxtbox.Font = new Font("Segoe UI", 11F);
-            emailTxtbox.ForeColor = Color.Black;
-            emailTxtbox.Location = new Point(83, 238);
-            emailTxtbox.Name = "emailTxtbox";
-            emailTxtbox.PlaceholderText = "Enter your email";
-            emailTxtbox.Size = new Size(249, 27);
-            emailTxtbox.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 11F);
-            label1.ForeColor = SystemColors.WindowFrame;
-            label1.Location = new Point(32, 147);
-            label1.Name = "label1";
-            label1.Size = new Size(372, 48);
-            label1.TabIndex = 1;
-            label1.Text = "Please enter your email. A code will be sent to you to proceed with the changing of password.";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // forgotPasswordLabel
             // 
@@ -109,38 +101,59 @@
             forgotPasswordLabel.TabIndex = 0;
             forgotPasswordLabel.Text = "Forgot Password";
             // 
-            // loginFormPanel
+            // nextBtn
             // 
-            loginFormPanel.BackColor = Color.WhiteSmoke;
-            loginFormPanel.Controls.Add(backBtn);
-            loginFormPanel.Controls.Add(forgotPasswordLabel);
-            loginFormPanel.Controls.Add(sendCodeBtn);
-            loginFormPanel.Controls.Add(emailTxtbox);
-            loginFormPanel.Controls.Add(label1);
-            loginFormPanel.Controls.Add(controlPanel);
-            loginFormPanel.Dock = DockStyle.Right;
-            loginFormPanel.Location = new Point(484, 0);
-            loginFormPanel.Name = "loginFormPanel";
-            loginFormPanel.Size = new Size(416, 506);
-            loginFormPanel.TabIndex = 5;
-            loginFormPanel.Paint += loginFormPanel_Paint;
+            nextBtn.BackColor = Color.Teal;
+            nextBtn.FlatAppearance.BorderSize = 0;
+            nextBtn.FlatStyle = FlatStyle.Flat;
+            nextBtn.Font = new Font("Segoe UI", 11F);
+            nextBtn.ForeColor = Color.WhiteSmoke;
+            nextBtn.Location = new Point(211, 312);
+            nextBtn.Name = "nextBtn";
+            nextBtn.Size = new Size(94, 31);
+            nextBtn.TabIndex = 3;
+            nextBtn.Text = "Next";
+            nextBtn.UseVisualStyleBackColor = false;
+            nextBtn.Click += nextBtn_Click;
+            // 
+            // codeTxtbox
+            // 
+            codeTxtbox.Font = new Font("Segoe UI", 11F);
+            codeTxtbox.ForeColor = Color.Black;
+            codeTxtbox.Location = new Point(83, 234);
+            codeTxtbox.Name = "codeTxtbox";
+            codeTxtbox.PlaceholderText = "Enter code";
+            codeTxtbox.Size = new Size(249, 27);
+            codeTxtbox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 11F);
+            label1.ForeColor = SystemColors.WindowFrame;
+            label1.Location = new Point(32, 147);
+            label1.Name = "label1";
+            label1.Size = new Size(372, 48);
+            label1.TabIndex = 1;
+            label1.Text = "Please enter code sent to you.";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // controlPanel
             // 
-            controlPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             controlPanel.BackColor = Color.Transparent;
             controlPanel.Controls.Add(closeButton);
             controlPanel.Controls.Add(minimizeButton);
+            controlPanel.Dock = DockStyle.Top;
             controlPanel.FlowDirection = FlowDirection.RightToLeft;
             controlPanel.Location = new Point(0, 0);
             controlPanel.Name = "controlPanel";
-            controlPanel.Size = new Size(413, 28);
+            controlPanel.Size = new Size(417, 28);
             controlPanel.TabIndex = 4;
             // 
             // closeButton
             // 
             closeButton.Image = Properties.Resources.exit_icon;
-            closeButton.Location = new Point(390, 3);
+            closeButton.Location = new Point(394, 3);
             closeButton.Name = "closeButton";
             closeButton.Size = new Size(20, 20);
             closeButton.SizeMode = PictureBoxSizeMode.Zoom;
@@ -151,7 +164,7 @@
             // minimizeButton
             // 
             minimizeButton.Image = Properties.Resources.minimize_icon;
-            minimizeButton.Location = new Point(363, 3);
+            minimizeButton.Location = new Point(367, 3);
             minimizeButton.Name = "minimizeButton";
             minimizeButton.Size = new Size(21, 20);
             minimizeButton.SizeMode = PictureBoxSizeMode.Zoom;
@@ -169,22 +182,21 @@
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(483, 506);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
+            pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
-            // ForgotPasswordForm
+            // EnterCodeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(900, 506);
             ControlBox = false;
-            Controls.Add(pictureBox1);
             Controls.Add(loginFormPanel);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ForgotPasswordForm";
+            Name = "EnterCodeForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ForgotPasswordForm";
+            Text = "EnterCodeForm";
             loginFormPanel.ResumeLayout(false);
             loginFormPanel.PerformLayout();
             controlPanel.ResumeLayout(false);
@@ -195,15 +207,17 @@
         }
 
         #endregion
-        private Label forgotPasswordLabel;
-        private Label label1;
-        private Button backBtn;
-        private Button sendCodeBtn;
-        private TextBox emailTxtbox;
+
         private Panel loginFormPanel;
+        private Button backBtn;
+        private Label forgotPasswordLabel;
+        private Button nextBtn;
+        private TextBox codeTxtbox;
+        private Label label1;
         private FlowLayoutPanel controlPanel;
         private PictureBox closeButton;
         private PictureBox minimizeButton;
         private PictureBox pictureBox1;
+        private Button resendCodeBtn;
     }
 }

@@ -124,5 +124,9 @@ namespace EDP
 
         }
 
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

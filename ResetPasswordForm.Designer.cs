@@ -1,6 +1,6 @@
 ﻿namespace EDP
 {
-    partial class ForgotPasswordForm
+    partial class ResetPasswordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            backBtn = new Button();
-            sendCodeBtn = new Button();
-            emailTxtbox = new TextBox();
-            label1 = new Label();
-            forgotPasswordLabel = new Label();
             loginFormPanel = new Panel();
+            confirmPasswordTxtbox = new TextBox();
+            backBtn = new Button();
+            resetPasswordLabel = new Label();
+            submitBtn = new Button();
+            newPasswordTxtbox = new TextBox();
+            label1 = new Label();
             controlPanel = new FlowLayoutPanel();
             closeButton = new PictureBox();
             minimizeButton = new PictureBox();
@@ -44,6 +45,33 @@
             ((System.ComponentModel.ISupportInitialize)minimizeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // loginFormPanel
+            // 
+            loginFormPanel.BackColor = Color.WhiteSmoke;
+            loginFormPanel.Controls.Add(confirmPasswordTxtbox);
+            loginFormPanel.Controls.Add(backBtn);
+            loginFormPanel.Controls.Add(resetPasswordLabel);
+            loginFormPanel.Controls.Add(submitBtn);
+            loginFormPanel.Controls.Add(newPasswordTxtbox);
+            loginFormPanel.Controls.Add(label1);
+            loginFormPanel.Controls.Add(controlPanel);
+            loginFormPanel.Dock = DockStyle.Right;
+            loginFormPanel.Location = new Point(484, 0);
+            loginFormPanel.Name = "loginFormPanel";
+            loginFormPanel.Size = new Size(416, 506);
+            loginFormPanel.TabIndex = 8;
+            // 
+            // confirmPasswordTxtbox
+            // 
+            confirmPasswordTxtbox.Font = new Font("Segoe UI", 11F);
+            confirmPasswordTxtbox.ForeColor = Color.Black;
+            confirmPasswordTxtbox.Location = new Point(82, 257);
+            confirmPasswordTxtbox.Name = "confirmPasswordTxtbox";
+            confirmPasswordTxtbox.PlaceholderText = "Confirm new password";
+            confirmPasswordTxtbox.Size = new Size(249, 27);
+            confirmPasswordTxtbox.TabIndex = 5;
+            confirmPasswordTxtbox.UseSystemPasswordChar = true;
             // 
             // backBtn
             // 
@@ -60,30 +88,43 @@
             backBtn.UseVisualStyleBackColor = false;
             backBtn.Click += backBtn_Click;
             // 
-            // sendCodeBtn
+            // resetPasswordLabel
             // 
-            sendCodeBtn.BackColor = Color.Teal;
-            sendCodeBtn.FlatAppearance.BorderSize = 0;
-            sendCodeBtn.FlatStyle = FlatStyle.Flat;
-            sendCodeBtn.Font = new Font("Segoe UI", 11F);
-            sendCodeBtn.ForeColor = Color.WhiteSmoke;
-            sendCodeBtn.Location = new Point(211, 312);
-            sendCodeBtn.Name = "sendCodeBtn";
-            sendCodeBtn.Size = new Size(94, 31);
-            sendCodeBtn.TabIndex = 3;
-            sendCodeBtn.Text = "Send Code";
-            sendCodeBtn.UseVisualStyleBackColor = false;
-            sendCodeBtn.Click += sendCodeBtn_Click;
+            resetPasswordLabel.AutoSize = true;
+            resetPasswordLabel.BackColor = Color.Transparent;
+            resetPasswordLabel.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resetPasswordLabel.ForeColor = SystemColors.WindowFrame;
+            resetPasswordLabel.Location = new Point(111, 101);
+            resetPasswordLabel.Name = "resetPasswordLabel";
+            resetPasswordLabel.Size = new Size(181, 32);
+            resetPasswordLabel.TabIndex = 0;
+            resetPasswordLabel.Text = "Reset Password";
             // 
-            // emailTxtbox
+            // submitBtn
             // 
-            emailTxtbox.Font = new Font("Segoe UI", 11F);
-            emailTxtbox.ForeColor = Color.Black;
-            emailTxtbox.Location = new Point(83, 238);
-            emailTxtbox.Name = "emailTxtbox";
-            emailTxtbox.PlaceholderText = "Enter your email";
-            emailTxtbox.Size = new Size(249, 27);
-            emailTxtbox.TabIndex = 2;
+            submitBtn.BackColor = Color.Teal;
+            submitBtn.FlatAppearance.BorderSize = 0;
+            submitBtn.FlatStyle = FlatStyle.Flat;
+            submitBtn.Font = new Font("Segoe UI", 11F);
+            submitBtn.ForeColor = Color.WhiteSmoke;
+            submitBtn.Location = new Point(211, 312);
+            submitBtn.Name = "submitBtn";
+            submitBtn.Size = new Size(94, 31);
+            submitBtn.TabIndex = 3;
+            submitBtn.Text = "Submit";
+            submitBtn.UseVisualStyleBackColor = false;
+            submitBtn.Click += submitBtn_Click;
+            // 
+            // newPasswordTxtbox
+            // 
+            newPasswordTxtbox.Font = new Font("Segoe UI", 11F);
+            newPasswordTxtbox.ForeColor = Color.Black;
+            newPasswordTxtbox.Location = new Point(82, 215);
+            newPasswordTxtbox.Name = "newPasswordTxtbox";
+            newPasswordTxtbox.PlaceholderText = "Enter new password";
+            newPasswordTxtbox.Size = new Size(249, 27);
+            newPasswordTxtbox.TabIndex = 2;
+            newPasswordTxtbox.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -94,53 +135,25 @@
             label1.Name = "label1";
             label1.Size = new Size(372, 48);
             label1.TabIndex = 1;
-            label1.Text = "Please enter your email. A code will be sent to you to proceed with the changing of password.";
+            label1.Text = "Please enter new password";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // forgotPasswordLabel
-            // 
-            forgotPasswordLabel.AutoSize = true;
-            forgotPasswordLabel.BackColor = Color.Transparent;
-            forgotPasswordLabel.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            forgotPasswordLabel.ForeColor = SystemColors.WindowFrame;
-            forgotPasswordLabel.Location = new Point(111, 101);
-            forgotPasswordLabel.Name = "forgotPasswordLabel";
-            forgotPasswordLabel.Size = new Size(194, 32);
-            forgotPasswordLabel.TabIndex = 0;
-            forgotPasswordLabel.Text = "Forgot Password";
-            // 
-            // loginFormPanel
-            // 
-            loginFormPanel.BackColor = Color.WhiteSmoke;
-            loginFormPanel.Controls.Add(backBtn);
-            loginFormPanel.Controls.Add(forgotPasswordLabel);
-            loginFormPanel.Controls.Add(sendCodeBtn);
-            loginFormPanel.Controls.Add(emailTxtbox);
-            loginFormPanel.Controls.Add(label1);
-            loginFormPanel.Controls.Add(controlPanel);
-            loginFormPanel.Dock = DockStyle.Right;
-            loginFormPanel.Location = new Point(484, 0);
-            loginFormPanel.Name = "loginFormPanel";
-            loginFormPanel.Size = new Size(416, 506);
-            loginFormPanel.TabIndex = 5;
-            loginFormPanel.Paint += loginFormPanel_Paint;
             // 
             // controlPanel
             // 
-            controlPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             controlPanel.BackColor = Color.Transparent;
             controlPanel.Controls.Add(closeButton);
             controlPanel.Controls.Add(minimizeButton);
+            controlPanel.Dock = DockStyle.Top;
             controlPanel.FlowDirection = FlowDirection.RightToLeft;
             controlPanel.Location = new Point(0, 0);
             controlPanel.Name = "controlPanel";
-            controlPanel.Size = new Size(413, 28);
+            controlPanel.Size = new Size(416, 28);
             controlPanel.TabIndex = 4;
             // 
             // closeButton
             // 
             closeButton.Image = Properties.Resources.exit_icon;
-            closeButton.Location = new Point(390, 3);
+            closeButton.Location = new Point(393, 3);
             closeButton.Name = "closeButton";
             closeButton.Size = new Size(20, 20);
             closeButton.SizeMode = PictureBoxSizeMode.Zoom;
@@ -151,7 +164,7 @@
             // minimizeButton
             // 
             minimizeButton.Image = Properties.Resources.minimize_icon;
-            minimizeButton.Location = new Point(363, 3);
+            minimizeButton.Location = new Point(366, 3);
             minimizeButton.Name = "minimizeButton";
             minimizeButton.Size = new Size(21, 20);
             minimizeButton.SizeMode = PictureBoxSizeMode.Zoom;
@@ -169,22 +182,21 @@
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(483, 506);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
+            pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
-            // ForgotPasswordForm
+            // ResetPasswordForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(900, 506);
             ControlBox = false;
-            Controls.Add(pictureBox1);
             Controls.Add(loginFormPanel);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ForgotPasswordForm";
+            Name = "ResetPasswordForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ForgotPasswordForm";
+            Text = "ResetPasswordForm";
             loginFormPanel.ResumeLayout(false);
             loginFormPanel.PerformLayout();
             controlPanel.ResumeLayout(false);
@@ -195,15 +207,17 @@
         }
 
         #endregion
-        private Label forgotPasswordLabel;
-        private Label label1;
-        private Button backBtn;
-        private Button sendCodeBtn;
-        private TextBox emailTxtbox;
+
         private Panel loginFormPanel;
+        private Button backBtn;
+        private Label resetPasswordLabel;
+        private Button submitBtn;
+        private TextBox newPasswordTxtbox;
+        private Label label1;
         private FlowLayoutPanel controlPanel;
         private PictureBox closeButton;
         private PictureBox minimizeButton;
         private PictureBox pictureBox1;
+        private TextBox confirmPasswordTxtbox;
     }
 }

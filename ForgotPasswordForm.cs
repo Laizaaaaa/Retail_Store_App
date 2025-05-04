@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Text;
+using System.Net;
+using System.Net.Mail;
+using System.Windows.Forms;
 
 namespace EDP
 {
@@ -35,9 +31,9 @@ namespace EDP
             {
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
                 StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
+                foreach (byte b in bytes)
                 {
-                    builder.Append(bytes[i].ToString("x2"));
+                    builder.Append(b.ToString("x2"));
                 }
                 return builder.ToString();
             }
@@ -45,11 +41,11 @@ namespace EDP
 
         private void sendCodeBtn_Click(object sender, EventArgs e)
         {
-            userInput = nameOrContactTxtbox.Text;
+            userInput = emailTxtbox.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(userInput))
             {
-                MessageBox.Show("Please enter your registered name or contact number.");
+                MessageBox.Show("Please enter your email.");
                 return;
             }
 
@@ -57,29 +53,30 @@ namespace EDP
             {
                 using (var conn = DBConnection.GetConnection())
                 {
-                    string query = "SELECT * FROM users WHERE name = @input OR contact_number = @input";
+                    string query = "SELECT email FROM users WHERE email = @input";
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@input", userInput);
 
                         using (var reader = cmd.ExecuteReader())
                         {
-                            if (reader.HasRows)
+                            if (reader.Read())
                             {
-                                // User exists, generate verification code
+                                string email = reader.GetString("email");
+
                                 generatedCode = GenerateVerificationCode();
 
-                                // "Send" the code via SMS (for now, just show it via MessageBox or simulate)
-                                MessageBox.Show($"(Simulated SMS) Your verification code is: {generatedCode}");
+                                // ✅ Correct method to send OTP via email
+                                SendOtpEmail(email, generatedCode);
 
-                                // Open form to enter the verification code
-                                EnterCodeForm enterCodeForm = new EnterCodeForm(this); // Pass this ForgotPasswordForm
+                                // ✅ Open code entry form
+                                EnterCodeForm enterCodeForm = new EnterCodeForm(this, generatedCode, userInput);
                                 enterCodeForm.Show();
                                 this.Hide();
                             }
                             else
                             {
-                                MessageBox.Show("No user found with that name or contact number.");
+                                MessageBox.Show("No user found with that email.");
                             }
                         }
                     }
@@ -91,11 +88,58 @@ namespace EDP
             }
         }
 
-        // Function to generate 6-digit code
+        // ✅ Generate 6-digit OTP
         private string GenerateVerificationCode()
         {
             Random rand = new Random();
-            return rand.Next(100000, 999999).ToString(); // 6-digit random number
+            return rand.Next(100000, 999999).ToString();
+        }
+
+        // ✅ Send OTP via Gmail SMTP
+        private void SendOtpEmail(string toEmail, string otp)
+        {
+            var fromAddress = new MailAddress("lmbb2022-2851-76296@bicol-u.edu.ph", "JFKL Sari-sari Store");
+            var toAddress = new MailAddress(toEmail);
+            const string fromPassword = "bdgc tibw llxs nste"; // Use Google App Password
+
+            string subject = "OTP Verification Code";
+            string body = $"Your OTP code is: {otp}\n\nThis code will expire in 5 minutes.";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
+            }
+
+            MessageBox.Show("OTP has been sent to your email.");
+        }
+
+        private void loginFormPanel_Paint(object sender, PaintEventArgs e)
+        {
+            // Optional panel paint logic
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
