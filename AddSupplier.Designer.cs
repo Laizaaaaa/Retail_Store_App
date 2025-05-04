@@ -152,6 +152,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AddSupplier";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddSupplier";
             panel1.ResumeLayout(false);
             addProductForm.ResumeLayout(false);

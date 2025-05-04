@@ -60,6 +60,8 @@
             ordersButton = new Button();
             categoriesButtonPanel = new Panel();
             categoriesButton = new Button();
+            staffButtonPanel = new Panel();
+            staffButton = new Button();
             logoutBtn = new Button();
             salesMenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
@@ -82,6 +84,7 @@
             inventoryButtonPanel.SuspendLayout();
             ordersButtonPanel.SuspendLayout();
             categoriesButtonPanel.SuspendLayout();
+            staffButtonPanel.SuspendLayout();
             SuspendLayout();
             // 
             // header
@@ -193,6 +196,7 @@
             sidebarContainer.Controls.Add(inventoryButtonPanel);
             sidebarContainer.Controls.Add(ordersButtonPanel);
             sidebarContainer.Controls.Add(categoriesButtonPanel);
+            sidebarContainer.Controls.Add(staffButtonPanel);
             sidebarContainer.Controls.Add(logoutBtn);
             sidebarContainer.Dock = DockStyle.Left;
             sidebarContainer.FlowDirection = FlowDirection.TopDown;
@@ -482,6 +486,32 @@
             categoriesButton.UseVisualStyleBackColor = true;
             categoriesButton.Click += categoriesButton_Click;
             // 
+            // staffButtonPanel
+            // 
+            staffButtonPanel.BackColor = Color.FromArgb(23, 24, 29);
+            staffButtonPanel.Controls.Add(staffButton);
+            staffButtonPanel.Location = new Point(3, 313);
+            staffButtonPanel.Name = "staffButtonPanel";
+            staffButtonPanel.Size = new Size(183, 44);
+            staffButtonPanel.TabIndex = 8;
+            // 
+            // staffButton
+            // 
+            staffButton.FlatStyle = FlatStyle.Flat;
+            staffButton.Font = new Font("Segoe UI", 9F);
+            staffButton.ForeColor = Color.White;
+            staffButton.Image = Properties.Resources.categories_icon;
+            staffButton.ImageAlign = ContentAlignment.MiddleLeft;
+            staffButton.Location = new Point(-9, -10);
+            staffButton.Name = "staffButton";
+            staffButton.Padding = new Padding(25, 0, 0, 0);
+            staffButton.Size = new Size(202, 68);
+            staffButton.TabIndex = 2;
+            staffButton.Text = "            Staff";
+            staffButton.TextAlign = ContentAlignment.MiddleLeft;
+            staffButton.UseVisualStyleBackColor = true;
+            staffButton.Click += staffButton_Click;
+            // 
             // logoutBtn
             // 
             logoutBtn.FlatAppearance.BorderSize = 0;
@@ -489,7 +519,7 @@
             logoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutBtn.ForeColor = Color.White;
             logoutBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            logoutBtn.Location = new Point(3, 580);
+            logoutBtn.Location = new Point(192, 280);
             logoutBtn.Margin = new Padding(3, 270, 3, 3);
             logoutBtn.Name = "logoutBtn";
             logoutBtn.Size = new Size(183, 54);
@@ -543,6 +573,7 @@
             inventoryButtonPanel.ResumeLayout(false);
             ordersButtonPanel.ResumeLayout(false);
             categoriesButtonPanel.ResumeLayout(false);
+            staffButtonPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -576,12 +607,13 @@
         private Button categoriesButton;
         private Panel yearlySalesButtonPanel;
         private Button yearlySalesButton;
-        private Panel panel1;
         private FlowLayoutPanel controlPanel;
         private PictureBox minimizeButton;
         private PictureBox maximizeButton;
         private PictureBox closeButton;
         private PictureBox exitFullScreenButton;
         private Button logoutBtn;
+        private Panel staffButtonPanel;
+        private Button staffButton;
     }
 }

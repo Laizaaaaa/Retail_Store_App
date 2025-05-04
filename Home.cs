@@ -84,19 +84,19 @@ namespace EDP
             if (salesMenuExpand == false)
             {
                 salesMenuContainer.Height += 10;
-               
+
 
                 if (salesMenuContainer.Height >= 220)
                 {
                     salesMenuTransition.Stop();
                     salesMenuExpand = true;
-                    logoutBtn.Margin = new Padding(3, 90, 3, 3); 
+                    logoutBtn.Margin = new Padding(3, 90, 3, 3);
                 }
             }
             else
             {
                 salesMenuContainer.Height -= 10;
-               
+
 
                 if (salesMenuContainer.Height <= 44)
                 {
@@ -153,6 +153,10 @@ namespace EDP
         {
             OpenChildForm(new Categories());
         }
+        private void staffButton_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff(this));
+        }
 
         private Form activeForm = null;
 
@@ -208,9 +212,8 @@ namespace EDP
                 LoginForm loginForm = new LoginForm();
                 loginForm.FormClosed += (s, args) => this.Close();
                 loginForm.Show();
-                this.Hide(); 
+                this.Hide();
             }
         }
-
     }
 }

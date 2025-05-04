@@ -53,3 +53,7 @@ C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.RegisterForm.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.ForgotPasswordForm.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.EnterCodeForm.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.ResetPasswordForm.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Staff.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddStaff.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.EditStaffForm.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.ViewStaffInformation.resources

@@ -238,6 +238,7 @@ namespace EDP
             label2.Size = new Size(190, 25);
             label2.TabIndex = 7;
             label2.Text = "Best Selling Products";
+            label2.Click += label2_Click;
             // 
             // discountedProductsGridView
             // 
@@ -252,6 +253,7 @@ namespace EDP
             discountedProductsGridView.RowHeadersVisible = false;
             discountedProductsGridView.Size = new Size(328, 362);
             discountedProductsGridView.TabIndex = 6;
+            discountedProductsGridView.CellContentClick += discountedProductsGridView_CellContentClick;
             // 
             // bestSellingProductsGridView
             // 
