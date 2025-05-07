@@ -94,7 +94,7 @@
             newTransactionBtn.TabIndex = 8;
             newTransactionBtn.Text = "New Transaction";
             newTransactionBtn.UseVisualStyleBackColor = false;
-            newTransactionBtn.Click += AddOrderBtn_Click;
+            newTransactionBtn.Click += newTransactionBtn_Click;
             // 
             // label3
             // 

@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             addProductForm = new Panel();
+            retailPriceLabel = new Label();
+            retailPriceeLabel = new Label();
             addItemsLabel = new Label();
             saleItemsPanel = new Panel();
+            cancelBtn = new Button();
             label8 = new Label();
             completeTransaction = new Button();
             label7 = new Label();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
+            saleItemsGridView = new DataGridView();
             label6 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -49,15 +52,16 @@
             productLabel = new Label();
             productTxtbox = new TextBox();
             newTransactionLabel = new Label();
-            cancelBtn = new Button();
             addProductForm.SuspendLayout();
             saleItemsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)saleItemsGridView).BeginInit();
             SuspendLayout();
             // 
             // addProductForm
             // 
             addProductForm.BackColor = SystemColors.Desktop;
+            addProductForm.Controls.Add(retailPriceLabel);
+            addProductForm.Controls.Add(retailPriceeLabel);
             addProductForm.Controls.Add(addItemsLabel);
             addProductForm.Controls.Add(saleItemsPanel);
             addProductForm.Controls.Add(totalAmount);
@@ -72,6 +76,26 @@
             addProductForm.Name = "addProductForm";
             addProductForm.Size = new Size(718, 444);
             addProductForm.TabIndex = 2;
+            // 
+            // retailPriceLabel
+            // 
+            retailPriceLabel.AutoSize = true;
+            retailPriceLabel.ForeColor = Color.WhiteSmoke;
+            retailPriceLabel.Location = new Point(293, 280);
+            retailPriceLabel.Name = "retailPriceLabel";
+            retailPriceLabel.Size = new Size(34, 15);
+            retailPriceLabel.TabIndex = 21;
+            retailPriceLabel.Text = "$0.00";
+            // 
+            // retailPriceeLabel
+            // 
+            retailPriceeLabel.AutoSize = true;
+            retailPriceeLabel.ForeColor = SystemColors.Window;
+            retailPriceeLabel.Location = new Point(69, 280);
+            retailPriceeLabel.Name = "retailPriceeLabel";
+            retailPriceeLabel.Size = new Size(65, 15);
+            retailPriceeLabel.TabIndex = 20;
+            retailPriceeLabel.Text = "Retail Price";
             // 
             // addItemsLabel
             // 
@@ -93,7 +117,7 @@
             saleItemsPanel.Controls.Add(completeTransaction);
             saleItemsPanel.Controls.Add(label7);
             saleItemsPanel.Controls.Add(label5);
-            saleItemsPanel.Controls.Add(dataGridView1);
+            saleItemsPanel.Controls.Add(saleItemsGridView);
             saleItemsPanel.Controls.Add(label6);
             saleItemsPanel.Controls.Add(label4);
             saleItemsPanel.Controls.Add(label3);
@@ -104,6 +128,21 @@
             saleItemsPanel.Name = "saleItemsPanel";
             saleItemsPanel.Size = new Size(311, 444);
             saleItemsPanel.TabIndex = 18;
+            // 
+            // cancelBtn
+            // 
+            cancelBtn.BackColor = Color.DarkSlateGray;
+            cancelBtn.FlatAppearance.BorderSize = 0;
+            cancelBtn.FlatStyle = FlatStyle.Flat;
+            cancelBtn.ForeColor = Color.WhiteSmoke;
+            cancelBtn.Location = new Point(22, 384);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.Padding = new Padding(2);
+            cancelBtn.Size = new Size(95, 31);
+            cancelBtn.TabIndex = 18;
+            cancelBtn.Text = "Cancel";
+            cancelBtn.UseVisualStyleBackColor = false;
+            cancelBtn.Click += cancelBtn_Click;
             // 
             // label8
             // 
@@ -154,13 +193,16 @@
             label5.TabIndex = 21;
             label5.Text = "$0.00";
             // 
-            // dataGridView1
+            // saleItemsGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(22, 80);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(270, 253);
-            dataGridView1.TabIndex = 24;
+            saleItemsGridView.AllowUserToAddRows = false;
+            saleItemsGridView.AllowUserToDeleteRows = false;
+            saleItemsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            saleItemsGridView.Location = new Point(22, 80);
+            saleItemsGridView.Name = "saleItemsGridView";
+            saleItemsGridView.Size = new Size(270, 253);
+            saleItemsGridView.TabIndex = 24;
+            saleItemsGridView.CellContentClick += saleItemsGridView_CellContentClick;
             // 
             // label6
             // 
@@ -224,7 +266,7 @@
             // 
             totalAmount.AutoSize = true;
             totalAmount.ForeColor = Color.WhiteSmoke;
-            totalAmount.Location = new Point(293, 288);
+            totalAmount.Location = new Point(295, 318);
             totalAmount.Name = "totalAmount";
             totalAmount.Size = new Size(34, 15);
             totalAmount.TabIndex = 17;
@@ -236,7 +278,7 @@
             addItemBtn.FlatAppearance.BorderSize = 0;
             addItemBtn.FlatStyle = FlatStyle.Flat;
             addItemBtn.ForeColor = Color.WhiteSmoke;
-            addItemBtn.Location = new Point(232, 336);
+            addItemBtn.Location = new Point(234, 368);
             addItemBtn.Name = "addItemBtn";
             addItemBtn.Padding = new Padding(2);
             addItemBtn.Size = new Size(95, 31);
@@ -249,7 +291,7 @@
             // 
             subtotalLabel.AutoSize = true;
             subtotalLabel.ForeColor = Color.WhiteSmoke;
-            subtotalLabel.Location = new Point(273, 271);
+            subtotalLabel.Location = new Point(68, 318);
             subtotalLabel.Name = "subtotalLabel";
             subtotalLabel.Size = new Size(54, 15);
             subtotalLabel.TabIndex = 8;
@@ -271,7 +313,6 @@
             qtyTxtbox.Name = "qtyTxtbox";
             qtyTxtbox.Size = new Size(258, 23);
             qtyTxtbox.TabIndex = 5;
-            qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
             // 
             // productLabel
             // 
@@ -301,22 +342,6 @@
             newTransactionLabel.Size = new Size(153, 25);
             newTransactionLabel.TabIndex = 0;
             newTransactionLabel.Text = "New Transaction";
-            newTransactionLabel.Click += newTransactionLabel_Click;
-            // 
-            // cancelBtn
-            // 
-            cancelBtn.BackColor = Color.DarkSlateGray;
-            cancelBtn.FlatAppearance.BorderSize = 0;
-            cancelBtn.FlatStyle = FlatStyle.Flat;
-            cancelBtn.ForeColor = Color.WhiteSmoke;
-            cancelBtn.Location = new Point(22, 384);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Padding = new Padding(2);
-            cancelBtn.Size = new Size(95, 31);
-            cancelBtn.TabIndex = 18;
-            cancelBtn.Text = "Cancel";
-            cancelBtn.UseVisualStyleBackColor = false;
-            cancelBtn.Click += cancelBtn_Click;
             // 
             // AddNewTransaction
             // 
@@ -330,11 +355,12 @@
             Name = "AddNewTransaction";
             StartPosition = FormStartPosition.Manual;
             Text = "AddNewTransaction";
+            Load += AddNewTransaction_Load;
             addProductForm.ResumeLayout(false);
             addProductForm.PerformLayout();
             saleItemsPanel.ResumeLayout(false);
             saleItemsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)saleItemsGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -357,10 +383,12 @@
         private Label label8;
         private Label label7;
         private Label label5;
-        private DataGridView dataGridView1;
+        private DataGridView saleItemsGridView;
         private Label label6;
         private Label label4;
         private Button completeTransaction;
         private Button cancelBtn;
+        private Label retailPriceLabel;
+        private Label retailPriceeLabel;
     }
 }

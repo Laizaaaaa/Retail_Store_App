@@ -61,9 +61,30 @@ namespace EDP
             }
         }
 
-        private void AddOrderBtn_Click(object sender, EventArgs e)
+        private void newTransactionBtn_Click(object sender, EventArgs e)
         {
-            homeForm.OpenChildForm(new AddNewTransaction(homeForm));
+            int newSaleId = -1;
+
+            using (var conn = DBConnection.GetConnection())
+            {
+                string insertQuery = @"INSERT INTO Sales (sale_date, total_amount, total_items)
+                               VALUES (NOW(), 0, 0); SELECT LAST_INSERT_ID();";
+
+                using (var cmd = new MySqlCommand(insertQuery, conn))
+                {
+                    newSaleId = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            if (newSaleId > 0)
+            {
+                homeForm.OpenChildForm(new AddNewTransaction(homeForm, newSaleId));
+            }
+            else
+            {
+                MessageBox.Show("Failed to create a new sale.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
