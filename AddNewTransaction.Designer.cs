@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             addProductForm = new Panel();
-            retailPriceLabel = new Label();
+            retailPriceAmount = new Label();
             retailPriceeLabel = new Label();
             addItemsLabel = new Label();
             saleItemsPanel = new Panel();
@@ -37,14 +40,10 @@
             label8 = new Label();
             completeTransaction = new Button();
             label7 = new Label();
-            label5 = new Label();
+            totalAmount = new Label();
             saleItemsGridView = new DataGridView();
             label6 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            totalAmount = new Label();
+            subtotalAmount = new Label();
             addItemBtn = new Button();
             subtotalLabel = new Label();
             qtyLabel = new Label();
@@ -60,11 +59,11 @@
             // addProductForm
             // 
             addProductForm.BackColor = SystemColors.Desktop;
-            addProductForm.Controls.Add(retailPriceLabel);
+            addProductForm.Controls.Add(retailPriceAmount);
             addProductForm.Controls.Add(retailPriceeLabel);
             addProductForm.Controls.Add(addItemsLabel);
             addProductForm.Controls.Add(saleItemsPanel);
-            addProductForm.Controls.Add(totalAmount);
+            addProductForm.Controls.Add(subtotalAmount);
             addProductForm.Controls.Add(addItemBtn);
             addProductForm.Controls.Add(subtotalLabel);
             addProductForm.Controls.Add(qtyLabel);
@@ -74,24 +73,25 @@
             addProductForm.Controls.Add(newTransactionLabel);
             addProductForm.Location = new Point(37, 71);
             addProductForm.Name = "addProductForm";
-            addProductForm.Size = new Size(718, 444);
+            addProductForm.Size = new Size(752, 444);
             addProductForm.TabIndex = 2;
+            addProductForm.Paint += addProductForm_Paint;
             // 
-            // retailPriceLabel
+            // retailPriceAmount
             // 
-            retailPriceLabel.AutoSize = true;
-            retailPriceLabel.ForeColor = Color.WhiteSmoke;
-            retailPriceLabel.Location = new Point(293, 280);
-            retailPriceLabel.Name = "retailPriceLabel";
-            retailPriceLabel.Size = new Size(34, 15);
-            retailPriceLabel.TabIndex = 21;
-            retailPriceLabel.Text = "$0.00";
+            retailPriceAmount.AutoSize = true;
+            retailPriceAmount.ForeColor = Color.WhiteSmoke;
+            retailPriceAmount.Location = new Point(220, 281);
+            retailPriceAmount.Name = "retailPriceAmount";
+            retailPriceAmount.Size = new Size(34, 15);
+            retailPriceAmount.TabIndex = 21;
+            retailPriceAmount.Text = "$0.00";
             // 
             // retailPriceeLabel
             // 
             retailPriceeLabel.AutoSize = true;
             retailPriceeLabel.ForeColor = SystemColors.Window;
-            retailPriceeLabel.Location = new Point(69, 280);
+            retailPriceeLabel.Location = new Point(29, 279);
             retailPriceeLabel.Name = "retailPriceeLabel";
             retailPriceeLabel.Size = new Size(65, 15);
             retailPriceeLabel.TabIndex = 20;
@@ -103,7 +103,7 @@
             addItemsLabel.BackColor = Color.Transparent;
             addItemsLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             addItemsLabel.ForeColor = Color.WhiteSmoke;
-            addItemsLabel.Location = new Point(165, 80);
+            addItemsLabel.Location = new Point(103, 70);
             addItemsLabel.Name = "addItemsLabel";
             addItemsLabel.Size = new Size(62, 15);
             addItemsLabel.TabIndex = 19;
@@ -116,17 +116,13 @@
             saleItemsPanel.Controls.Add(label8);
             saleItemsPanel.Controls.Add(completeTransaction);
             saleItemsPanel.Controls.Add(label7);
-            saleItemsPanel.Controls.Add(label5);
+            saleItemsPanel.Controls.Add(totalAmount);
             saleItemsPanel.Controls.Add(saleItemsGridView);
             saleItemsPanel.Controls.Add(label6);
-            saleItemsPanel.Controls.Add(label4);
-            saleItemsPanel.Controls.Add(label3);
-            saleItemsPanel.Controls.Add(label2);
-            saleItemsPanel.Controls.Add(label1);
             saleItemsPanel.Dock = DockStyle.Right;
-            saleItemsPanel.Location = new Point(407, 0);
+            saleItemsPanel.Location = new Point(298, 0);
             saleItemsPanel.Name = "saleItemsPanel";
-            saleItemsPanel.Size = new Size(311, 444);
+            saleItemsPanel.Size = new Size(454, 444);
             saleItemsPanel.TabIndex = 18;
             // 
             // cancelBtn
@@ -135,7 +131,7 @@
             cancelBtn.FlatAppearance.BorderSize = 0;
             cancelBtn.FlatStyle = FlatStyle.Flat;
             cancelBtn.ForeColor = Color.WhiteSmoke;
-            cancelBtn.Location = new Point(22, 384);
+            cancelBtn.Location = new Point(165, 384);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Padding = new Padding(2);
             cancelBtn.Size = new Size(95, 31);
@@ -162,7 +158,7 @@
             completeTransaction.FlatAppearance.BorderSize = 0;
             completeTransaction.FlatStyle = FlatStyle.Flat;
             completeTransaction.ForeColor = Color.WhiteSmoke;
-            completeTransaction.Location = new Point(123, 384);
+            completeTransaction.Location = new Point(266, 384);
             completeTransaction.Name = "completeTransaction";
             completeTransaction.Padding = new Padding(2);
             completeTransaction.Size = new Size(169, 31);
@@ -183,24 +179,57 @@
             label7.TabIndex = 25;
             label7.Text = "01/01/25";
             // 
-            // label5
+            // totalAmount
             // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(258, 348);
-            label5.Name = "label5";
-            label5.Size = new Size(34, 15);
-            label5.TabIndex = 21;
-            label5.Text = "$0.00";
+            totalAmount.AutoSize = true;
+            totalAmount.ForeColor = Color.Black;
+            totalAmount.Location = new Point(401, 348);
+            totalAmount.Name = "totalAmount";
+            totalAmount.Size = new Size(34, 15);
+            totalAmount.TabIndex = 21;
+            totalAmount.Text = "$0.00";
             // 
             // saleItemsGridView
             // 
             saleItemsGridView.AllowUserToAddRows = false;
             saleItemsGridView.AllowUserToDeleteRows = false;
+            saleItemsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            saleItemsGridView.BackgroundColor = SystemColors.ControlLightLight;
+            saleItemsGridView.BorderStyle = BorderStyle.None;
+            saleItemsGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            saleItemsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            saleItemsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             saleItemsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            saleItemsGridView.Location = new Point(22, 80);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            saleItemsGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            saleItemsGridView.EnableHeadersVisualStyles = false;
+            saleItemsGridView.Location = new Point(22, 45);
             saleItemsGridView.Name = "saleItemsGridView";
-            saleItemsGridView.Size = new Size(270, 253);
+            saleItemsGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            saleItemsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            saleItemsGridView.RowHeadersVisible = false;
+            saleItemsGridView.ShowCellToolTips = false;
+            saleItemsGridView.Size = new Size(413, 288);
             saleItemsGridView.TabIndex = 24;
             saleItemsGridView.CellContentClick += saleItemsGridView_CellContentClick;
             // 
@@ -214,63 +243,15 @@
             label6.TabIndex = 20;
             label6.Text = "Total:";
             // 
-            // label4
+            // subtotalAmount
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(171, 55);
-            label4.Name = "label4";
-            label4.Size = new Size(33, 15);
-            label4.TabIndex = 23;
-            label4.Text = "Price";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(240, 55);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 15);
-            label3.TabIndex = 22;
-            label3.Text = "Subtotal";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(107, 55);
-            label2.Name = "label2";
-            label2.Size = new Size(26, 15);
-            label2.TabIndex = 21;
-            label2.Text = "Qty";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(22, 55);
-            label1.Name = "label1";
-            label1.Size = new Size(49, 15);
-            label1.TabIndex = 20;
-            label1.Text = "Product";
-            // 
-            // totalAmount
-            // 
-            totalAmount.AutoSize = true;
-            totalAmount.ForeColor = Color.WhiteSmoke;
-            totalAmount.Location = new Point(295, 318);
-            totalAmount.Name = "totalAmount";
-            totalAmount.Size = new Size(34, 15);
-            totalAmount.TabIndex = 17;
-            totalAmount.Text = "$0.00";
+            subtotalAmount.AutoSize = true;
+            subtotalAmount.ForeColor = Color.WhiteSmoke;
+            subtotalAmount.Location = new Point(222, 319);
+            subtotalAmount.Name = "subtotalAmount";
+            subtotalAmount.Size = new Size(34, 15);
+            subtotalAmount.TabIndex = 17;
+            subtotalAmount.Text = "$0.00";
             // 
             // addItemBtn
             // 
@@ -278,7 +259,7 @@
             addItemBtn.FlatAppearance.BorderSize = 0;
             addItemBtn.FlatStyle = FlatStyle.Flat;
             addItemBtn.ForeColor = Color.WhiteSmoke;
-            addItemBtn.Location = new Point(234, 368);
+            addItemBtn.Location = new Point(161, 369);
             addItemBtn.Name = "addItemBtn";
             addItemBtn.Padding = new Padding(2);
             addItemBtn.Size = new Size(95, 31);
@@ -291,7 +272,7 @@
             // 
             subtotalLabel.AutoSize = true;
             subtotalLabel.ForeColor = Color.WhiteSmoke;
-            subtotalLabel.Location = new Point(68, 318);
+            subtotalLabel.Location = new Point(28, 317);
             subtotalLabel.Name = "subtotalLabel";
             subtotalLabel.Size = new Size(54, 15);
             subtotalLabel.TabIndex = 8;
@@ -301,7 +282,7 @@
             // 
             qtyLabel.AutoSize = true;
             qtyLabel.ForeColor = Color.WhiteSmoke;
-            qtyLabel.Location = new Point(69, 203);
+            qtyLabel.Location = new Point(29, 202);
             qtyLabel.Name = "qtyLabel";
             qtyLabel.Size = new Size(53, 15);
             qtyLabel.TabIndex = 6;
@@ -309,16 +290,17 @@
             // 
             // qtyTxtbox
             // 
-            qtyTxtbox.Location = new Point(69, 224);
+            qtyTxtbox.Location = new Point(29, 223);
             qtyTxtbox.Name = "qtyTxtbox";
-            qtyTxtbox.Size = new Size(258, 23);
+            qtyTxtbox.Size = new Size(227, 23);
             qtyTxtbox.TabIndex = 5;
+            qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
             // 
             // productLabel
             // 
             productLabel.AutoSize = true;
             productLabel.ForeColor = Color.WhiteSmoke;
-            productLabel.Location = new Point(69, 140);
+            productLabel.Location = new Point(29, 139);
             productLabel.Name = "productLabel";
             productLabel.Size = new Size(49, 15);
             productLabel.TabIndex = 4;
@@ -326,9 +308,9 @@
             // 
             // productTxtbox
             // 
-            productTxtbox.Location = new Point(69, 162);
+            productTxtbox.Location = new Point(29, 161);
             productTxtbox.Name = "productTxtbox";
-            productTxtbox.Size = new Size(260, 23);
+            productTxtbox.Size = new Size(229, 23);
             productTxtbox.TabIndex = 3;
             // 
             // newTransactionLabel
@@ -337,7 +319,7 @@
             newTransactionLabel.BackColor = Color.Transparent;
             newTransactionLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
             newTransactionLabel.ForeColor = Color.WhiteSmoke;
-            newTransactionLabel.Location = new Point(132, 55);
+            newTransactionLabel.Location = new Point(70, 45);
             newTransactionLabel.Name = "newTransactionLabel";
             newTransactionLabel.Size = new Size(153, 25);
             newTransactionLabel.TabIndex = 0;
@@ -367,7 +349,7 @@
         #endregion
 
         private Panel addProductForm;
-        private Label totalAmount;
+        private Label subtotalAmount;
         private Button addItemBtn;
         private Label subtotalLabel;
         private Label qtyLabel;
@@ -377,18 +359,14 @@
         private Label newTransactionLabel;
         private Panel saleItemsPanel;
         private Label addItemsLabel;
-        private Label label3;
-        private Label label2;
-        private Label label1;
         private Label label8;
         private Label label7;
-        private Label label5;
+        private Label totalAmount;
         private DataGridView saleItemsGridView;
         private Label label6;
-        private Label label4;
         private Button completeTransaction;
         private Button cancelBtn;
-        private Label retailPriceLabel;
+        private Label retailPriceAmount;
         private Label retailPriceeLabel;
     }
 }

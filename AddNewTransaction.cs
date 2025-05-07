@@ -22,6 +22,8 @@ namespace EDP
         public AddNewTransaction(Home home, int saleId)
         {
             InitializeComponent();
+            saleItemsGridView.CellEndEdit += saleItemsGridView_CellEndEdit;
+            qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
             this.homeForm = home;
             this.currentSaleId = saleId;
         }
@@ -30,10 +32,17 @@ namespace EDP
         private void AddNewTransaction_Load(object sender, EventArgs e)
         {
             LoadProductSuggestions();
+
+            // Bind autocomplete to the textbox (if not yet bound)
             productTxtbox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             productTxtbox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             productTxtbox.AutoCompleteCustomSource = productNames;
+
+            // Bind the text changed events to update retail price and subtotal dynamically
+            productTxtbox.TextChanged += productTxtbox_TextChanged;
+            qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
         }
+
 
         private void LoadProductSuggestions()
         {
@@ -62,32 +71,43 @@ namespace EDP
             productTxtbox.AutoCompleteCustomSource = productNames;
         }
 
-
-        private void productTxtbox_Leave(object sender, EventArgs e)
+        private void productTxtbox_TextChanged(object sender, EventArgs e)
         {
-            string selectedProduct = productTxtbox.Text;
+            string selectedProduct = productTxtbox.Text.Trim();
+
             if (productPriceMap.ContainsKey(selectedProduct))
             {
-                retailPriceeLabel.Text = productPriceMap[selectedProduct].ToString("F2");
+                // Set the retail price when product is selected
+                retailPriceAmount.Text = productPriceMap[selectedProduct].ToString("F2");
+
+                // Recalculate the subtotal if quantity is available
                 CalculateSubtotal();
             }
+            else
+            {
+                retailPriceAmount.Text = "0.00";  // If no product is selected or invalid input
+                subtotalAmount.Text = "0.00";
+            }
         }
+    
 
-        private void quantityTxtbox_TextChanged(object sender, EventArgs e)
+        private void qtyTxtbox_TextChanged(object sender, EventArgs e)
         {
             CalculateSubtotal();
         }
 
         private void CalculateSubtotal()
         {
-            if (decimal.TryParse(retailPriceeLabel.Text, out decimal price) &&
-                int.TryParse(qtyTxtbox.Text, out int qty))
+            if (decimal.TryParse(retailPriceAmount.Text, out decimal price) &&
+                int.TryParse(qtyTxtbox.Text, out int qty) && qty > 0)
             {
-                subtotalLabel.Text = (price * qty).ToString("F2");
+                // Update the subtotal label
+                subtotalAmount.Text = (price * qty).ToString("F2");
             }
             else
             {
-                subtotalLabel.Text = "0.00";
+                // In case of invalid input, set the subtotal to 0
+                subtotalAmount.Text = "0.00";
             }
         }
 
@@ -119,8 +139,12 @@ namespace EDP
                 // Clear input fields
                 productTxtbox.Text = "";
                 qtyTxtbox.Text = "";
-                retailPriceeLabel.Text = "0.00";
-                subtotalLabel.Text = "0.00";
+                retailPriceAmount.Text = "0.00";
+                subtotalAmount.Text = "0.00";
+
+                // Update the total amount
+                UpdateTotalAmount();
+
             }
             catch (Exception ex)
             {
@@ -129,21 +153,21 @@ namespace EDP
         }
 
 
+
         private void LoadSaleItems()
         {
             using (var conn = DBConnection.GetConnection())
             {
                 string query = @"
-            SELECT 
-                si.sale_item_id, 
-                p.product_name, 
-                si.quantity, 
-                si.retail_price, 
-                si.subtotal, 
-                si.status
-            FROM sales_items si
-            JOIN Products p ON si.product_id = p.product_id
-            WHERE si.sale_id = @saleId";
+                SELECT 
+                    si.sale_item_id,
+                    p.product_name as 'Product', 
+                    si.quantity as 'Quantity', 
+                    si.retail_price as 'Price', 
+                    si.subtotal as 'Subtotal'
+                FROM sales_items si
+                JOIN Products p ON si.product_id = p.product_id
+                WHERE si.sale_id = @saleId";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 {
@@ -152,8 +176,29 @@ namespace EDP
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     saleItemsGridView.DataSource = dt;
-                }
 
+                    // Hide sale_item_id column
+                    if (saleItemsGridView.Columns.Contains("sale_item_id"))
+                    {
+                        saleItemsGridView.Columns["sale_item_id"].Visible = false;
+                    }
+
+                    // Adjust Product column
+                    var productCol = saleItemsGridView.Columns["Product"];
+                    productCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    productCol.MinimumWidth = 150;
+                    productCol.FillWeight = 200;
+                    productCol.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    saleItemsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+                    // Optional: Limit width on resize
+                    saleItemsGridView.Resize += (s, e) =>
+                    {
+                        if (productCol.Width > 300)
+                            productCol.Width = 300;
+                    };
+
+                }
 
                 // Remove existing button columns to avoid duplication
                 foreach (DataGridViewColumn col in saleItemsGridView.Columns)
@@ -174,6 +219,7 @@ namespace EDP
                 saleItemsGridView.Columns.Add(deleteBtnCol);
             }
         }
+
 
         private void saleItemsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -199,6 +245,9 @@ namespace EDP
 
                     LoadSaleItems(); // refresh grid
                     MessageBox.Show("Item deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Update the total amount
+                    UpdateTotalAmount();
                 }
                 catch (Exception ex)
                 {
@@ -207,6 +256,67 @@ namespace EDP
             }
         }
 
+
+        private void saleItemsGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (saleItemsGridView.Columns[e.ColumnIndex].HeaderText == "Quantity")
+            {
+                var row = saleItemsGridView.Rows[e.RowIndex];
+                int saleItemId = Convert.ToInt32(row.Cells["sale_item_id"].Value);
+
+                if (int.TryParse(row.Cells["Quantity"].Value?.ToString(), out int newQuantity) && newQuantity > 0)
+                {
+                    try
+                    {
+                        using (var conn = DBConnection.GetConnection())
+                        {
+                            string updateQuery = "UPDATE sales_items SET quantity = @quantity WHERE sale_item_id = @id";
+                            using (var cmd = new MySqlCommand(updateQuery, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@quantity", newQuantity);
+                                cmd.Parameters.AddWithValue("@id", saleItemId);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        LoadSaleItems(); // reload with trigger updates (subtotal, etc.)
+
+                        // Update the total amount
+                        UpdateTotalAmount();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to update quantity: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid quantity entered.");
+                    LoadSaleItems(); // reset invalid edits
+                }
+            }
+        }
+
+        private void UpdateTotalAmount()
+        {
+            try
+            {
+                using (var conn = DBConnection.GetConnection())
+                {
+                    string query = "SELECT total_amount FROM Sales WHERE sale_id = @saleId";
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@saleId", currentSaleId);
+                        var result = cmd.ExecuteScalar();
+                        totalAmount.Text = result != DBNull.Value ? Convert.ToDecimal(result).ToString("F2") : "0.00";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to update total amount: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
         private void completeTransaction_Click(object sender, EventArgs e)
@@ -269,6 +379,11 @@ namespace EDP
             {
                 MessageBox.Show("Failed to cancel sale: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void addProductForm_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
