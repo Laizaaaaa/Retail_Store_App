@@ -82,13 +82,15 @@ namespace EDP
             if (!row.Cells.Contains(row.Cells["product_id"]) || row.Cells["product_id"].Value == null)
                 return;
 
-            string productId = row.Cells["product_id"].Value.ToString();
+            // Convert to int directly without declaring again
+            int productId = Convert.ToInt32(row.Cells["product_id"].Value);
 
             if (dgv.Columns[e.ColumnIndex].Name == "Edit")
             {
-                MessageBox.Show("Edit Product ID: " + productId);
-                // TODO: Open EditProduct form
+                homeForm.OpenChildForm(new AddProduct(homeForm, productId));
             }
+
+
             else if (dgv.Columns[e.ColumnIndex].Name == "Delete")
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

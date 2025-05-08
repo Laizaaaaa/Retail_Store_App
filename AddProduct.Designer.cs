@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             addProductForm = new Panel();
+            unitComboBox = new ComboBox();
+            label1 = new Label();
             supplierComboBox = new ComboBox();
             categoryComboBox = new ComboBox();
             cancelBtn = new Button();
@@ -45,9 +47,7 @@
             categoryLabel = new Label();
             ProductNameLabel = new Label();
             productNameTxtbox = new TextBox();
-            addProductLabel = new Label();
-            label1 = new Label();
-            unitComboBox = new ComboBox();
+            formTitleLabel = new Label();
             addProductForm.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,12 +72,30 @@
             addProductForm.Controls.Add(categoryLabel);
             addProductForm.Controls.Add(ProductNameLabel);
             addProductForm.Controls.Add(productNameTxtbox);
-            addProductForm.Controls.Add(addProductLabel);
+            addProductForm.Controls.Add(formTitleLabel);
             addProductForm.Location = new Point(183, 49);
             addProductForm.Name = "addProductForm";
             addProductForm.Size = new Size(454, 520);
             addProductForm.TabIndex = 0;
             addProductForm.Paint += addProductForm_Paint;
+            // 
+            // unitComboBox
+            // 
+            unitComboBox.FormattingEnabled = true;
+            unitComboBox.Location = new Point(50, 256);
+            unitComboBox.Name = "unitComboBox";
+            unitComboBox.Size = new Size(119, 23);
+            unitComboBox.TabIndex = 21;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(50, 234);
+            label1.Name = "label1";
+            label1.Size = new Size(29, 15);
+            label1.TabIndex = 20;
+            label1.Text = "Unit";
             // 
             // supplierComboBox
             // 
@@ -231,35 +249,17 @@
             productNameTxtbox.Size = new Size(358, 23);
             productNameTxtbox.TabIndex = 1;
             // 
-            // addProductLabel
+            // formTitleLabel
             // 
-            addProductLabel.AutoSize = true;
-            addProductLabel.BackColor = Color.Transparent;
-            addProductLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            addProductLabel.ForeColor = Color.WhiteSmoke;
-            addProductLabel.Location = new Point(152, 70);
-            addProductLabel.Name = "addProductLabel";
-            addProductLabel.Size = new Size(163, 25);
-            addProductLabel.TabIndex = 0;
-            addProductLabel.Text = "Add New Product";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(50, 234);
-            label1.Name = "label1";
-            label1.Size = new Size(29, 15);
-            label1.TabIndex = 20;
-            label1.Text = "Unit";
-            // 
-            // unitComboBox
-            // 
-            unitComboBox.FormattingEnabled = true;
-            unitComboBox.Location = new Point(50, 256);
-            unitComboBox.Name = "unitComboBox";
-            unitComboBox.Size = new Size(119, 23);
-            unitComboBox.TabIndex = 21;
+            formTitleLabel.AutoSize = true;
+            formTitleLabel.BackColor = Color.Transparent;
+            formTitleLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            formTitleLabel.ForeColor = Color.WhiteSmoke;
+            formTitleLabel.Location = new Point(152, 70);
+            formTitleLabel.Name = "formTitleLabel";
+            formTitleLabel.Size = new Size(163, 25);
+            formTitleLabel.TabIndex = 0;
+            formTitleLabel.Text = "Add New Product";
             // 
             // AddProduct
             // 
@@ -280,7 +280,7 @@
         #endregion
 
         private Panel addProductForm;
-        private Label addProductLabel;
+        private Label formTitleLabel;
         private Label ProductNameLabel;
         private TextBox productNameTxtbox;
         private Label label2;
