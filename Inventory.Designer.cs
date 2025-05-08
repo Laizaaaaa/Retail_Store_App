@@ -47,7 +47,6 @@
             inventoryPanel.Name = "inventoryPanel";
             inventoryPanel.Size = new Size(820, 640);
             inventoryPanel.TabIndex = 0;
-            inventoryPanel.Paint += inventoryPanel_Paint;
             // 
             // AddProductBtn
             // 
@@ -89,7 +88,6 @@
             productsGridView.RowHeadersVisible = false;
             productsGridView.Size = new Size(755, 513);
             productsGridView.TabIndex = 0;
-            productsGridView.VisibleChanged += showProductsTable;
             // 
             // Inventory
             // 

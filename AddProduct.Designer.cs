@@ -29,43 +29,47 @@
         private void InitializeComponent()
         {
             addProductForm = new Panel();
+            supplierComboBox = new ComboBox();
+            categoryComboBox = new ComboBox();
             cancelBtn = new Button();
             addProductBtn = new Button();
             supplierLabel = new Label();
-            textBox3 = new TextBox();
             stockLabel = new Label();
-            textBox1 = new TextBox();
+            stockTxtbox = new TextBox();
             netWeightLabel = new Label();
-            textBox2 = new TextBox();
+            netWeightTxtbox = new TextBox();
             label2 = new Label();
-            retailPriceTxtbox = new TextBox();
+            markupPercentTxtbox = new TextBox();
             unitPriceLabel = new Label();
             unitPriceTxtbox = new TextBox();
             categoryLabel = new Label();
-            categoryTxtbox = new TextBox();
             ProductNameLabel = new Label();
             productNameTxtbox = new TextBox();
             addProductLabel = new Label();
+            label1 = new Label();
+            unitComboBox = new ComboBox();
             addProductForm.SuspendLayout();
             SuspendLayout();
             // 
             // addProductForm
             // 
             addProductForm.BackColor = SystemColors.Desktop;
+            addProductForm.Controls.Add(unitComboBox);
+            addProductForm.Controls.Add(label1);
+            addProductForm.Controls.Add(supplierComboBox);
+            addProductForm.Controls.Add(categoryComboBox);
             addProductForm.Controls.Add(cancelBtn);
             addProductForm.Controls.Add(addProductBtn);
             addProductForm.Controls.Add(supplierLabel);
-            addProductForm.Controls.Add(textBox3);
             addProductForm.Controls.Add(stockLabel);
-            addProductForm.Controls.Add(textBox1);
+            addProductForm.Controls.Add(stockTxtbox);
             addProductForm.Controls.Add(netWeightLabel);
-            addProductForm.Controls.Add(textBox2);
+            addProductForm.Controls.Add(netWeightTxtbox);
             addProductForm.Controls.Add(label2);
-            addProductForm.Controls.Add(retailPriceTxtbox);
+            addProductForm.Controls.Add(markupPercentTxtbox);
             addProductForm.Controls.Add(unitPriceLabel);
             addProductForm.Controls.Add(unitPriceTxtbox);
             addProductForm.Controls.Add(categoryLabel);
-            addProductForm.Controls.Add(categoryTxtbox);
             addProductForm.Controls.Add(ProductNameLabel);
             addProductForm.Controls.Add(productNameTxtbox);
             addProductForm.Controls.Add(addProductLabel);
@@ -74,6 +78,22 @@
             addProductForm.Size = new Size(454, 520);
             addProductForm.TabIndex = 0;
             addProductForm.Paint += addProductForm_Paint;
+            // 
+            // supplierComboBox
+            // 
+            supplierComboBox.FormattingEnabled = true;
+            supplierComboBox.Location = new Point(50, 370);
+            supplierComboBox.Name = "supplierComboBox";
+            supplierComboBox.Size = new Size(358, 23);
+            supplierComboBox.TabIndex = 18;
+            // 
+            // categoryComboBox
+            // 
+            categoryComboBox.FormattingEnabled = true;
+            categoryComboBox.Location = new Point(50, 204);
+            categoryComboBox.Name = "categoryComboBox";
+            categoryComboBox.Size = new Size(358, 23);
+            categoryComboBox.TabIndex = 17;
             // 
             // cancelBtn
             // 
@@ -103,6 +123,7 @@
             addProductBtn.TabIndex = 15;
             addProductBtn.Text = "Add Product";
             addProductBtn.UseVisualStyleBackColor = false;
+            addProductBtn.Click += addProductBtn_Click;
             // 
             // supplierLabel
             // 
@@ -114,13 +135,6 @@
             supplierLabel.TabIndex = 14;
             supplierLabel.Text = "Supplier";
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(50, 372);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(358, 23);
-            textBox3.TabIndex = 13;
-            // 
             // stockLabel
             // 
             stockLabel.AutoSize = true;
@@ -131,12 +145,12 @@
             stockLabel.TabIndex = 12;
             stockLabel.Text = "Stock";
             // 
-            // textBox1
+            // stockTxtbox
             // 
-            textBox1.Location = new Point(241, 314);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(167, 23);
-            textBox1.TabIndex = 11;
+            stockTxtbox.Location = new Point(241, 314);
+            stockTxtbox.Name = "stockTxtbox";
+            stockTxtbox.Size = new Size(167, 23);
+            stockTxtbox.TabIndex = 11;
             // 
             // netWeightLabel
             // 
@@ -148,35 +162,36 @@
             netWeightLabel.TabIndex = 10;
             netWeightLabel.Text = "Net Weight";
             // 
-            // textBox2
+            // netWeightTxtbox
             // 
-            textBox2.Location = new Point(50, 314);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(167, 23);
-            textBox2.TabIndex = 9;
+            netWeightTxtbox.Location = new Point(50, 314);
+            netWeightTxtbox.Name = "netWeightTxtbox";
+            netWeightTxtbox.Size = new Size(167, 23);
+            netWeightTxtbox.TabIndex = 9;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.WhiteSmoke;
-            label2.Location = new Point(241, 234);
+            label2.Location = new Point(297, 234);
             label2.Name = "label2";
-            label2.Size = new Size(65, 15);
+            label2.Size = new Size(91, 15);
             label2.TabIndex = 8;
-            label2.Text = "Retail Price";
+            label2.Text = "Markup Percent";
             // 
-            // retailPriceTxtbox
+            // markupPercentTxtbox
             // 
-            retailPriceTxtbox.Location = new Point(241, 256);
-            retailPriceTxtbox.Name = "retailPriceTxtbox";
-            retailPriceTxtbox.Size = new Size(167, 23);
-            retailPriceTxtbox.TabIndex = 7;
+            markupPercentTxtbox.Location = new Point(297, 256);
+            markupPercentTxtbox.Name = "markupPercentTxtbox";
+            markupPercentTxtbox.PlaceholderText = "ex: 15 for 15%";
+            markupPercentTxtbox.Size = new Size(111, 23);
+            markupPercentTxtbox.TabIndex = 7;
             // 
             // unitPriceLabel
             // 
             unitPriceLabel.AutoSize = true;
             unitPriceLabel.ForeColor = Color.WhiteSmoke;
-            unitPriceLabel.Location = new Point(50, 234);
+            unitPriceLabel.Location = new Point(176, 234);
             unitPriceLabel.Name = "unitPriceLabel";
             unitPriceLabel.Size = new Size(58, 15);
             unitPriceLabel.TabIndex = 6;
@@ -184,9 +199,9 @@
             // 
             // unitPriceTxtbox
             // 
-            unitPriceTxtbox.Location = new Point(50, 256);
+            unitPriceTxtbox.Location = new Point(176, 256);
             unitPriceTxtbox.Name = "unitPriceTxtbox";
-            unitPriceTxtbox.Size = new Size(167, 23);
+            unitPriceTxtbox.Size = new Size(111, 23);
             unitPriceTxtbox.TabIndex = 5;
             // 
             // categoryLabel
@@ -198,14 +213,6 @@
             categoryLabel.Size = new Size(55, 15);
             categoryLabel.TabIndex = 4;
             categoryLabel.Text = "Category";
-            // 
-            // categoryTxtbox
-            // 
-            categoryTxtbox.Location = new Point(50, 204);
-            categoryTxtbox.Name = "categoryTxtbox";
-            categoryTxtbox.Size = new Size(358, 23);
-            categoryTxtbox.TabIndex = 3;
-            categoryTxtbox.TextChanged += categoryTxtbox_TextChanged;
             // 
             // ProductNameLabel
             // 
@@ -236,6 +243,24 @@
             addProductLabel.TabIndex = 0;
             addProductLabel.Text = "Add New Product";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(50, 234);
+            label1.Name = "label1";
+            label1.Size = new Size(29, 15);
+            label1.TabIndex = 20;
+            label1.Text = "Unit";
+            // 
+            // unitComboBox
+            // 
+            unitComboBox.FormattingEnabled = true;
+            unitComboBox.Location = new Point(50, 256);
+            unitComboBox.Name = "unitComboBox";
+            unitComboBox.Size = new Size(119, 23);
+            unitComboBox.TabIndex = 21;
+            // 
             // AddProduct
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -259,18 +284,20 @@
         private Label ProductNameLabel;
         private TextBox productNameTxtbox;
         private Label label2;
-        private TextBox retailPriceTxtbox;
+        private TextBox markupPercentTxtbox;
         private Label unitPriceLabel;
         private TextBox unitPriceTxtbox;
         private Label categoryLabel;
-        private TextBox categoryTxtbox;
         private Label supplierLabel;
-        private TextBox textBox3;
         private Label stockLabel;
-        private TextBox textBox1;
+        private TextBox stockTxtbox;
         private Label netWeightLabel;
-        private TextBox textBox2;
+        private TextBox netWeightTxtbox;
         private Button addProductBtn;
         private Button cancelBtn;
+        private ComboBox supplierComboBox;
+        private ComboBox categoryComboBox;
+        private ComboBox unitComboBox;
+        private Label label1;
     }
 }
