@@ -36,7 +36,7 @@
             contactNumberTxtbox = new TextBox();
             supplierNameLabel = new Label();
             supplierNameTxtbox = new TextBox();
-            addSupplierLabel = new Label();
+            supplierLabel = new Label();
             panel1.SuspendLayout();
             addProductForm.SuspendLayout();
             SuspendLayout();
@@ -50,7 +50,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(820, 640);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // addProductForm
             // 
@@ -61,7 +60,7 @@
             addProductForm.Controls.Add(contactNumberTxtbox);
             addProductForm.Controls.Add(supplierNameLabel);
             addProductForm.Controls.Add(supplierNameTxtbox);
-            addProductForm.Controls.Add(addSupplierLabel);
+            addProductForm.Controls.Add(supplierLabel);
             addProductForm.Location = new Point(183, 89);
             addProductForm.Name = "addProductForm";
             addProductForm.Size = new Size(454, 348);
@@ -131,17 +130,17 @@
             supplierNameTxtbox.Size = new Size(358, 23);
             supplierNameTxtbox.TabIndex = 1;
             // 
-            // addSupplierLabel
+            // supplierLabel
             // 
-            addSupplierLabel.AutoSize = true;
-            addSupplierLabel.BackColor = Color.Transparent;
-            addSupplierLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            addSupplierLabel.ForeColor = Color.WhiteSmoke;
-            addSupplierLabel.Location = new Point(152, 54);
-            addSupplierLabel.Name = "addSupplierLabel";
-            addSupplierLabel.Size = new Size(166, 25);
-            addSupplierLabel.TabIndex = 0;
-            addSupplierLabel.Text = "Add New Supplier";
+            supplierLabel.AutoSize = true;
+            supplierLabel.BackColor = Color.Transparent;
+            supplierLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            supplierLabel.ForeColor = Color.WhiteSmoke;
+            supplierLabel.Location = new Point(152, 54);
+            supplierLabel.Name = "supplierLabel";
+            supplierLabel.Size = new Size(166, 25);
+            supplierLabel.TabIndex = 0;
+            supplierLabel.Text = "Add New Supplier";
             // 
             // AddSupplier
             // 
@@ -170,6 +169,6 @@
         private TextBox contactNumberTxtbox;
         private Label supplierNameLabel;
         private TextBox supplierNameTxtbox;
-        private Label addSupplierLabel;
+        private Label supplierLabel;
     }
 }

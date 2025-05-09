@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             inventoryPanel = new Panel();
+            categoryFilterComboBox = new ComboBox();
             AddProductBtn = new Button();
             label1 = new Label();
             productsGridView = new DataGridView();
@@ -39,6 +41,7 @@
             // inventoryPanel
             // 
             inventoryPanel.BackColor = Color.FromArgb(0, 64, 64);
+            inventoryPanel.Controls.Add(categoryFilterComboBox);
             inventoryPanel.Controls.Add(AddProductBtn);
             inventoryPanel.Controls.Add(label1);
             inventoryPanel.Controls.Add(productsGridView);
@@ -48,16 +51,24 @@
             inventoryPanel.Size = new Size(820, 640);
             inventoryPanel.TabIndex = 0;
             // 
+            // categoryFilterComboBox
+            // 
+            categoryFilterComboBox.FormattingEnabled = true;
+            categoryFilterComboBox.Location = new Point(28, 99);
+            categoryFilterComboBox.Name = "categoryFilterComboBox";
+            categoryFilterComboBox.Size = new Size(234, 23);
+            categoryFilterComboBox.TabIndex = 3;
+            // 
             // AddProductBtn
             // 
             AddProductBtn.BackColor = Color.Teal;
             AddProductBtn.FlatAppearance.BorderSize = 0;
             AddProductBtn.FlatStyle = FlatStyle.Flat;
             AddProductBtn.ForeColor = Color.WhiteSmoke;
-            AddProductBtn.Location = new Point(673, 51);
+            AddProductBtn.Location = new Point(672, 93);
             AddProductBtn.Name = "AddProductBtn";
             AddProductBtn.Padding = new Padding(1);
-            AddProductBtn.Size = new Size(110, 30);
+            AddProductBtn.Size = new Size(111, 29);
             AddProductBtn.TabIndex = 2;
             AddProductBtn.Text = "Add Product";
             AddProductBtn.UseVisualStyleBackColor = false;
@@ -81,12 +92,20 @@
             productsGridView.AllowUserToDeleteRows = false;
             productsGridView.AllowUserToResizeColumns = false;
             productsGridView.AllowUserToResizeRows = false;
+            productsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             productsGridView.BackgroundColor = Color.WhiteSmoke;
+            productsGridView.BorderStyle = BorderStyle.None;
+            productsGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            productsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             productsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productsGridView.Location = new Point(28, 90);
+            productsGridView.EnableHeadersVisualStyles = false;
+            productsGridView.Location = new Point(28, 128);
             productsGridView.Name = "productsGridView";
+            productsGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             productsGridView.RowHeadersVisible = false;
-            productsGridView.Size = new Size(755, 513);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            productsGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            productsGridView.Size = new Size(755, 475);
             productsGridView.TabIndex = 0;
             // 
             // Inventory
@@ -111,5 +130,6 @@
         private DataGridView productsGridView;
         private Label label1;
         private Button AddProductBtn;
+        private ComboBox categoryFilterComboBox;
     }
 }

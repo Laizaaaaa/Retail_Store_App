@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             categoriesGridView = new DataGridView();
             categoriesPanel = new Panel();
@@ -35,7 +36,7 @@
             addCategoryBtn = new Button();
             categoryNameLabel = new Label();
             categoryNameTxtbox = new TextBox();
-            addCategoryLabel = new Label();
+            categoryLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)categoriesGridView).BeginInit();
             categoriesPanel.SuspendLayout();
             addProductForm.SuspendLayout();
@@ -59,14 +60,30 @@
             categoriesGridView.AllowUserToDeleteRows = false;
             categoriesGridView.AllowUserToResizeColumns = false;
             categoriesGridView.AllowUserToResizeRows = false;
+            categoriesGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             categoriesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             categoriesGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             categoriesGridView.BackgroundColor = Color.WhiteSmoke;
+            categoriesGridView.BorderStyle = BorderStyle.None;
+            categoriesGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            categoriesGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            categoriesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             categoriesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            categoriesGridView.EnableHeadersVisualStyles = false;
             categoriesGridView.Location = new Point(96, 108);
+            categoriesGridView.MultiSelect = false;
             categoriesGridView.Name = "categoriesGridView";
+            categoriesGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             categoriesGridView.RowHeadersVisible = false;
-            categoriesGridView.ScrollBars = ScrollBars.None;
+            categoriesGridView.ScrollBars = ScrollBars.Vertical;
+            categoriesGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             categoriesGridView.ShowEditingIcon = false;
             categoriesGridView.Size = new Size(609, 236);
             categoriesGridView.TabIndex = 1;
@@ -89,7 +106,7 @@
             addProductForm.Controls.Add(addCategoryBtn);
             addProductForm.Controls.Add(categoryNameLabel);
             addProductForm.Controls.Add(categoryNameTxtbox);
-            addProductForm.Controls.Add(addCategoryLabel);
+            addProductForm.Controls.Add(categoryLabel);
             addProductForm.Location = new Point(96, 383);
             addProductForm.Name = "addProductForm";
             addProductForm.Size = new Size(609, 159);
@@ -108,6 +125,7 @@
             addCategoryBtn.TabIndex = 15;
             addCategoryBtn.Text = "Add Category";
             addCategoryBtn.UseVisualStyleBackColor = false;
+            addCategoryBtn.Click += addCategoryBtn_Click;
             // 
             // categoryNameLabel
             // 
@@ -126,17 +144,17 @@
             categoryNameTxtbox.Size = new Size(364, 23);
             categoryNameTxtbox.TabIndex = 1;
             // 
-            // addCategoryLabel
+            // categoryLabel
             // 
-            addCategoryLabel.AutoSize = true;
-            addCategoryLabel.BackColor = Color.Transparent;
-            addCategoryLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            addCategoryLabel.ForeColor = Color.WhiteSmoke;
-            addCategoryLabel.Location = new Point(227, 29);
-            addCategoryLabel.Name = "addCategoryLabel";
-            addCategoryLabel.Size = new Size(175, 25);
-            addCategoryLabel.TabIndex = 0;
-            addCategoryLabel.Text = "Add New Category";
+            categoryLabel.AutoSize = true;
+            categoryLabel.BackColor = Color.Transparent;
+            categoryLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            categoryLabel.ForeColor = Color.WhiteSmoke;
+            categoryLabel.Location = new Point(227, 29);
+            categoryLabel.Name = "categoryLabel";
+            categoryLabel.Size = new Size(175, 25);
+            categoryLabel.TabIndex = 0;
+            categoryLabel.Text = "Add New Category";
             // 
             // Categories
             // 
@@ -165,6 +183,6 @@
         private Button addCategoryBtn;
         private Label categoryNameLabel;
         private TextBox categoryNameTxtbox;
-        private Label addCategoryLabel;
+        private Label categoryLabel;
     }
 }

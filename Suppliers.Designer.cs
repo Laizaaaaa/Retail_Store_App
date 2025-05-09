@@ -50,7 +50,7 @@
             suppliersGridView.Location = new Point(33, 138);
             suppliersGridView.Name = "suppliersGridView";
             suppliersGridView.RowHeadersVisible = false;
-            suppliersGridView.ScrollBars = ScrollBars.None;
+            suppliersGridView.ScrollBars = ScrollBars.Vertical;
             suppliersGridView.Size = new Size(744, 257);
             suppliersGridView.TabIndex = 1;
             // 
