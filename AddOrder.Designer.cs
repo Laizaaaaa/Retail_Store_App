@@ -28,22 +28,294 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             addProductForm = new Panel();
-            totalAmount = new Label();
+            unitPriceAmount = new Label();
+            unitPriceLabel = new Label();
+            subtotalAmount = new Label();
+            subtotalLabel = new Label();
+            supplierLabel = new Label();
+            addItemsLabel = new Label();
+            saleItemsPanel = new Panel();
             cancelBtn = new Button();
-            addOrderBtn = new Button();
-            totalLabel = new Label();
+            label8 = new Label();
+            sendOrderBtn = new Button();
+            label7 = new Label();
+            orderItemsGridView = new DataGridView();
+            addItemBtn = new Button();
             qtyLabel = new Label();
             qtyTxtbox = new TextBox();
             productLabel = new Label();
             productTxtbox = new TextBox();
-            supplierNameLabel = new Label();
-            supplierNameTxtbox = new TextBox();
-            addOrderLabel = new Label();
-            panel1.SuspendLayout();
+            newOrderLabel = new Label();
+            panel1 = new Panel();
             addProductForm.SuspendLayout();
+            saleItemsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)orderItemsGridView).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // addProductForm
+            // 
+            addProductForm.BackColor = SystemColors.Desktop;
+            addProductForm.Controls.Add(unitPriceAmount);
+            addProductForm.Controls.Add(unitPriceLabel);
+            addProductForm.Controls.Add(subtotalAmount);
+            addProductForm.Controls.Add(subtotalLabel);
+            addProductForm.Controls.Add(supplierLabel);
+            addProductForm.Controls.Add(addItemsLabel);
+            addProductForm.Controls.Add(saleItemsPanel);
+            addProductForm.Controls.Add(addItemBtn);
+            addProductForm.Controls.Add(qtyLabel);
+            addProductForm.Controls.Add(qtyTxtbox);
+            addProductForm.Controls.Add(productLabel);
+            addProductForm.Controls.Add(productTxtbox);
+            addProductForm.Controls.Add(newOrderLabel);
+            addProductForm.Location = new Point(34, 98);
+            addProductForm.Name = "addProductForm";
+            addProductForm.Size = new Size(752, 444);
+            addProductForm.TabIndex = 3;
+            addProductForm.Paint += addProductForm_Paint;
+            // 
+            // unitPriceAmount
+            // 
+            unitPriceAmount.AutoSize = true;
+            unitPriceAmount.ForeColor = Color.WhiteSmoke;
+            unitPriceAmount.Location = new Point(218, 281);
+            unitPriceAmount.Name = "unitPriceAmount";
+            unitPriceAmount.Size = new Size(34, 15);
+            unitPriceAmount.TabIndex = 25;
+            unitPriceAmount.Text = "$0.00";
+            // 
+            // unitPriceLabel
+            // 
+            unitPriceLabel.AutoSize = true;
+            unitPriceLabel.ForeColor = SystemColors.Window;
+            unitPriceLabel.Location = new Point(27, 279);
+            unitPriceLabel.Name = "unitPriceLabel";
+            unitPriceLabel.Size = new Size(58, 15);
+            unitPriceLabel.TabIndex = 24;
+            unitPriceLabel.Text = "Unit Price";
+            // 
+            // subtotalAmount
+            // 
+            subtotalAmount.AutoSize = true;
+            subtotalAmount.ForeColor = Color.WhiteSmoke;
+            subtotalAmount.Location = new Point(220, 306);
+            subtotalAmount.Name = "subtotalAmount";
+            subtotalAmount.Size = new Size(34, 15);
+            subtotalAmount.TabIndex = 23;
+            subtotalAmount.Text = "$0.00";
+            // 
+            // subtotalLabel
+            // 
+            subtotalLabel.AutoSize = true;
+            subtotalLabel.ForeColor = Color.WhiteSmoke;
+            subtotalLabel.Location = new Point(26, 304);
+            subtotalLabel.Name = "subtotalLabel";
+            subtotalLabel.Size = new Size(54, 15);
+            subtotalLabel.TabIndex = 22;
+            subtotalLabel.Text = "Subtotal:";
+            // 
+            // supplierLabel
+            // 
+            supplierLabel.AutoSize = true;
+            supplierLabel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            supplierLabel.ForeColor = Color.WhiteSmoke;
+            supplierLabel.Location = new Point(29, 99);
+            supplierLabel.Name = "supplierLabel";
+            supplierLabel.Size = new Size(65, 17);
+            supplierLabel.TabIndex = 20;
+            supplierLabel.Text = "Supplier: ";
+            // 
+            // addItemsLabel
+            // 
+            addItemsLabel.AutoSize = true;
+            addItemsLabel.BackColor = Color.Transparent;
+            addItemsLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            addItemsLabel.ForeColor = Color.WhiteSmoke;
+            addItemsLabel.Location = new Point(117, 57);
+            addItemsLabel.Name = "addItemsLabel";
+            addItemsLabel.Size = new Size(62, 15);
+            addItemsLabel.TabIndex = 19;
+            addItemsLabel.Text = "Add Items";
+            // 
+            // saleItemsPanel
+            // 
+            saleItemsPanel.BackColor = Color.Snow;
+            saleItemsPanel.Controls.Add(cancelBtn);
+            saleItemsPanel.Controls.Add(label8);
+            saleItemsPanel.Controls.Add(sendOrderBtn);
+            saleItemsPanel.Controls.Add(label7);
+            saleItemsPanel.Controls.Add(orderItemsGridView);
+            saleItemsPanel.Dock = DockStyle.Right;
+            saleItemsPanel.Location = new Point(298, 0);
+            saleItemsPanel.Name = "saleItemsPanel";
+            saleItemsPanel.Size = new Size(454, 444);
+            saleItemsPanel.TabIndex = 18;
+            // 
+            // cancelBtn
+            // 
+            cancelBtn.BackColor = Color.DarkSlateGray;
+            cancelBtn.FlatAppearance.BorderSize = 0;
+            cancelBtn.FlatStyle = FlatStyle.Flat;
+            cancelBtn.ForeColor = Color.WhiteSmoke;
+            cancelBtn.Location = new Point(227, 384);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.Padding = new Padding(2);
+            cancelBtn.Size = new Size(95, 31);
+            cancelBtn.TabIndex = 18;
+            cancelBtn.Text = "Cancel";
+            cancelBtn.UseVisualStyleBackColor = false;
+            cancelBtn.Click += cancelBtn_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(218, 21);
+            label8.Name = "label8";
+            label8.Size = new Size(74, 15);
+            label8.TabIndex = 26;
+            label8.Text = "1092837892";
+            // 
+            // sendOrderBtn
+            // 
+            sendOrderBtn.BackColor = Color.Teal;
+            sendOrderBtn.FlatAppearance.BorderSize = 0;
+            sendOrderBtn.FlatStyle = FlatStyle.Flat;
+            sendOrderBtn.ForeColor = Color.WhiteSmoke;
+            sendOrderBtn.Location = new Point(328, 384);
+            sendOrderBtn.Name = "sendOrderBtn";
+            sendOrderBtn.Padding = new Padding(2);
+            sendOrderBtn.Size = new Size(107, 31);
+            sendOrderBtn.TabIndex = 20;
+            sendOrderBtn.Text = "Send Order";
+            sendOrderBtn.UseVisualStyleBackColor = false;
+            sendOrderBtn.Click += sendOrderBtn_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(22, 21);
+            label7.Name = "label7";
+            label7.Size = new Size(55, 15);
+            label7.TabIndex = 25;
+            label7.Text = "01/01/25";
+            // 
+            // orderItemsGridView
+            // 
+            orderItemsGridView.AllowUserToAddRows = false;
+            orderItemsGridView.AllowUserToDeleteRows = false;
+            orderItemsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            orderItemsGridView.BackgroundColor = SystemColors.ControlLightLight;
+            orderItemsGridView.BorderStyle = BorderStyle.None;
+            orderItemsGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            orderItemsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            orderItemsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            orderItemsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            orderItemsGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            orderItemsGridView.EnableHeadersVisualStyles = false;
+            orderItemsGridView.Location = new Point(22, 55);
+            orderItemsGridView.Name = "orderItemsGridView";
+            orderItemsGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            orderItemsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            orderItemsGridView.RowHeadersVisible = false;
+            orderItemsGridView.ShowCellToolTips = false;
+            orderItemsGridView.Size = new Size(413, 309);
+            orderItemsGridView.TabIndex = 24;
+            // 
+            // addItemBtn
+            // 
+            addItemBtn.BackColor = Color.Teal;
+            addItemBtn.FlatAppearance.BorderSize = 0;
+            addItemBtn.FlatStyle = FlatStyle.Flat;
+            addItemBtn.ForeColor = Color.WhiteSmoke;
+            addItemBtn.Location = new Point(161, 349);
+            addItemBtn.Name = "addItemBtn";
+            addItemBtn.Padding = new Padding(2);
+            addItemBtn.Size = new Size(95, 31);
+            addItemBtn.TabIndex = 15;
+            addItemBtn.Text = "Add Item";
+            addItemBtn.UseVisualStyleBackColor = false;
+            addItemBtn.Click += addItemBtn_Click;
+            // 
+            // qtyLabel
+            // 
+            qtyLabel.AutoSize = true;
+            qtyLabel.ForeColor = Color.WhiteSmoke;
+            qtyLabel.Location = new Point(27, 198);
+            qtyLabel.Name = "qtyLabel";
+            qtyLabel.Size = new Size(53, 15);
+            qtyLabel.TabIndex = 6;
+            qtyLabel.Text = "Quantity";
+            // 
+            // qtyTxtbox
+            // 
+            qtyTxtbox.Location = new Point(27, 219);
+            qtyTxtbox.Name = "qtyTxtbox";
+            qtyTxtbox.Size = new Size(227, 23);
+            qtyTxtbox.TabIndex = 5;
+            qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
+            // 
+            // productLabel
+            // 
+            productLabel.AutoSize = true;
+            productLabel.ForeColor = Color.WhiteSmoke;
+            productLabel.Location = new Point(27, 137);
+            productLabel.Name = "productLabel";
+            productLabel.Size = new Size(49, 15);
+            productLabel.TabIndex = 4;
+            productLabel.Text = "Product";
+            // 
+            // productTxtbox
+            // 
+            productTxtbox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            productTxtbox.Location = new Point(27, 161);
+            productTxtbox.Name = "productTxtbox";
+            productTxtbox.Size = new Size(229, 23);
+            productTxtbox.TabIndex = 3;
+            productTxtbox.Leave += productTxtbox_Leave;
+            // 
+            // newOrderLabel
+            // 
+            newOrderLabel.AutoSize = true;
+            newOrderLabel.BackColor = Color.Transparent;
+            newOrderLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            newOrderLabel.ForeColor = Color.WhiteSmoke;
+            newOrderLabel.Location = new Point(93, 23);
+            newOrderLabel.Name = "newOrderLabel";
+            newOrderLabel.Size = new Size(105, 25);
+            newOrderLabel.TabIndex = 0;
+            newOrderLabel.Text = "New Order";
             // 
             // panel1
             // 
@@ -54,139 +326,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(820, 640);
             panel1.TabIndex = 0;
-            // 
-            // addProductForm
-            // 
-            addProductForm.BackColor = SystemColors.Desktop;
-            addProductForm.Controls.Add(totalAmount);
-            addProductForm.Controls.Add(cancelBtn);
-            addProductForm.Controls.Add(addOrderBtn);
-            addProductForm.Controls.Add(totalLabel);
-            addProductForm.Controls.Add(qtyLabel);
-            addProductForm.Controls.Add(qtyTxtbox);
-            addProductForm.Controls.Add(productLabel);
-            addProductForm.Controls.Add(productTxtbox);
-            addProductForm.Controls.Add(supplierNameLabel);
-            addProductForm.Controls.Add(supplierNameTxtbox);
-            addProductForm.Controls.Add(addOrderLabel);
-            addProductForm.Location = new Point(180, 40);
-            addProductForm.Name = "addProductForm";
-            addProductForm.Size = new Size(457, 444);
-            addProductForm.TabIndex = 1;
-            // 
-            // totalAmount
-            // 
-            totalAmount.AutoSize = true;
-            totalAmount.ForeColor = Color.WhiteSmoke;
-            totalAmount.Location = new Point(312, 317);
-            totalAmount.Name = "totalAmount";
-            totalAmount.Size = new Size(34, 15);
-            totalAmount.TabIndex = 17;
-            totalAmount.Text = "$0.00";
-            // 
-            // cancelBtn
-            // 
-            cancelBtn.BackColor = Color.DarkSlateGray;
-            cancelBtn.FlatAppearance.BorderSize = 0;
-            cancelBtn.FlatStyle = FlatStyle.Flat;
-            cancelBtn.ForeColor = Color.WhiteSmoke;
-            cancelBtn.Location = new Point(149, 367);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Padding = new Padding(2);
-            cancelBtn.Size = new Size(95, 31);
-            cancelBtn.TabIndex = 16;
-            cancelBtn.Text = "Cancel";
-            cancelBtn.UseVisualStyleBackColor = false;
-            cancelBtn.Click += cancelBtn_Click;
-            // 
-            // addOrderBtn
-            // 
-            addOrderBtn.BackColor = Color.Teal;
-            addOrderBtn.FlatAppearance.BorderSize = 0;
-            addOrderBtn.FlatStyle = FlatStyle.Flat;
-            addOrderBtn.ForeColor = Color.WhiteSmoke;
-            addOrderBtn.Location = new Point(251, 367);
-            addOrderBtn.Name = "addOrderBtn";
-            addOrderBtn.Padding = new Padding(2);
-            addOrderBtn.Size = new Size(95, 31);
-            addOrderBtn.TabIndex = 15;
-            addOrderBtn.Text = "Add Order";
-            addOrderBtn.UseVisualStyleBackColor = false;
-            addOrderBtn.Click += addOrderBtn_Click;
-            // 
-            // totalLabel
-            // 
-            totalLabel.AutoSize = true;
-            totalLabel.ForeColor = Color.WhiteSmoke;
-            totalLabel.Location = new Point(310, 298);
-            totalLabel.Name = "totalLabel";
-            totalLabel.Size = new Size(36, 15);
-            totalLabel.TabIndex = 8;
-            totalLabel.Text = "Total:";
-            // 
-            // qtyLabel
-            // 
-            qtyLabel.AutoSize = true;
-            qtyLabel.ForeColor = Color.WhiteSmoke;
-            qtyLabel.Location = new Point(97, 224);
-            qtyLabel.Name = "qtyLabel";
-            qtyLabel.Size = new Size(53, 15);
-            qtyLabel.TabIndex = 6;
-            qtyLabel.Text = "Quantity";
-            // 
-            // qtyTxtbox
-            // 
-            qtyTxtbox.Location = new Point(97, 245);
-            qtyTxtbox.Name = "qtyTxtbox";
-            qtyTxtbox.Size = new Size(258, 23);
-            qtyTxtbox.TabIndex = 5;
-            qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
-            // 
-            // productLabel
-            // 
-            productLabel.AutoSize = true;
-            productLabel.ForeColor = Color.WhiteSmoke;
-            productLabel.Location = new Point(95, 164);
-            productLabel.Name = "productLabel";
-            productLabel.Size = new Size(49, 15);
-            productLabel.TabIndex = 4;
-            productLabel.Text = "Product";
-            // 
-            // productTxtbox
-            // 
-            productTxtbox.Location = new Point(95, 186);
-            productTxtbox.Name = "productTxtbox";
-            productTxtbox.Size = new Size(260, 23);
-            productTxtbox.TabIndex = 3;
-            // 
-            // supplierNameLabel
-            // 
-            supplierNameLabel.AutoSize = true;
-            supplierNameLabel.ForeColor = Color.WhiteSmoke;
-            supplierNameLabel.Location = new Point(95, 107);
-            supplierNameLabel.Name = "supplierNameLabel";
-            supplierNameLabel.Size = new Size(85, 15);
-            supplierNameLabel.TabIndex = 2;
-            supplierNameLabel.Text = "Supplier Name";
-            // 
-            // supplierNameTxtbox
-            // 
-            supplierNameTxtbox.Location = new Point(95, 129);
-            supplierNameTxtbox.Name = "supplierNameTxtbox";
-            supplierNameTxtbox.Size = new Size(260, 23);
-            supplierNameTxtbox.TabIndex = 1;
-            // 
-            // addOrderLabel
-            // 
-            addOrderLabel.AutoSize = true;
-            addOrderLabel.BackColor = Color.Transparent;
-            addOrderLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
-            addOrderLabel.ForeColor = Color.WhiteSmoke;
-            addOrderLabel.Location = new Point(149, 51);
-            addOrderLabel.Name = "addOrderLabel";
-            addOrderLabel.Size = new Size(145, 25);
-            addOrderLabel.TabIndex = 0;
-            addOrderLabel.Text = "Add New Order";
             // 
             // AddOrder
             // 
@@ -199,26 +338,37 @@
             Name = "AddOrder";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddOrder";
-            panel1.ResumeLayout(false);
+            Load += AddOrder_Load;
             addProductForm.ResumeLayout(false);
             addProductForm.PerformLayout();
+            saleItemsPanel.ResumeLayout(false);
+            saleItemsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)orderItemsGridView).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
         private Panel addProductForm;
+        private Label supplierLabel;
+        private Label addItemsLabel;
+        private Panel saleItemsPanel;
         private Button cancelBtn;
-        private Button addOrderBtn;
-        private Label totalLabel;
+        private Label label8;
+        private Button sendOrderBtn;
+        private Label label7;
+        private DataGridView orderItemsGridView;
+        private Button addItemBtn;
         private Label qtyLabel;
         private TextBox qtyTxtbox;
         private Label productLabel;
         private TextBox productTxtbox;
-        private Label supplierNameLabel;
-        private TextBox supplierNameTxtbox;
-        private Label addOrderLabel;
-        private Label totalAmount;
+        private Label newOrderLabel;
+        private Panel panel1;
+        private Label unitPriceAmount;
+        private Label unitPriceLabel;
+        private Label subtotalAmount;
+        private Label subtotalLabel;
     }
 }

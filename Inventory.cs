@@ -136,8 +136,8 @@ namespace EDP
 
         private void HideUnwantedColumns()
         {
-            if (productsGridView.Columns.Contains("product_id"))
-                productsGridView.Columns["product_id"].Visible = false;
+            productsGridView.Columns["product_id"].Width = 0;
+            productsGridView.Columns["product_id"].Visible = false; 
 
             if (productsGridView.Columns.Contains("category_id"))
                 productsGridView.Columns["category_id"].Visible = false;
@@ -200,13 +200,24 @@ namespace EDP
             productsGridView.Columns["Edit"].DefaultCellStyle = buttonStyle;
             productsGridView.Columns["Delete"].DefaultCellStyle = buttonStyle;
 
-            productsGridView.CellClick += ProductsGridView_CellClick;
+            productsGridView.CellClick -= ProductsGridView_CellClick; // remove if already attached
+            productsGridView.CellClick += ProductsGridView_CellClick; // attach fresh
+
         }
 
 
         private void ProductsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (!productsGridView.Columns.Contains("product_id"))
+                return;
+
+            var cellValue = productsGridView.Rows[e.RowIndex].Cells["product_id"]?.Value;
+            if (cellValue == null || cellValue == DBNull.Value)
+                return;
+
 
             var dgv = (DataGridView)sender;
 
