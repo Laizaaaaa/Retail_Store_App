@@ -31,6 +31,7 @@
             dailySalesPanel = new Panel();
             dailySalesLabel = new Label();
             dailySalesGridView = new DataGridView();
+            generateReportBtn = new Button();
             dailySalesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dailySalesGridView).BeginInit();
             SuspendLayout();
@@ -38,6 +39,7 @@
             // dailySalesPanel
             // 
             dailySalesPanel.BackColor = Color.FromArgb(0, 64, 64);
+            dailySalesPanel.Controls.Add(generateReportBtn);
             dailySalesPanel.Controls.Add(dailySalesLabel);
             dailySalesPanel.Controls.Add(dailySalesGridView);
             dailySalesPanel.Dock = DockStyle.Fill;
@@ -75,6 +77,21 @@
             dailySalesGridView.Size = new Size(670, 478);
             dailySalesGridView.TabIndex = 0;
             // 
+            // generateReportBtn
+            // 
+            generateReportBtn.BackColor = Color.Teal;
+            generateReportBtn.FlatAppearance.BorderSize = 0;
+            generateReportBtn.FlatStyle = FlatStyle.Flat;
+            generateReportBtn.ForeColor = Color.WhiteSmoke;
+            generateReportBtn.Location = new Point(617, 62);
+            generateReportBtn.Name = "generateReportBtn";
+            generateReportBtn.Padding = new Padding(2);
+            generateReportBtn.Size = new Size(128, 31);
+            generateReportBtn.TabIndex = 16;
+            generateReportBtn.Text = "Generate Report";
+            generateReportBtn.UseVisualStyleBackColor = false;
+            generateReportBtn.Click += generateReportBtn_Click;
+            // 
             // DailySales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -96,5 +113,6 @@
         private Panel dailySalesPanel;
         private DataGridView dailySalesGridView;
         private Label dailySalesLabel;
+        private Button generateReportBtn;
     }
 }

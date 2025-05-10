@@ -34,6 +34,9 @@
     <Compile Update="ForgotPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GenerateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Home.cs">
       <SubType>Form</SubType>
     </Compile>

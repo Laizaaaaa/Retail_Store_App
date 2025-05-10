@@ -57,3 +57,5 @@ C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.Staff.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.AddStaff.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.EditStaffForm.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.ViewStaffInformation.resources
+C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.GenerateReport.resources
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\itextsharp.dll

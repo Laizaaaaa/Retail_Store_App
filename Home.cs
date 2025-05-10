@@ -131,7 +131,7 @@ namespace EDP
         }
         private void dailySalesButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new DailySales());
+            OpenChildForm(new DailySales(this));
         }
 
         private void inventoryButton_Click(object sender, EventArgs e)

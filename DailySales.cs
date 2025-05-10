@@ -13,9 +13,12 @@ namespace EDP
 {
     public partial class DailySales : Form
     {
-        public DailySales()
+        private Home homeForm;
+
+        public DailySales(Home homeForm)
         {
             InitializeComponent();
+            this.homeForm = homeForm;
         }
 
         private void DailySales_Load(object sender, EventArgs e)
@@ -50,6 +53,11 @@ namespace EDP
             //{
             //    e.Graphics.FillRectangle(brush, dailySalesPanel.ClientRectangle);
             //}
+        }
+
+        private void generateReportBtn_Click(object sender, EventArgs e)
+        {
+            homeForm.OpenChildForm(new GenerateReport(homeForm));
         }
     }
 }
