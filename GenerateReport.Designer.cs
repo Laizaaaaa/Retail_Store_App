@@ -36,8 +36,9 @@
             startDateLabel = new Label();
             generateLabel = new Label();
             reportGridView = new DataGridView();
-            exportCsvBtn = new Button();
             exportPdfBtn = new Button();
+            exportExcelBtn = new Button();
+            generateSummaryReportBtn = new Button();
             addProductForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)reportGridView).BeginInit();
             SuspendLayout();
@@ -45,6 +46,7 @@
             // addProductForm
             // 
             addProductForm.BackColor = SystemColors.Desktop;
+            addProductForm.Controls.Add(generateSummaryReportBtn);
             addProductForm.Controls.Add(endDatePicker);
             addProductForm.Controls.Add(startDatePicker);
             addProductForm.Controls.Add(endDateLabel);
@@ -53,28 +55,28 @@
             addProductForm.Controls.Add(generateLabel);
             addProductForm.Location = new Point(104, 60);
             addProductForm.Name = "addProductForm";
-            addProductForm.Size = new Size(609, 146);
+            addProductForm.Size = new Size(609, 232);
             addProductForm.TabIndex = 3;
             // 
             // endDatePicker
             // 
-            endDatePicker.Location = new Point(246, 105);
+            endDatePicker.Location = new Point(303, 105);
             endDatePicker.Name = "endDatePicker";
-            endDatePicker.Size = new Size(200, 23);
+            endDatePicker.Size = new Size(227, 23);
             endDatePicker.TabIndex = 19;
             // 
             // startDatePicker
             // 
-            startDatePicker.Location = new Point(33, 105);
+            startDatePicker.Location = new Point(59, 105);
             startDatePicker.Name = "startDatePicker";
-            startDatePicker.Size = new Size(200, 23);
+            startDatePicker.Size = new Size(227, 23);
             startDatePicker.TabIndex = 18;
             // 
             // endDateLabel
             // 
             endDateLabel.AutoSize = true;
             endDateLabel.ForeColor = Color.WhiteSmoke;
-            endDateLabel.Location = new Point(246, 80);
+            endDateLabel.Location = new Point(303, 80);
             endDateLabel.Name = "endDateLabel";
             endDateLabel.Size = new Size(54, 15);
             endDateLabel.TabIndex = 17;
@@ -86,12 +88,12 @@
             generateBtn.FlatAppearance.BorderSize = 0;
             generateBtn.FlatStyle = FlatStyle.Flat;
             generateBtn.ForeColor = Color.WhiteSmoke;
-            generateBtn.Location = new Point(469, 97);
+            generateBtn.Location = new Point(132, 166);
             generateBtn.Name = "generateBtn";
             generateBtn.Padding = new Padding(2);
-            generateBtn.Size = new Size(115, 31);
+            generateBtn.Size = new Size(154, 31);
             generateBtn.TabIndex = 15;
-            generateBtn.Text = "Generate";
+            generateBtn.Text = "Generate Detailed Report";
             generateBtn.UseVisualStyleBackColor = false;
             generateBtn.Click += generateBtn_Click;
             // 
@@ -99,7 +101,7 @@
             // 
             startDateLabel.AutoSize = true;
             startDateLabel.ForeColor = Color.WhiteSmoke;
-            startDateLabel.Location = new Point(33, 80);
+            startDateLabel.Location = new Point(59, 80);
             startDateLabel.Name = "startDateLabel";
             startDateLabel.Size = new Size(58, 15);
             startDateLabel.TabIndex = 2;
@@ -126,12 +128,16 @@
             reportGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             reportGridView.BorderStyle = BorderStyle.None;
             reportGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            reportGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             reportGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             reportGridView.EnableHeadersVisualStyles = false;
-            reportGridView.Location = new Point(104, 238);
+            reportGridView.Location = new Point(104, 326);
+            reportGridView.MaximumSize = new Size(609, 200);
+            reportGridView.MultiSelect = false;
             reportGridView.Name = "reportGridView";
             reportGridView.ReadOnly = true;
             reportGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            reportGridView.RowHeadersVisible = false;
             reportGridView.ScrollBars = ScrollBars.Vertical;
             reportGridView.ShowCellToolTips = false;
             reportGridView.ShowEditingIcon = false;
@@ -139,29 +145,13 @@
             reportGridView.TabIndex = 4;
             reportGridView.Visible = false;
             // 
-            // exportCsvBtn
-            // 
-            exportCsvBtn.BackColor = Color.Teal;
-            exportCsvBtn.FlatAppearance.BorderSize = 0;
-            exportCsvBtn.FlatStyle = FlatStyle.Flat;
-            exportCsvBtn.ForeColor = Color.WhiteSmoke;
-            exportCsvBtn.Location = new Point(612, 404);
-            exportCsvBtn.Name = "exportCsvBtn";
-            exportCsvBtn.Padding = new Padding(2);
-            exportCsvBtn.Size = new Size(101, 31);
-            exportCsvBtn.TabIndex = 20;
-            exportCsvBtn.Text = "Export CSV";
-            exportCsvBtn.UseVisualStyleBackColor = false;
-            exportCsvBtn.Visible = false;
-            exportCsvBtn.Click += exportCsvBtn_Click;
-            // 
             // exportPdfBtn
             // 
             exportPdfBtn.BackColor = Color.Teal;
             exportPdfBtn.FlatAppearance.BorderSize = 0;
             exportPdfBtn.FlatStyle = FlatStyle.Flat;
             exportPdfBtn.ForeColor = Color.WhiteSmoke;
-            exportPdfBtn.Location = new Point(505, 404);
+            exportPdfBtn.Location = new Point(505, 497);
             exportPdfBtn.Name = "exportPdfBtn";
             exportPdfBtn.Padding = new Padding(2);
             exportPdfBtn.Size = new Size(101, 31);
@@ -171,6 +161,37 @@
             exportPdfBtn.Visible = false;
             exportPdfBtn.Click += exportPdfBtn_Click;
             // 
+            // exportExcelBtn
+            // 
+            exportExcelBtn.BackColor = Color.Teal;
+            exportExcelBtn.FlatAppearance.BorderSize = 0;
+            exportExcelBtn.FlatStyle = FlatStyle.Flat;
+            exportExcelBtn.ForeColor = Color.WhiteSmoke;
+            exportExcelBtn.Location = new Point(612, 497);
+            exportExcelBtn.Name = "exportExcelBtn";
+            exportExcelBtn.Padding = new Padding(2);
+            exportExcelBtn.Size = new Size(101, 31);
+            exportExcelBtn.TabIndex = 22;
+            exportExcelBtn.Text = "Export Excel";
+            exportExcelBtn.UseVisualStyleBackColor = false;
+            exportExcelBtn.Visible = false;
+            exportExcelBtn.Click += exportExcelBtn_Click;
+            // 
+            // generateSummaryReportBtn
+            // 
+            generateSummaryReportBtn.BackColor = Color.Teal;
+            generateSummaryReportBtn.FlatAppearance.BorderSize = 0;
+            generateSummaryReportBtn.FlatStyle = FlatStyle.Flat;
+            generateSummaryReportBtn.ForeColor = Color.WhiteSmoke;
+            generateSummaryReportBtn.Location = new Point(303, 166);
+            generateSummaryReportBtn.Name = "generateSummaryReportBtn";
+            generateSummaryReportBtn.Padding = new Padding(2);
+            generateSummaryReportBtn.Size = new Size(169, 31);
+            generateSummaryReportBtn.TabIndex = 20;
+            generateSummaryReportBtn.Text = "Generate Summary Report";
+            generateSummaryReportBtn.UseVisualStyleBackColor = false;
+            generateSummaryReportBtn.Click += generateSummaryReportBtn_Click;
+            // 
             // GenerateReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -178,8 +199,8 @@
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(820, 640);
             ControlBox = false;
+            Controls.Add(exportExcelBtn);
             Controls.Add(exportPdfBtn);
-            Controls.Add(exportCsvBtn);
             Controls.Add(reportGridView);
             Controls.Add(addProductForm);
             FormBorderStyle = FormBorderStyle.None;
@@ -204,7 +225,9 @@
         private DataGridView reportGridView;
         private DateTimePicker endDatePicker;
         private DateTimePicker startDatePicker;
-        private Button exportCsvBtn;
+        //private Button exportCsvBtn;
         private Button exportPdfBtn;
+        private Button exportExcelBtn;
+        private Button generateSummaryReportBtn;
     }
 }

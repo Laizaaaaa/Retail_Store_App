@@ -59,3 +59,11 @@ C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.EditStaffForm.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.ViewStaffInformation.resources
 C:\Users\Laiza\Desktop\EDP\obj\Debug\net8.0-windows\EDP.GenerateReport.resources
 C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\itextsharp.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\Laiza\Desktop\EDP\bin\Debug\net8.0-windows\System.IO.Packaging.dll
