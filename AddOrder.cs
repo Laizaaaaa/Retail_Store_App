@@ -10,7 +10,7 @@ namespace EDP
         private Home homeForm;
         private int supplierId;
         private string supplierName;
-        private int orderId; 
+        private int orderId;
         private int productId = 0;
         private decimal unitPrice = 0;
 
@@ -20,7 +20,7 @@ namespace EDP
             this.homeForm = home;
             this.supplierId = supplierId;
             this.orderId = orderId;
-        }   
+        }
 
         private void AddOrder_Load(object sender, EventArgs e)
         {
@@ -36,6 +36,23 @@ namespace EDP
                     {
                         supplierName = result.ToString();
                         supplierLabel.Text = $"Supplier: {supplierName}";
+                        orderIDLabel.Text = $"Order ID: {orderId}";
+                    }
+                }
+
+                // Get order date
+                string dateQuery = "SELECT order_date FROM orders WHERE order_id = @id";
+                using (var cmd = new MySqlCommand(dateQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", orderId);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null && DateTime.TryParse(result.ToString(), out DateTime orderDate))
+                    {
+                        orderDateLabel.Text = $"Date: {orderDate:MMMM dd, yyyy}";
+                    }
+                    else
+                    {
+                        orderDateLabel.Text = "Date: Unknown";
                     }
                 }
             }
@@ -71,7 +88,6 @@ namespace EDP
                 }
             }
 
-            // Optional: Adjust column headers
             if (orderItemsGridView.Columns.Count > 0)
             {
                 orderItemsGridView.Columns["order_item_id"].Visible = false;
@@ -138,7 +154,6 @@ namespace EDP
             }
         }
 
-
         private void qtyTxtbox_TextChanged(object sender, EventArgs e)
         {
             UpdateSubtotal();
@@ -156,9 +171,6 @@ namespace EDP
                 subtotalAmount.Text = "₱0.00";
             }
         }
-
-
-
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
@@ -218,7 +230,7 @@ namespace EDP
                         productTxtbox.Clear();
                         qtyTxtbox.Clear();
                         productTxtbox.Focus();
-                        LoadOrderItems(); // Refresh the grid
+                        LoadOrderItems();
                     }
                     catch (Exception ex)
                     {
@@ -227,7 +239,6 @@ namespace EDP
                 }
             }
         }
-
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {

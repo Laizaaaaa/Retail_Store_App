@@ -69,7 +69,7 @@
             categoriesGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = Color.Transparent;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -80,12 +80,13 @@
             categoriesGridView.Location = new Point(96, 108);
             categoriesGridView.MultiSelect = false;
             categoriesGridView.Name = "categoriesGridView";
+            categoriesGridView.ReadOnly = true;
             categoriesGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             categoriesGridView.RowHeadersVisible = false;
             categoriesGridView.ScrollBars = ScrollBars.Vertical;
-            categoriesGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            categoriesGridView.ShowCellToolTips = false;
             categoriesGridView.ShowEditingIcon = false;
-            categoriesGridView.Size = new Size(609, 236);
+            categoriesGridView.Size = new Size(989, 319);
             categoriesGridView.TabIndex = 1;
             // 
             // categoriesPanel
@@ -97,7 +98,7 @@
             categoriesPanel.Dock = DockStyle.Fill;
             categoriesPanel.Location = new Point(0, 0);
             categoriesPanel.Name = "categoriesPanel";
-            categoriesPanel.Size = new Size(820, 640);
+            categoriesPanel.Size = new Size(1200, 750);
             categoriesPanel.TabIndex = 2;
             // 
             // addProductForm
@@ -107,9 +108,9 @@
             addProductForm.Controls.Add(categoryNameLabel);
             addProductForm.Controls.Add(categoryNameTxtbox);
             addProductForm.Controls.Add(categoryLabel);
-            addProductForm.Location = new Point(96, 383);
+            addProductForm.Location = new Point(96, 482);
             addProductForm.Name = "addProductForm";
-            addProductForm.Size = new Size(609, 159);
+            addProductForm.Size = new Size(989, 183);
             addProductForm.TabIndex = 2;
             // 
             // addCategoryBtn
@@ -118,7 +119,7 @@
             addCategoryBtn.FlatAppearance.BorderSize = 0;
             addCategoryBtn.FlatStyle = FlatStyle.Flat;
             addCategoryBtn.ForeColor = Color.WhiteSmoke;
-            addCategoryBtn.Location = new Point(443, 97);
+            addCategoryBtn.Location = new Point(695, 103);
             addCategoryBtn.Name = "addCategoryBtn";
             addCategoryBtn.Padding = new Padding(2);
             addCategoryBtn.Size = new Size(120, 31);
@@ -131,7 +132,7 @@
             // 
             categoryNameLabel.AutoSize = true;
             categoryNameLabel.ForeColor = Color.WhiteSmoke;
-            categoryNameLabel.Location = new Point(38, 80);
+            categoryNameLabel.Location = new Point(187, 86);
             categoryNameLabel.Name = "categoryNameLabel";
             categoryNameLabel.Size = new Size(90, 15);
             categoryNameLabel.TabIndex = 2;
@@ -139,9 +140,9 @@
             // 
             // categoryNameTxtbox
             // 
-            categoryNameTxtbox.Location = new Point(38, 102);
+            categoryNameTxtbox.Location = new Point(187, 108);
             categoryNameTxtbox.Name = "categoryNameTxtbox";
-            categoryNameTxtbox.Size = new Size(364, 23);
+            categoryNameTxtbox.Size = new Size(467, 23);
             categoryNameTxtbox.TabIndex = 1;
             // 
             // categoryLabel
@@ -150,7 +151,7 @@
             categoryLabel.BackColor = Color.Transparent;
             categoryLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
             categoryLabel.ForeColor = Color.WhiteSmoke;
-            categoryLabel.Location = new Point(227, 29);
+            categoryLabel.Location = new Point(445, 35);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new Size(175, 25);
             categoryLabel.TabIndex = 0;
@@ -160,7 +161,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 640);
+            ClientSize = new Size(1200, 750);
             Controls.Add(categoriesPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Categories";

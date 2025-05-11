@@ -97,7 +97,7 @@
             header.Location = new Point(0, 0);
             header.Margin = new Padding(3, 4, 3, 4);
             header.Name = "header";
-            header.Size = new Size(1000, 61);
+            header.Size = new Size(1400, 61);
             header.TabIndex = 0;
             // 
             // controlPanel
@@ -107,7 +107,7 @@
             controlPanel.Controls.Add(exitFullScreenButton);
             controlPanel.Controls.Add(closeButton);
             controlPanel.Dock = DockStyle.Right;
-            controlPanel.Location = new Point(873, 0);
+            controlPanel.Location = new Point(1273, 0);
             controlPanel.Name = "controlPanel";
             controlPanel.Padding = new Padding(20, 18, 10, 20);
             controlPanel.Size = new Size(127, 61);
@@ -203,7 +203,7 @@
             sidebarContainer.Location = new Point(0, 61);
             sidebarContainer.Name = "sidebarContainer";
             sidebarContainer.Padding = new Padding(0, 10, 0, 0);
-            sidebarContainer.Size = new Size(188, 639);
+            sidebarContainer.Size = new Size(188, 739);
             sidebarContainer.TabIndex = 1;
             // 
             // dasboardButtonPanel
@@ -519,8 +519,8 @@
             logoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutBtn.ForeColor = Color.White;
             logoutBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            logoutBtn.Location = new Point(192, 280);
-            logoutBtn.Margin = new Padding(3, 270, 3, 3);
+            logoutBtn.Location = new Point(3, 680);
+            logoutBtn.Margin = new Padding(3, 320, 3, 3);
             logoutBtn.Name = "logoutBtn";
             logoutBtn.Size = new Size(183, 54);
             logoutBtn.TabIndex = 3;
@@ -542,12 +542,12 @@
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoSize = true;
-            ClientSize = new Size(1000, 700);
+            ClientSize = new Size(1400, 800);
             ControlBox = false;
             Controls.Add(sidebarContainer);
             Controls.Add(header);
             Font = new Font("Segoe UI", 10.2F);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             IsMdiContainer = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Home";

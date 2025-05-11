@@ -102,9 +102,9 @@ namespace EDP
                 using (var conn = DBConnection.GetConnection())
                 {
                     string query = @"
-                        SELECT * FROM users 
-                        WHERE (email = @input OR contact_number = @input) 
-                        AND password = @password";
+            SELECT role FROM users 
+            WHERE (email = @input OR contact_number = @input) 
+            AND password = @password";
 
                     using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn))
                     {
@@ -113,14 +113,23 @@ namespace EDP
 
                         using (var reader = cmd.ExecuteReader())
                         {
-                            if (reader.HasRows)
+                            if (reader.Read())
                             {
-                                MessageBox.Show("Login successful!");
+                                string role = reader["role"].ToString();
 
-                                Home home = new Home();
-                                home.FormClosed += (s, args) => this.Close();
-                                home.Show();
-                                this.Hide();
+                                if (role.ToLower() == "admin")
+                                {
+                                    MessageBox.Show("Login successful!");
+
+                                    Home home = new Home();
+                                    home.FormClosed += (s, args) => this.Close();
+                                    home.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Access denied. Only admins can log in.");
+                                }
                             }
                             else
                             {
@@ -134,6 +143,7 @@ namespace EDP
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)

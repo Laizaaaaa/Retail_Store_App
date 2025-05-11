@@ -78,11 +78,6 @@ namespace EDP
 
         private void ConfigureGridView()
         {
-            suppliersGridView.RowHeadersVisible = false;
-            suppliersGridView.AllowUserToResizeColumns = false;
-            suppliersGridView.AllowUserToResizeRows = false;
-            suppliersGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
             if (suppliersGridView.Columns.Contains("Supplier Name"))
                 suppliersGridView.Columns["Supplier Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 

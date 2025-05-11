@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             addProductForm = new Panel();
             unitPriceAmount = new Label();
             unitPriceLabel = new Label();
@@ -40,9 +40,9 @@
             addItemsLabel = new Label();
             saleItemsPanel = new Panel();
             cancelBtn = new Button();
-            label8 = new Label();
+            orderIDLabel = new Label();
             sendOrderBtn = new Button();
-            label7 = new Label();
+            orderDateLabel = new Label();
             orderItemsGridView = new DataGridView();
             addItemBtn = new Button();
             qtyLabel = new Label();
@@ -73,9 +73,9 @@
             addProductForm.Controls.Add(productLabel);
             addProductForm.Controls.Add(productTxtbox);
             addProductForm.Controls.Add(newOrderLabel);
-            addProductForm.Location = new Point(34, 98);
+            addProductForm.Location = new Point(105, 130);
             addProductForm.Name = "addProductForm";
-            addProductForm.Size = new Size(752, 444);
+            addProductForm.Size = new Size(950, 444);
             addProductForm.TabIndex = 3;
             addProductForm.Paint += addProductForm_Paint;
             // 
@@ -83,7 +83,7 @@
             // 
             unitPriceAmount.AutoSize = true;
             unitPriceAmount.ForeColor = Color.WhiteSmoke;
-            unitPriceAmount.Location = new Point(218, 281);
+            unitPriceAmount.Location = new Point(315, 281);
             unitPriceAmount.Name = "unitPriceAmount";
             unitPriceAmount.Size = new Size(34, 15);
             unitPriceAmount.TabIndex = 25;
@@ -103,7 +103,7 @@
             // 
             subtotalAmount.AutoSize = true;
             subtotalAmount.ForeColor = Color.WhiteSmoke;
-            subtotalAmount.Location = new Point(220, 306);
+            subtotalAmount.Location = new Point(317, 306);
             subtotalAmount.Name = "subtotalAmount";
             subtotalAmount.Size = new Size(34, 15);
             subtotalAmount.TabIndex = 23;
@@ -136,7 +136,7 @@
             addItemsLabel.BackColor = Color.Transparent;
             addItemsLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             addItemsLabel.ForeColor = Color.WhiteSmoke;
-            addItemsLabel.Location = new Point(117, 57);
+            addItemsLabel.Location = new Point(161, 55);
             addItemsLabel.Name = "addItemsLabel";
             addItemsLabel.Size = new Size(62, 15);
             addItemsLabel.TabIndex = 19;
@@ -146,14 +146,14 @@
             // 
             saleItemsPanel.BackColor = Color.Snow;
             saleItemsPanel.Controls.Add(cancelBtn);
-            saleItemsPanel.Controls.Add(label8);
+            saleItemsPanel.Controls.Add(orderIDLabel);
             saleItemsPanel.Controls.Add(sendOrderBtn);
-            saleItemsPanel.Controls.Add(label7);
+            saleItemsPanel.Controls.Add(orderDateLabel);
             saleItemsPanel.Controls.Add(orderItemsGridView);
             saleItemsPanel.Dock = DockStyle.Right;
-            saleItemsPanel.Location = new Point(298, 0);
+            saleItemsPanel.Location = new Point(389, 0);
             saleItemsPanel.Name = "saleItemsPanel";
-            saleItemsPanel.Size = new Size(454, 444);
+            saleItemsPanel.Size = new Size(561, 444);
             saleItemsPanel.TabIndex = 18;
             // 
             // cancelBtn
@@ -171,17 +171,17 @@
             cancelBtn.UseVisualStyleBackColor = false;
             cancelBtn.Click += cancelBtn_Click;
             // 
-            // label8
+            // orderIDLabel
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(218, 21);
-            label8.Name = "label8";
-            label8.Size = new Size(74, 15);
-            label8.TabIndex = 26;
-            label8.Text = "1092837892";
+            orderIDLabel.AutoSize = true;
+            orderIDLabel.BackColor = Color.Transparent;
+            orderIDLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            orderIDLabel.ForeColor = Color.Black;
+            orderIDLabel.Location = new Point(459, 21);
+            orderIDLabel.Name = "orderIDLabel";
+            orderIDLabel.Size = new Size(74, 15);
+            orderIDLabel.TabIndex = 26;
+            orderIDLabel.Text = "1092837892";
             // 
             // sendOrderBtn
             // 
@@ -198,17 +198,17 @@
             sendOrderBtn.UseVisualStyleBackColor = false;
             sendOrderBtn.Click += sendOrderBtn_Click;
             // 
-            // label7
+            // orderDateLabel
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(22, 21);
-            label7.Name = "label7";
-            label7.Size = new Size(55, 15);
-            label7.TabIndex = 25;
-            label7.Text = "01/01/25";
+            orderDateLabel.AutoSize = true;
+            orderDateLabel.BackColor = Color.Transparent;
+            orderDateLabel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            orderDateLabel.ForeColor = Color.Black;
+            orderDateLabel.Location = new Point(22, 21);
+            orderDateLabel.Name = "orderDateLabel";
+            orderDateLabel.Size = new Size(55, 15);
+            orderDateLabel.TabIndex = 25;
+            orderDateLabel.Text = "01/01/25";
             // 
             // orderItemsGridView
             // 
@@ -219,38 +219,38 @@
             orderItemsGridView.BorderStyle = BorderStyle.None;
             orderItemsGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             orderItemsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            orderItemsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            orderItemsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             orderItemsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            orderItemsGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            orderItemsGridView.DefaultCellStyle = dataGridViewCellStyle5;
             orderItemsGridView.EnableHeadersVisualStyles = false;
             orderItemsGridView.Location = new Point(22, 55);
             orderItemsGridView.Name = "orderItemsGridView";
             orderItemsGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 8F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            orderItemsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            orderItemsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             orderItemsGridView.RowHeadersVisible = false;
             orderItemsGridView.ShowCellToolTips = false;
-            orderItemsGridView.Size = new Size(413, 309);
+            orderItemsGridView.Size = new Size(511, 309);
             orderItemsGridView.TabIndex = 24;
             // 
             // addItemBtn
@@ -259,7 +259,7 @@
             addItemBtn.FlatAppearance.BorderSize = 0;
             addItemBtn.FlatStyle = FlatStyle.Flat;
             addItemBtn.ForeColor = Color.WhiteSmoke;
-            addItemBtn.Location = new Point(161, 349);
+            addItemBtn.Location = new Point(258, 349);
             addItemBtn.Name = "addItemBtn";
             addItemBtn.Padding = new Padding(2);
             addItemBtn.Size = new Size(95, 31);
@@ -282,7 +282,7 @@
             // 
             qtyTxtbox.Location = new Point(27, 219);
             qtyTxtbox.Name = "qtyTxtbox";
-            qtyTxtbox.Size = new Size(227, 23);
+            qtyTxtbox.Size = new Size(326, 23);
             qtyTxtbox.TabIndex = 5;
             qtyTxtbox.TextChanged += qtyTxtbox_TextChanged;
             // 
@@ -301,7 +301,7 @@
             productTxtbox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             productTxtbox.Location = new Point(27, 161);
             productTxtbox.Name = "productTxtbox";
-            productTxtbox.Size = new Size(229, 23);
+            productTxtbox.Size = new Size(326, 23);
             productTxtbox.TabIndex = 3;
             productTxtbox.Leave += productTxtbox_Leave;
             // 
@@ -311,7 +311,7 @@
             newOrderLabel.BackColor = Color.Transparent;
             newOrderLabel.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
             newOrderLabel.ForeColor = Color.WhiteSmoke;
-            newOrderLabel.Location = new Point(93, 23);
+            newOrderLabel.Location = new Point(137, 21);
             newOrderLabel.Name = "newOrderLabel";
             newOrderLabel.Size = new Size(105, 25);
             newOrderLabel.TabIndex = 0;
@@ -324,14 +324,14 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(820, 640);
+            panel1.Size = new Size(1200, 750);
             panel1.TabIndex = 0;
             // 
             // AddOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 640);
+            ClientSize = new Size(1200, 750);
             ControlBox = false;
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -355,9 +355,9 @@
         private Label addItemsLabel;
         private Panel saleItemsPanel;
         private Button cancelBtn;
-        private Label label8;
+        private Label orderIDLabel;
         private Button sendOrderBtn;
-        private Label label7;
+        private Label orderDateLabel;
         private DataGridView orderItemsGridView;
         private Button addItemBtn;
         private Label qtyLabel;

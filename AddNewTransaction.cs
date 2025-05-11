@@ -31,6 +31,25 @@ namespace EDP
 
         private void AddNewTransaction_Load(object sender, EventArgs e)
         {
+            saleIDLabel.Text = $"Sale ID: {currentSaleId}";
+
+            // Get order date
+            string dateQuery = "SELECT sale_date FROM sales WHERE sale_id = @id";
+            var conn = DBConnection.GetConnection();
+            using (var cmd = new MySqlCommand(dateQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@id", currentSaleId);
+                var result = cmd.ExecuteScalar();
+                if (result != null && DateTime.TryParse(result.ToString(), out DateTime saleDate))
+                {
+                    dateLabel.Text = $"Date: {saleDate:MMMM dd, yyyy}";
+                }
+                else
+                {
+                    dateLabel.Text = "Date: Unknown";
+                }
+            }
+
             LoadProductSuggestions();
 
             // Bind autocomplete to the textbox (if not yet bound)

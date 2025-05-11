@@ -173,9 +173,9 @@
             emailContactLabel.ForeColor = SystemColors.WindowFrame;
             emailContactLabel.Location = new Point(52, 164);
             emailContactLabel.Name = "emailContactLabel";
-            emailContactLabel.Size = new Size(53, 21);
+            emailContactLabel.Size = new Size(176, 21);
             emailContactLabel.TabIndex = 4;
-            emailContactLabel.Text = "Name";
+            emailContactLabel.Text = "Email/Contact Number";
             // 
             // loginBtn
             // 

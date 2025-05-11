@@ -38,11 +38,11 @@
             // 
             staffLabel.AutoSize = true;
             staffLabel.BackColor = Color.Transparent;
-            staffLabel.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold);
+            staffLabel.Font = new Font("Segoe UI Semibold", 20F, FontStyle.Bold);
             staffLabel.ForeColor = Color.White;
-            staffLabel.Location = new Point(27, 97);
+            staffLabel.Location = new Point(137, 119);
             staffLabel.Name = "staffLabel";
-            staffLabel.Size = new Size(64, 32);
+            staffLabel.Size = new Size(73, 37);
             staffLabel.TabIndex = 9;
             staffLabel.Text = "Staff";
             // 
@@ -56,12 +56,19 @@
             staffGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             staffGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             staffGridView.BackgroundColor = Color.WhiteSmoke;
+            staffGridView.BorderStyle = BorderStyle.None;
+            staffGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            staffGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             staffGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            staffGridView.Location = new Point(27, 142);
+            staffGridView.EnableHeadersVisualStyles = false;
+            staffGridView.Location = new Point(137, 168);
             staffGridView.Name = "staffGridView";
             staffGridView.ReadOnly = true;
+            staffGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             staffGridView.RowHeadersVisible = false;
-            staffGridView.Size = new Size(740, 151);
+            staffGridView.ShowCellToolTips = false;
+            staffGridView.ShowEditingIcon = false;
+            staffGridView.Size = new Size(890, 151);
             staffGridView.TabIndex = 8;
             // 
             // AddStaffBtn
@@ -70,7 +77,7 @@
             AddStaffBtn.FlatAppearance.BorderSize = 0;
             AddStaffBtn.FlatStyle = FlatStyle.Flat;
             AddStaffBtn.ForeColor = Color.WhiteSmoke;
-            AddStaffBtn.Location = new Point(657, 106);
+            AddStaffBtn.Location = new Point(917, 129);
             AddStaffBtn.Name = "AddStaffBtn";
             AddStaffBtn.Padding = new Padding(1);
             AddStaffBtn.Size = new Size(110, 30);
@@ -84,7 +91,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
-            ClientSize = new Size(820, 640);
+            ClientSize = new Size(1200, 750);
             ControlBox = false;
             Controls.Add(AddStaffBtn);
             Controls.Add(staffLabel);

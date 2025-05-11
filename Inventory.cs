@@ -8,6 +8,7 @@ namespace EDP
     public partial class Inventory : Form
     {
         private Home homeForm;
+        private bool actionButtonsAdded = false;
 
         public Inventory(Home home)
         {
@@ -19,8 +20,8 @@ namespace EDP
         {
             this.ControlBox = false;
             LoadCategoryFilter();
+            ConfigureProductGridView();  // set grid style only once
             LoadProducts();
-            AddActionButtons();
         }
 
         private void LoadCategoryFilter()
@@ -57,19 +58,16 @@ namespace EDP
             using (MySqlConnection conn = DBConnection.GetConnection())
             {
                 string query = @"
-        SELECT 
-            p.product_id,
-            p.product_name as 'Product',
-            p.net_weight as 'Net Weight',
-            p.unit_price as 'Unit Price',
-            p.retail_price as 'Retail Price',
-            c.category_name,
-            p.unit as 'Unit',
-            p.stock as 'Stock',
-            s.supplier_name
-        FROM products p
-        LEFT JOIN categories c ON p.category_id = c.category_id
-        LEFT JOIN suppliers s ON p.supplier_id = s.supplier_id";
+                    SELECT 
+                        p.product_id,
+                        p.product_name AS 'Product',
+                        p.net_weight AS 'Net Weight',
+                        p.unit_price AS 'Unit Price',
+                        p.retail_price AS 'Retail Price',
+                        p.unit AS 'Unit',
+                        p.stock AS 'Stock'
+                    FROM products p
+                    LEFT JOIN categories c ON p.category_id = c.category_id";
 
                 if (selectedCategory != "All")
                 {
@@ -93,65 +91,34 @@ namespace EDP
                 }
             }
 
-            ConfigureProductGridView();
             HideUnwantedColumns();
-            AddActionButtons();
-        }
 
+            if (!actionButtonsAdded)
+            {
+                AddActionButtons();
+                actionButtonsAdded = true;
+            }
+        }
 
         private void ConfigureProductGridView()
         {
-            productsGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            productsGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             productsGridView.RowHeadersVisible = false;
-            productsGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            productsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            productsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            productsGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            productsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            productsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            productsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            if (productsGridView.Columns.Contains("Product"))
-            {
-                // Adjust Product column
-                var productCol = productsGridView.Columns["Product"];
-                productCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                productCol.MinimumWidth = 150;
-                productCol.FillWeight = 350;
-                productCol.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                productsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                // Optional: Limit width on resize
-                productsGridView.Resize += (s, e) =>
-                {
-                    if (productCol.Width > 300)
-                        productCol.Width = 300;
-                };
-            }
-
-            string[] autoColumns = { "unit_price", "retail_price", "stock", "unit" };
-            foreach (var col in autoColumns)
-            {
-                if (productsGridView.Columns.Contains(col))
-                    productsGridView.Columns[col].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            }
+            productsGridView.Columns.Clear(); // Ensures fresh start on reload
         }
-
 
         private void HideUnwantedColumns()
         {
-            productsGridView.Columns["product_id"].Width = 0;
-            productsGridView.Columns["product_id"].Visible = false; 
-
-            if (productsGridView.Columns.Contains("category_id"))
-                productsGridView.Columns["category_id"].Visible = false;
-
-            if (productsGridView.Columns.Contains("supplier_id"))
-                productsGridView.Columns["supplier_id"].Visible = false;
-
-            if (productsGridView.Columns.Contains("category_name"))
-                productsGridView.Columns["category_name"].Visible = false;
-
-            if (productsGridView.Columns.Contains("supplier_name"))
-                productsGridView.Columns["supplier_name"].Visible = false;
+            if (productsGridView.Columns.Contains("product_id"))
+            {
+                productsGridView.Columns["product_id"].Visible = false;
+            }
         }
-
 
         private void AddActionButtons()
         {
@@ -163,8 +130,8 @@ namespace EDP
                     HeaderText = "",
                     Text = "Edit",
                     UseColumnTextForButtonValue = true,
-                    Width = 60,
-                    FlatStyle = FlatStyle.Standard
+                    Width = 80, // Wider button
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
                 };
                 productsGridView.Columns.Add(editBtn);
             }
@@ -177,32 +144,27 @@ namespace EDP
                     HeaderText = "",
                     Text = "Delete",
                     UseColumnTextForButtonValue = true,
-                    Width = 60,
-                    FlatStyle = FlatStyle.Standard
+                    Width = 80, // Wider button
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
                 };
                 productsGridView.Columns.Add(deleteBtn);
             }
 
-            // Set default style to prevent button from stretching
-            foreach (DataGridViewRow row in productsGridView.Rows)
-            {
-                row.Height = 20; 
-            }
+            // Optional: set row height to ensure full visibility
+            productsGridView.RowTemplate.Height = 35;
 
-            productsGridView.RowTemplate.Height = 20;
-
+            // Align buttons
             DataGridViewCellStyle buttonStyle = new DataGridViewCellStyle
             {
-                Padding = new Padding(0, 10, 0, 10),
-                Alignment = DataGridViewContentAlignment.MiddleCenter
+                Alignment = DataGridViewContentAlignment.MiddleCenter,
+                Padding = new Padding(2)
             };
 
             productsGridView.Columns["Edit"].DefaultCellStyle = buttonStyle;
             productsGridView.Columns["Delete"].DefaultCellStyle = buttonStyle;
 
-            productsGridView.CellClick -= ProductsGridView_CellClick; // remove if already attached
-            productsGridView.CellClick += ProductsGridView_CellClick; // attach fresh
-
+            productsGridView.CellClick -= ProductsGridView_CellClick;
+            productsGridView.CellClick += ProductsGridView_CellClick;
         }
 
 
@@ -214,32 +176,20 @@ namespace EDP
             if (!productsGridView.Columns.Contains("product_id"))
                 return;
 
-            var cellValue = productsGridView.Rows[e.RowIndex].Cells["product_id"]?.Value;
-            if (cellValue == null || cellValue == DBNull.Value)
+            var row = productsGridView.Rows[e.RowIndex];
+            var columnName = productsGridView.Columns[e.ColumnIndex].Name;
+
+            if (row.Cells["product_id"].Value == DBNull.Value)
                 return;
 
-
-            var dgv = (DataGridView)sender;
-
-            // Ensure the DataGridView has rows and columns before accessing them
-            if (dgv.Rows.Count == 0 || dgv.Columns.Count == 0) return;
-
-            // Extra safety: don't allow clicks on shared/new rows
-            if (dgv.Rows[e.RowIndex].IsNewRow || dgv.Rows[e.RowIndex].Cells["product_id"].Value == DBNull.Value)
-                return;
-
-            var row = dgv.Rows[e.RowIndex];
-            var columnName = dgv.Columns[e.ColumnIndex].Name;
+            int productId = Convert.ToInt32(row.Cells["product_id"].Value);
 
             if (columnName == "Edit")
             {
-                int productId = Convert.ToInt32(row.Cells["product_id"].Value);
                 homeForm.OpenChildForm(new AddProduct(homeForm, productId));
             }
             else if (columnName == "Delete")
             {
-                int productId = Convert.ToInt32(row.Cells["product_id"].Value);
-
                 DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                 {

@@ -65,6 +65,11 @@ namespace EDP
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     bestSellingProductsGridView.DataSource = dt;
+
+                    if (bestSellingProductsGridView.Columns.Contains("ID"))
+                    {
+                        bestSellingProductsGridView.Columns["ID"].Visible = false;
+                    }
                 }
             }
         }
@@ -82,6 +87,11 @@ namespace EDP
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     discountedProductsGridView.DataSource = dt;
+
+                    if (discountedProductsGridView.Columns.Contains("ID"))
+                    {
+                        discountedProductsGridView.Columns["ID"].Visible = false;
+                    }
                 }
             }
         }
@@ -107,6 +117,11 @@ namespace EDP
         }
 
         private void discountedProductsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dashboardPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
