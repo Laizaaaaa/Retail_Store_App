@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace EDP
@@ -26,7 +26,7 @@ namespace EDP
                 using (var cmd = new MySqlCommand("SELECT SUM(total_sales) FROM Daily_Sales_Report", conn))
                 {
                     object result = cmd.ExecuteScalar();
-                    totalRevenue.Text = result != DBNull.Value ? $"${Convert.ToDecimal(result):N2}" : "$0.00";
+                    totalRevenue.Text = result != DBNull.Value ? $"₱{Convert.ToDecimal(result):N2}" : "₱0.00";
                 }
 
                 // Total Products Sold
@@ -40,7 +40,7 @@ namespace EDP
                 using (var cmd = new MySqlCommand("SELECT SUM(total_sales) FROM Daily_Sales_Report WHERE date(date) = CURDATE()", conn))
                 {
                     object result = cmd.ExecuteScalar();
-                    todaysGrossSale.Text = result != DBNull.Value ? $"${Convert.ToDecimal(result):N2}" : "$0.00";
+                    todaysGrossSale.Text = result != DBNull.Value ? $"₱{ Convert.ToDecimal(result):N2}" : "₱0.00";
                 }
 
                 // Products Sold Today

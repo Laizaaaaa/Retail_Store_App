@@ -2,3 +2,7 @@
 bin/
 obj/
 *.log
+/publish/
+*.exe
+*.dll
+*.pdb
